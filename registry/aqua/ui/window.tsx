@@ -70,7 +70,10 @@ function WindowContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="window-content"
-      className={cn("bg-[#f4f5f8] text-[13px] text-[#33383f]", className)}
+      className={cn(
+        "bg-[repeating-linear-gradient(180deg,#f5f6f8_0px,#f5f6f8_1px,#e8eaf0_1px,#e8eaf0_2px)] text-[13px] text-[#33383f]",
+        className
+      )}
       {...props}
     />
   )

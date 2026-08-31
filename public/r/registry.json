@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "aqua",
-  "homepage": "https://aqua.duca.dev",
+  "homepage": "https://aqua.michi.onl",
   "items": [
     {
       "name": "theme",
@@ -311,7 +311,7 @@
             "background-position": "0 0"
           },
           "to": {
-            "background-position": "20px 0"
+            "background-position": "19.8px 0"
           }
         }
       },
