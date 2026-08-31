@@ -10,7 +10,7 @@ const USAGE: Record<string, string> = {
 <Button>Save</Button>
 <Button variant="secondary">Cancel</Button>
 <Button variant="destructive">Delete</Button>
-Variants: default (blue gel), secondary (glossy capsule), destructive (red gel). Sizes: sm, default, lg. Supports asChild.`,
+Variants: default (blue gel), secondary (glossy capsule), destructive (red gel). Sizes: sm, default, lg. Compose with another element via the Base UI render prop: <Button render={<a href="/docs" />}>Docs</Button>.`,
   badge: `import { Badge } from "@/components/ui/badge"
 <Badge>new</Badge> — variants: default (blue), secondary (gray), destructive (red).`,
   input: `import { Input } from "@/components/ui/input"
@@ -20,14 +20,14 @@ Variants: default (blue gel), secondary (glossy capsule), destructive (red gel).
   label: `import { Label } from "@/components/ui/label"
 <Label htmlFor="name">Account Name</Label> — pairs with Input/Textarea via htmlFor.`,
   checkbox: `import { Checkbox } from "@/components/ui/checkbox"
-<Checkbox defaultChecked /> — glossy square that fills with gel when checked.`,
+<Checkbox defaultChecked /> — glossy square that fills with gel when checked. checked takes a strict boolean; use <Checkbox indeterminate /> for a partial selection (shows a dash).`,
   "radio-group": `import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 <RadioGroup defaultValue="a"><label><RadioGroupItem value="a" /> Option A</label></RadioGroup>`,
   switch: `import { Switch } from "@/components/ui/switch"
 <Switch defaultChecked /> — gel toggle with polished metal thumb.`,
   select: `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-<Select defaultValue="blue"><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectItem value="blue">Blue</SelectItem></SelectContent></Select>
-Also exports SelectGroup, SelectLabel, SelectSeparator. Styled as the classic NSPopUpButton.`,
+<Select defaultValue="blue" items={{ blue: "Blue" }}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectItem value="blue">Blue</SelectItem></SelectContent></Select>
+Pass items (a value -> label map) so SelectValue can render the selected label; without it the trigger shows the raw value. Also exports SelectGroup, SelectLabel, SelectSeparator. Styled as the classic NSPopUpButton.`,
   slider: `import { Slider } from "@/components/ui/slider"
 <Slider defaultValue={[60]} max={100} step={1} /> — iTunes-style groove with gel range.`,
   progress: `import { Progress } from "@/components/ui/progress"
@@ -36,7 +36,7 @@ Also exports SelectGroup, SelectLabel, SelectSeparator. Styled as the classic NS
 <Tabs defaultValue="a"><TabsList><TabsTrigger value="a">General</TabsTrigger></TabsList><TabsContent value="a">…</TabsContent></Tabs>
 Renders as a gel segmented control seated on a pinstripe pane (NSTabView style).`,
   dialog: `import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-Standard Radix dialog composition, styled as the Aqua alert sheet.`,
+Standard Base UI dialog composition, styled as the Aqua alert sheet.`,
   tooltip: `import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 Styled as the classic yellow help tag (#ffffc7).`,
   alert: `import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -45,7 +45,7 @@ Variants: default (note/blue), warning (caution/yellow), destructive (stop/red).
   toast: `import { Toaster, toast } from "@/components/ui/toast"
 Mount <Toaster /> once near the root, then call toast({ title, description, variant, duration }) from anywhere. Growl-style: slides in top-right, auto-dismisses after 5s. Depends on @aqua/alert (installed automatically).`,
   "dropdown-menu": `import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-Also exports CheckboxItem, RadioGroup/RadioItem, Label, Separator, Shortcut, Sub menus. Item variant="destructive" gets red gel highlight.`,
+Also exports CheckboxItem, RadioGroup/RadioItem, Label, Separator, Shortcut, Sub menus. DropdownMenuLabel must be nested inside a DropdownMenuGroup or DropdownMenuRadioGroup - it labels that group. Item variant="destructive" gets red gel highlight.`,
   avatar: `import { Avatar } from "@/components/ui/avatar"
 <Avatar src="/me.png" /> | <Avatar initials="SJ" /> | <Avatar initials="ID" color="#e02f6b" /> | <Avatar initials="JI" randomColor /> | <Avatar /> (generic silhouette)
 Props: size (sm|default|lg), shape (square|circle), color (any hex, rendered as gel), randomColor (stable hash of initials).`,
@@ -86,7 +86,7 @@ ${usage}`
 
   const body = `# Aqua — full component reference for LLMs
 
-> Aqua recreates the classic Mac OS X (2000–2007) interface as a shadcn/ui registry: accessible React components on Radix primitives, styled with Tailwind CSS into gel gradients, pinstripes and brushed metal. Made by Igor Duca (https://duca.dev, @ducaswtf on X).
+> Aqua recreates the classic Mac OS X (2000–2007) interface as a shadcn/ui registry: accessible React components on Base UI primitives, styled with Tailwind CSS into gel gradients, pinstripes and brushed metal. Made by Igor Duca (https://duca.dev, @ducaswtf on X).
 
 ## Setup
 
@@ -102,7 +102,7 @@ ${usage}`
 3. Install the theme first: npx shadcn@latest add @aqua/theme
 4. Add components as needed: npx shadcn@latest add @aqua/button @aqua/tabs
 
-Components are copied into the project as source files and import as @/components/ui/<name>. Dependencies (Radix packages, lucide-react, shiki) install automatically.
+Components are copied into the project as source files and import as @/components/ui/<name>. Dependencies (Base UI, lucide-react, shiki) install automatically.
 
 ## Theming
 

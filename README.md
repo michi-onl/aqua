@@ -17,7 +17,7 @@
 
 ---
 
-Aqua recreates the Apple interface of 2000–2007 as accessible React components: Radix primitives underneath, Tailwind CSS gel gradients on top. Like everything in the shadcn ecosystem, it is not a package you import — components are copied into your project as open code. Change anything, own everything.
+Aqua recreates the Apple interface of 2000–2007 as accessible React components: Base UI primitives underneath, Tailwind CSS gel gradients on top. Like everything in the shadcn ecosystem, it is not a package you import — components are copied into your project as open code. Change anything, own everything.
 
 ## Quick start
 

@@ -23,7 +23,7 @@ const COMPONENT_LIST = registry.items
 const AQUA_FACTS = `Facts about Aqua (answer questions about the project from these):
 - Aqua is a free, open-code shadcn/ui registry that rebuilds the classic Mac OS X Aqua interface (2000-2007 era): gel buttons, pinstripes, brushed gradients. Made by Igor Duca (duca.dev, @ducaswtf on X). Repo: github.com/igorfelipeduca/aqua. MIT licensed.
 - Components install as source code into the user's project: add the @aqua registry to components.json ("@aqua": "https://aqua.duca.dev/r/{name}.json"), then run: npx shadcn@latest add @aqua/<name>. Start with @aqua/theme for the palette.
-- It's React + Tailwind, with Radix primitives underneath, so keyboard navigation and ARIA come for free. Works with any shadcn/ui project.
+- It's React + Tailwind, with Base UI primitives underneath, so keyboard navigation and ARIA come for free. Works with any shadcn/ui project.
 - Theming: everything keys off one CSS variable, --aqua-accent. Change it and every gel surface follows. Docs at aqua.duca.dev/docs/theming.
 - For AI agents there's a machine-readable summary at aqua.duca.dev/llms.txt (and llms-full.txt).
 - Live demos: an iChat chat (this conversation), a 2009-style Mail app at /demo/mail.
