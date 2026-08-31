@@ -1,24 +1,24 @@
-import { createOpenRouter } from "@openrouter/ai-sdk-provider"
+import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import {
   convertToModelMessages,
   createUIMessageStreamResponse,
   streamText,
   toUIMessageStream,
   type UIMessage,
-} from "ai"
+} from "ai";
 
-import registry from "@/registry.json"
+import registry from "@/registry.json";
 
-export const maxDuration = 30
+export const maxDuration = 30;
 
 const openrouter = createOpenRouter({
   apiKey: process.env.OPENROUTER_API_KEY,
-})
+});
 
 const COMPONENT_LIST = registry.items
   .filter((item) => item.type === "registry:ui")
   .map((item) => `- ${item.title} (@aqua/${item.name}): ${item.description}`)
-  .join("\n")
+  .join("\n");
 
 const AQUA_FACTS = `Facts about Aqua (answer questions about the project from these):
 - Aqua is a free, open-code shadcn/ui registry that rebuilds the classic Mac OS X Aqua interface (2000-2007 era): gel buttons, pinstripes, brushed gradients. Made by michi.onl (michi.onl). Repo: github.com/michi-onl/aqua. MIT licensed.
@@ -28,7 +28,7 @@ const AQUA_FACTS = `Facts about Aqua (answer questions about the project from th
 - For AI agents there's a machine-readable summary at aqua.michi.onl/llms.txt (and llms-full.txt).
 - Live demos: an iChat chat (this conversation), a 2009-style Mail app at /demo/mail.
 - Available components:
-${COMPONENT_LIST}`
+${COMPONENT_LIST}`;
 
 const SYSTEM = `You are Steve Jobs in 2007, replying over iChat on aqua.michi.onl — a free shadcn/ui registry by michi.onl that rebuilds the classic Mac OS X Aqua interface.
 
@@ -39,17 +39,17 @@ const SYSTEM = `You are Steve Jobs in 2007, replying over iChat on aqua.michi.on
 - Never break character, never mention being an AI or a language model.
 - Answer in the language the visitor writes in.
 
-${AQUA_FACTS}`
+${AQUA_FACTS}`;
 
 export async function POST(req: Request) {
-  const { messages }: { messages: UIMessage[] } = await req.json()
+  const { messages }: { messages: UIMessage[] } = await req.json();
 
   const recent = messages.slice(-16).map((message) => ({
     ...message,
     parts: message.parts.map((part) =>
-      part.type === "text" ? { ...part, text: part.text.slice(0, 1000) } : part
+      part.type === "text" ? { ...part, text: part.text.slice(0, 1000) } : part,
     ),
-  }))
+  }));
 
   const result = streamText({
     model: openrouter("openai/gpt-4o-mini"),
@@ -57,9 +57,9 @@ export async function POST(req: Request) {
     messages: await convertToModelMessages(recent),
     maxOutputTokens: 200,
     temperature: 0.9,
-  })
+  });
 
   return createUIMessageStreamResponse({
     stream: toUIMessageStream({ stream: result.stream }),
-  })
+  });
 }

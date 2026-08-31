@@ -1,8 +1,8 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-const SPOKES = Array.from({ length: 12 }, (_, index) => index)
+const SPOKES = Array.from({ length: 12 }, (_, index) => index);
 
 function Loader({ className, ...props }: React.ComponentProps<"svg">) {
   return (
@@ -13,7 +13,7 @@ function Loader({ className, ...props }: React.ComponentProps<"svg">) {
       aria-label="Loading"
       className={cn(
         "size-6 animate-[spin_0.9s_steps(12)_infinite] text-[#5a6069] motion-reduce:animate-none",
-        className
+        className,
       )}
       {...props}
     >
@@ -31,7 +31,7 @@ function Loader({ className, ...props }: React.ComponentProps<"svg">) {
         />
       ))}
     </svg>
-  )
+  );
 }
 
-export { Loader }
+export { Loader };

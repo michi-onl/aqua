@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Button } from "@/registry/aqua/ui/button"
-import { toast } from "@/registry/aqua/ui/toast"
+import { Button } from "@/registry/aqua/ui/button";
+import { toast } from "@/registry/aqua/ui/toast";
 
 export function ToastPromoButton() {
   return (
@@ -16,5 +16,5 @@ export function ToastPromoButton() {
     >
       Try it now &#9656;
     </Button>
-  )
+  );
 }

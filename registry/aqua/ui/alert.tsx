@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
   "relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-lg border px-4 py-3 text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_1px_3px_rgba(20,30,50,0.12)] has-[>svg]:grid-cols-[calc(var(--spacing)*5)_1fr] has-[>svg]:gap-x-3 [&>svg]:mt-0.5 [&>svg]:size-4",
@@ -19,8 +19,8 @@ const alertVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
-)
+  },
+);
 
 function Alert({
   className,
@@ -34,7 +34,7 @@ function Alert({
       className={cn(alertVariants({ variant }), className)}
       {...props}
     />
-  )
+  );
 }
 
 function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
@@ -43,11 +43,11 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="alert-title"
       className={cn(
         "col-start-2 font-bold [text-shadow:0_1px_0_rgba(255,255,255,0.6)]",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AlertDescription({
@@ -60,7 +60,7 @@ function AlertDescription({
       className={cn("col-start-2 text-[12.5px] leading-relaxed", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Alert, AlertDescription, AlertTitle }
+export { Alert, AlertDescription, AlertTitle };

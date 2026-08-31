@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function ChatPanel({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -9,11 +9,11 @@ function ChatPanel({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="chat-panel"
       className={cn(
         "flex w-full flex-col gap-2.5 overflow-hidden rounded-xl border border-[#c9ccd1] bg-[#f4f5f8] p-5 [--chat-panel:#f4f5f8]",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 const chatBubbleVariants = cva(
@@ -28,8 +28,8 @@ const chatBubbleVariants = cva(
     defaultVariants: {
       from: "me",
     },
-  }
-)
+  },
+);
 
 function ChatBubble({
   className,
@@ -42,7 +42,7 @@ function ChatBubble({
       className={cn(chatBubbleVariants({ from, className }))}
       {...props}
     />
-  )
+  );
 }
 
-export { ChatPanel, ChatBubble, chatBubbleVariants }
+export { ChatPanel, ChatBubble, chatBubbleVariants };

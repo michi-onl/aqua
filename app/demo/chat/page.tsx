@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
-import { useChat } from "@ai-sdk/react"
-import type { UIMessage } from "ai"
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useChat } from "@ai-sdk/react";
+import type { UIMessage } from "ai";
 
-import { playReceiveSound, playSendSound } from "@/lib/chat-sounds"
+import { playReceiveSound, playSendSound } from "@/lib/chat-sounds";
 
-import { Button } from "@/registry/aqua/ui/button"
-import { ChatBubble } from "@/registry/aqua/ui/chat-bubble"
-import { Input } from "@/registry/aqua/ui/input"
+import { Button } from "@/registry/aqua/ui/button";
+import { ChatBubble } from "@/registry/aqua/ui/chat-bubble";
+import { Input } from "@/registry/aqua/ui/input";
 import {
   TrafficLights,
   Window,
   WindowTitle,
   WindowTitlebar,
-} from "@/registry/aqua/ui/window"
+} from "@/registry/aqua/ui/window";
 
 const OPENING: UIMessage[] = [
   {
@@ -38,37 +38,37 @@ const OPENING: UIMessage[] = [
     role: "assistant",
     parts: [{ type: "text", text: "show me something worth shipping" }],
   },
-]
+];
 
 function messageText(message: UIMessage) {
   return message.parts
     .filter((part) => part.type === "text")
     .map((part) => part.text)
-    .join("")
+    .join("");
 }
 
 export default function ChatDemo() {
   const { messages, sendMessage, status, error } = useChat({
     messages: OPENING,
     onFinish: () => playReceiveSound(),
-  })
-  const [draft, setDraft] = useState("")
-  const scrollRef = useRef<HTMLDivElement>(null)
+  });
+  const [draft, setDraft] = useState("");
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = scrollRef.current
-    if (el) el.scrollTop = el.scrollHeight
-  }, [messages, status])
+    const el = scrollRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, status]);
 
-  const busy = status === "submitted" || status === "streaming"
+  const busy = status === "submitted" || status === "streaming";
 
   const send = () => {
-    const text = draft.trim()
-    if (!text || busy) return
-    setDraft("")
-    playSendSound()
-    sendMessage({ text })
-  }
+    const text = draft.trim();
+    if (!text || busy) return;
+    setDraft("");
+    playSendSound();
+    sendMessage({ text });
+  };
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-4 px-4 py-10">
@@ -83,8 +83,8 @@ export default function ChatDemo() {
             className="flex min-h-0 flex-1 flex-col gap-2.5 overflow-y-auto overflow-x-hidden p-5"
           >
             {messages.map((message) => {
-              const text = messageText(message)
-              if (!text) return null
+              const text = messageText(message);
+              if (!text) return null;
 
               return (
                 <ChatBubble
@@ -93,7 +93,7 @@ export default function ChatDemo() {
                 >
                   {text}
                 </ChatBubble>
-              )
+              );
             })}
             {status === "submitted" ? (
               <ChatBubble from="me" className="text-[#4a6285]">
@@ -111,7 +111,7 @@ export default function ChatDemo() {
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
               onKeyDown={(event) => {
-                if (event.key === "Enter") send()
+                if (event.key === "Enter") send();
               }}
               placeholder="Type a message"
               className="h-8 rounded-full"
@@ -124,10 +124,13 @@ export default function ChatDemo() {
       </Window>
       <p className="text-xs text-muted-foreground">
         Built from @aqua registry components.{" "}
-        <Link href="/docs/chat-bubble" className="text-[#1c5fb8] hover:underline">
+        <Link
+          href="/docs/chat-bubble"
+          className="text-[#1c5fb8] hover:underline"
+        >
           See the chat bubble docs
         </Link>
       </p>
     </div>
-  )
+  );
 }

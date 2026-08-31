@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { mergeProps } from "@base-ui/react/merge-props"
-import { useRender } from "@base-ui/react/use-render"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
-import { Separator } from "@/registry/aqua/ui/separator"
+import { cn } from "@/lib/utils";
+import { Separator } from "@/registry/aqua/ui/separator";
 
 const buttonGroupVariants = cva(
   // The segmented control: the pill ends survive, every seam between the
@@ -24,8 +24,8 @@ const buttonGroupVariants = cva(
     defaultVariants: {
       orientation: "horizontal",
     },
-  }
-)
+  },
+);
 
 function ButtonGroup({
   className,
@@ -40,7 +40,7 @@ function ButtonGroup({
       className={cn(buttonGroupVariants({ orientation }), className)}
       {...props}
     />
-  )
+  );
 }
 
 function ButtonGroupText({
@@ -54,16 +54,16 @@ function ButtonGroupText({
       {
         className: cn(
           "flex items-center gap-2 rounded-full border border-[#aeb3bc] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] px-3.5 text-[13px] font-semibold text-[#3a3f47] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
-          className
+          className,
         ),
       },
-      props
+      props,
     ),
     render,
     state: {
       slot: "button-group-text",
     },
-  })
+  });
 }
 
 function ButtonGroupSeparator({
@@ -77,11 +77,11 @@ function ButtonGroupSeparator({
       orientation={orientation}
       className={cn(
         "relative z-10 self-stretch data-[orientation=horizontal]:mx-px data-[orientation=horizontal]:w-auto data-[orientation=vertical]:my-px data-[orientation=vertical]:h-auto",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -89,4 +89,4 @@ export {
   ButtonGroupSeparator,
   ButtonGroupText,
   buttonGroupVariants,
-}
+};

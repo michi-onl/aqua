@@ -1,80 +1,80 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { XIcon } from "lucide-react"
+import * as React from "react";
+import { XIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { Alert, AlertDescription, AlertTitle } from "@/registry/aqua/ui/alert"
+import { cn } from "@/lib/utils";
+import { Alert, AlertDescription, AlertTitle } from "@/registry/aqua/ui/alert";
 
-type ToastVariant = "default" | "warning" | "destructive"
+type ToastVariant = "default" | "warning" | "destructive";
 
 export type ToastOptions = {
-  title: string
-  description?: string
-  variant?: ToastVariant
-  duration?: number
-}
+  title: string;
+  description?: string;
+  variant?: ToastVariant;
+  duration?: number;
+};
 
 type ToastItem = ToastOptions & {
-  id: number
-  leaving: boolean
-}
+  id: number;
+  leaving: boolean;
+};
 
-let toastCount = 0
-let toasts: ToastItem[] = []
-const listeners = new Set<(items: ToastItem[]) => void>()
+let toastCount = 0;
+let toasts: ToastItem[] = [];
+const listeners = new Set<(items: ToastItem[]) => void>();
 
 function emit() {
-  for (const listener of listeners) listener(toasts)
+  for (const listener of listeners) listener(toasts);
 }
 
 function subscribe(listener: (items: ToastItem[]) => void) {
-  listeners.add(listener)
+  listeners.add(listener);
   return () => {
-    listeners.delete(listener)
-  }
+    listeners.delete(listener);
+  };
 }
 
 function getSnapshot() {
-  return toasts
+  return toasts;
 }
 
 function toast(options: ToastOptions) {
-  const id = ++toastCount
-  toasts = [...toasts, { duration: 5000, ...options, id, leaving: false }]
-  emit()
-  return id
+  const id = ++toastCount;
+  toasts = [...toasts, { duration: 5000, ...options, id, leaving: false }];
+  emit();
+  return id;
 }
 
 function dismissToast(id: number) {
-  if (!toasts.some((item) => item.id === id && !item.leaving)) return
+  if (!toasts.some((item) => item.id === id && !item.leaving)) return;
   toasts = toasts.map((item) =>
-    item.id === id ? { ...item, leaving: true } : item
-  )
-  emit()
+    item.id === id ? { ...item, leaving: true } : item,
+  );
+  emit();
   setTimeout(() => {
-    toasts = toasts.filter((item) => item.id !== id)
-    emit()
-  }, 200)
+    toasts = toasts.filter((item) => item.id !== id);
+    emit();
+  }, 200);
 }
 
 function Toaster({ className }: { className?: string }) {
-  const items = React.useSyncExternalStore(subscribe, getSnapshot, getSnapshot)
-  const scheduled = React.useRef(new Set<number>())
+  const items = React.useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
+  const scheduled = React.useRef(new Set<number>());
 
   React.useEffect(() => {
     for (const item of items) {
-      if (item.leaving || scheduled.current.has(item.id)) continue
-      scheduled.current.add(item.id)
-      setTimeout(() => dismissToast(item.id), item.duration)
+      if (item.leaving || scheduled.current.has(item.id)) continue;
+      scheduled.current.add(item.id);
+      setTimeout(() => dismissToast(item.id), item.duration);
     }
-  }, [items])
+  }, [items]);
 
   return (
     <div
       className={cn(
         "pointer-events-none fixed right-4 top-4 z-[100] flex w-80 max-w-[calc(100vw-2rem)] flex-col gap-2.5",
-        className
+        className,
       )}
     >
       {items.map((item) => (
@@ -85,7 +85,7 @@ function Toaster({ className }: { className?: string }) {
             "group pointer-events-auto relative shadow-[0_1px_3px_rgba(20,30,50,0.12),0_10px_28px_rgba(20,30,50,0.3)]",
             item.leaving
               ? "animate-out fade-out-0 slide-out-to-right-8 fill-mode-forwards duration-200"
-              : "animate-in fade-in-0 slide-in-from-right-8 duration-300"
+              : "animate-in fade-in-0 slide-in-from-right-8 duration-300",
           )}
         >
           <AlertTitle>{item.title}</AlertTitle>
@@ -103,7 +103,7 @@ function Toaster({ className }: { className?: string }) {
         </Alert>
       ))}
     </div>
-  )
+  );
 }
 
-export { toast, dismissToast, Toaster }
+export { toast, dismissToast, Toaster };

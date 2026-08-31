@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { mergeProps } from "@base-ui/react/merge-props"
-import { useRender } from "@base-ui/react/use-render"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "relative inline-flex shrink-0 select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full font-semibold tracking-[-0.01em] outline-none transition-[filter] before:pointer-events-none before:absolute before:left-[7%] before:right-[7%] before:top-[1px] before:h-[46%] before:rounded-full before:bg-[linear-gradient(180deg,rgba(255,255,255,1),rgba(255,255,255,0.34)_55%,rgba(255,255,255,0.06))] before:content-[''] hover:brightness-105 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 active:translate-y-px active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
@@ -36,8 +36,8 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 function Button({
   className,
@@ -49,13 +49,13 @@ function Button({
   const defaultProps = {
     "data-slot": "button",
     className: cn(buttonVariants({ variant, size, className })),
-  }
+  };
 
   return useRender({
     defaultTagName: "button",
     render,
     props: mergeProps<"button">(defaultProps, props),
-  })
+  });
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

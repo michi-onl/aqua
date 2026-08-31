@@ -41,9 +41,9 @@ npx shadcn@latest add @aqua/button @aqua/tabs @aqua/select
 Components import from your own project:
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
-<Button>gorgeous</Button>
+<Button>gorgeous</Button>;
 ```
 
 ## Components

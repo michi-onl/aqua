@@ -397,7 +397,10 @@ import { InfoIcon } from "lucide-react"
         </p>
         <Preview>
           <Avatar size="lg">
-            <AvatarImage src="https://github.com/michi-onl.png" alt="michi.onl" />
+            <AvatarImage
+              src="https://github.com/michi-onl.png"
+              alt="michi.onl"
+            />
             <AvatarFallback>ID</AvatarFallback>
           </Avatar>
           <Avatar size="lg" shape="circle">

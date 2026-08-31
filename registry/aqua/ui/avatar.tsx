@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const AVATAR_COLORS = [
   "#2f7de0",
@@ -14,18 +14,18 @@ const AVATAR_COLORS = [
   "#8a56c9",
   "#1fa8a0",
   "#7d8694",
-]
+];
 
 function seededColor(seed: string) {
-  let hash = 0
+  let hash = 0;
   for (let i = 0; i < seed.length; i++) {
-    hash = (hash * 31 + seed.charCodeAt(i)) >>> 0
+    hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
   }
-  return AVATAR_COLORS[hash % AVATAR_COLORS.length]
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
 }
 
 function gelBackground(color: string) {
-  return `linear-gradient(180deg, color-mix(in oklab, ${color} 38%, white) 0%, color-mix(in oklab, ${color} 90%, white) 50%, color-mix(in oklab, ${color} 85%, black) 51%, color-mix(in oklab, ${color} 62%, white) 100%)`
+  return `linear-gradient(180deg, color-mix(in oklab, ${color} 38%, white) 0%, color-mix(in oklab, ${color} 90%, white) 50%, color-mix(in oklab, ${color} 85%, black) 51%, color-mix(in oklab, ${color} 62%, white) 100%)`;
 }
 
 const avatarVariants = cva(
@@ -51,8 +51,8 @@ const avatarVariants = cva(
       size: "default",
       shape: "square",
     },
-  }
-)
+  },
+);
 
 function AvatarSilhouette() {
   return (
@@ -65,17 +65,17 @@ function AvatarSilhouette() {
       <circle cx="12" cy="8" r="4.6" />
       <path d="M12 14.2c-4.8 0-8.4 2.8-8.4 7v2.8h16.8v-2.8c0-4.2-3.6-7-8.4-7Z" />
     </svg>
-  )
+  );
 }
 
 export type AvatarProps = AvatarPrimitive.Root.Props &
   VariantProps<typeof avatarVariants> & {
-    src?: string
-    alt?: string
-    initials?: string
-    color?: string
-    randomColor?: boolean
-  }
+    src?: string;
+    alt?: string;
+    initials?: string;
+    color?: string;
+    randomColor?: boolean;
+  };
 
 /**
  * Takes either shape: hand it `src` or `initials` and it fills itself in, or
@@ -95,8 +95,8 @@ function Avatar({
   ...props
 }: AvatarProps) {
   const resolvedColor =
-    color ?? (randomColor ? seededColor(initials ?? alt ?? "aqua") : undefined)
-  const composed = children != null
+    color ?? (randomColor ? seededColor(initials ?? alt ?? "aqua") : undefined);
+  const composed = children != null;
 
   return (
     <AvatarPrimitive.Root
@@ -120,7 +120,7 @@ function Avatar({
         </>
       )}
     </AvatarPrimitive.Root>
-  )
+  );
 }
 
 function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
@@ -130,7 +130,7 @@ function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
       className={cn("absolute inset-0 z-0 size-full object-cover", className)}
       {...props}
     />
-  )
+  );
 }
 
 function AvatarFallback({
@@ -142,11 +142,11 @@ function AvatarFallback({
       data-slot="avatar-fallback"
       className={cn(
         "relative z-0 flex size-full items-center justify-center",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Avatar, AvatarFallback, AvatarImage, avatarVariants }
+export { Avatar, AvatarFallback, AvatarImage, avatarVariants };

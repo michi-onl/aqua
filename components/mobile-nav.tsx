@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { MenuIcon, XIcon } from "lucide-react"
+import { useState } from "react";
+import { MenuIcon, XIcon } from "lucide-react";
 
-import { SidebarNav } from "@/components/docs-sidebar"
+import { SidebarNav } from "@/components/docs-sidebar";
 
 export function MobileNav() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -22,7 +22,7 @@ export function MobileNav() {
         <div
           className="fixed inset-0 z-[105] bg-black/25 md:hidden"
           onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setOpen(false)
+            if (event.target === event.currentTarget) setOpen(false);
           }}
         >
           <div className="h-full w-64 overflow-y-auto border-r border-[#8b909a] bg-[#dde4ed] px-3 py-4 shadow-[8px_0_30px_rgba(20,30,50,0.35)]">
@@ -44,5 +44,5 @@ export function MobileNav() {
         </div>
       ) : null}
     </>
-  )
+  );
 }

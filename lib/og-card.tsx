@@ -1,13 +1,13 @@
-export const OG_SIZE = { width: 1200, height: 630 }
+export const OG_SIZE = { width: 1200, height: 630 };
 
 export function OgCard({
   title,
   description,
   install,
 }: {
-  title: string
-  description: string
-  install?: string
+  title: string;
+  description: string;
+  install?: string;
 }) {
   return (
     <div
@@ -17,7 +17,8 @@ export function OgCard({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(180deg, #dfe6ef 0%, #eef0f3 55%, #d8dde4 100%)",
+        background:
+          "linear-gradient(180deg, #dfe6ef 0%, #eef0f3 55%, #d8dde4 100%)",
         fontFamily: "sans-serif",
       }}
     >
@@ -40,7 +41,8 @@ export function OgCard({
             alignItems: "center",
             gap: 10,
             padding: "16px 22px",
-            background: "linear-gradient(180deg, #fbfcfd 0%, #e8ebef 55%, #dcdfe4 100%)",
+            background:
+              "linear-gradient(180deg, #fbfcfd 0%, #e8ebef 55%, #dcdfe4 100%)",
             borderBottom: "1px solid #aeb3bc",
           }}
         >
@@ -49,7 +51,8 @@ export function OgCard({
               width: 18,
               height: 18,
               borderRadius: 9,
-              background: "linear-gradient(180deg, #ffb2ac 0%, #ee6a5f 55%, #d5443c 100%)",
+              background:
+                "linear-gradient(180deg, #ffb2ac 0%, #ee6a5f 55%, #d5443c 100%)",
               border: "1px solid #b8382f",
             }}
           />
@@ -58,7 +61,8 @@ export function OgCard({
               width: 18,
               height: 18,
               borderRadius: 9,
-              background: "linear-gradient(180deg, #ffe9a8 0%, #f6bf4f 55%, #dd9e2c 100%)",
+              background:
+                "linear-gradient(180deg, #ffe9a8 0%, #f6bf4f 55%, #dd9e2c 100%)",
               border: "1px solid #c08e24",
             }}
           />
@@ -67,7 +71,8 @@ export function OgCard({
               width: 18,
               height: 18,
               borderRadius: 9,
-              background: "linear-gradient(180deg, #c4efb2 0%, #7ed060 55%, #58a838 100%)",
+              background:
+                "linear-gradient(180deg, #c4efb2 0%, #7ed060 55%, #58a838 100%)",
               border: "1px solid #4d9331",
             }}
           />
@@ -148,5 +153,5 @@ export function OgCard({
         </div>
       </div>
     </div>
-  )
+  );
 }

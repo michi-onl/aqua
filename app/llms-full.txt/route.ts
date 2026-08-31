@@ -1,8 +1,8 @@
-import registry from "@/registry.json"
+import registry from "@/registry.json";
 
-export const dynamic = "force-static"
+export const dynamic = "force-static";
 
-const SITE_URL = "https://aqua.michi.onl"
+const SITE_URL = "https://aqua.michi.onl";
 
 const USAGE: Record<string, string> = {
   theme: `Installs the Aqua palette (light gray #eef0f3 background, #2f7de0 accent), the Lucida Grande font stack and the --aqua-* derived color variables. Install this first.`,
@@ -65,13 +65,13 @@ Hover magnification, haloed labels, running-app dots.`,
 iChat gradient bubbles with sculpted tails; "me" is blue/left, "them" orange/right.`,
   ipod: `import { IPod, IPodScreen, IPodHeader, ClickWheel } from "@/components/ui/ipod"
 The classic iPod shell with LCD screen and a working click wheel (onMenu, onPrev, onNext, onPlayPause, onSelect handlers).`,
-}
+};
 
 export function GET() {
   const sections = registry.items
     .filter((item) => item.type === "registry:ui")
     .map((item) => {
-      const usage = USAGE[item.name] ?? ""
+      const usage = USAGE[item.name] ?? "";
       return `## ${item.title} (@aqua/${item.name})
 
 ${item.description}
@@ -80,9 +80,9 @@ Install: npx shadcn@latest add @aqua/${item.name}
 Docs: ${SITE_URL}/docs/${item.name}
 Registry JSON: ${SITE_URL}/r/${item.name}.json
 
-${usage}`
+${usage}`;
     })
-    .join("\n\n")
+    .join("\n\n");
 
   const body = `# Aqua — full component reference for LLMs
 
@@ -113,9 +113,9 @@ Every component derives its color from the --aqua-accent CSS variable and falls 
 Scoped themes work too — set --aqua-accent on any element and its subtree recomputes (the derived --aqua-gel-* variables are declared on the universal selector).
 
 ${sections}
-`
+`;
 
   return new Response(body, {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
-  })
+  });
 }

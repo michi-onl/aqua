@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 import {
   ClickWheel,
   IPod,
   IPodHeader,
   IPodScreen,
-} from "@/registry/aqua/ui/ipod"
+} from "@/registry/aqua/ui/ipod";
 
 const TRACK = {
   title: "Vertigo",
@@ -16,27 +16,27 @@ const TRACK = {
   index: 1,
   total: 11,
   duration: 194,
-}
+};
 
 const formatTime = (seconds: number) => {
-  const m = Math.floor(seconds / 60)
-  const s = Math.floor(seconds % 60)
-  return `${m}:${String(s).padStart(2, "0")}`
-}
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${String(s).padStart(2, "0")}`;
+};
 
 export function IPodDemo() {
-  const [playing, setPlaying] = useState(true)
-  const [elapsed, setElapsed] = useState(74)
+  const [playing, setPlaying] = useState(true);
+  const [elapsed, setElapsed] = useState(74);
 
   useEffect(() => {
-    if (!playing) return
+    if (!playing) return;
     const timer = setInterval(() => {
-      setElapsed((s) => (s + 1) % TRACK.duration)
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [playing])
+      setElapsed((s) => (s + 1) % TRACK.duration);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [playing]);
 
-  const progress = (elapsed / TRACK.duration) * 100
+  const progress = (elapsed / TRACK.duration) * 100;
 
   return (
     <IPod>
@@ -73,5 +73,5 @@ export function IPodDemo() {
         onNext={() => setElapsed(TRACK.duration - 10)}
       />
     </IPod>
-  )
+  );
 }

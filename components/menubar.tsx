@@ -1,7 +1,7 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { CommandPalette } from "@/components/command-palette"
-import { MobileNav } from "@/components/mobile-nav"
+import { CommandPalette } from "@/components/command-palette";
+import { MobileNav } from "@/components/mobile-nav";
 
 export function Menubar() {
   return (
@@ -35,5 +35,5 @@ export function Menubar() {
         github
       </a>
     </nav>
-  )
+  );
 }

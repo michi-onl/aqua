@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Button } from "@/registry/aqua/ui/button"
-import { toast } from "@/registry/aqua/ui/toast"
+import { Button } from "@/registry/aqua/ui/button";
+import { toast } from "@/registry/aqua/ui/toast";
 
 export function ToastDemo() {
   return (
@@ -10,7 +10,8 @@ export function ToastDemo() {
         onClick={() =>
           toast({
             title: "Software Update",
-            description: "Mac OS X 10.4 “Tiger” is available for your computer.",
+            description:
+              "Mac OS X 10.4 “Tiger” is available for your computer.",
           })
         }
       >
@@ -41,5 +42,5 @@ export function ToastDemo() {
         Stop
       </Button>
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import { codeToHtml } from "shiki"
+import { codeToHtml } from "shiki";
 
-import { cn } from "@/lib/utils"
-import { CopyButton } from "@/registry/aqua/ui/copy-button"
+import { cn } from "@/lib/utils";
+import { CopyButton } from "@/registry/aqua/ui/copy-button";
 
 export async function CodeBlock({
   code,
@@ -9,12 +9,12 @@ export async function CodeBlock({
   theme = "github-light",
   className,
 }: {
-  code: string
-  lang?: string
-  theme?: string
-  className?: string
+  code: string;
+  lang?: string;
+  theme?: string;
+  className?: string;
 }) {
-  const html = await codeToHtml(code, { lang, theme })
+  const html = await codeToHtml(code, { lang, theme });
 
   return (
     <div className={cn("relative", className)}>
@@ -24,5 +24,5 @@ export async function CodeBlock({
       />
       <CopyButton text={code} className="absolute right-3 top-3" />
     </div>
-  )
+  );
 }

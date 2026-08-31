@@ -1,23 +1,23 @@
-import { notFound } from "next/navigation"
+import { notFound } from "next/navigation";
 
-import { CopyPromptButton } from "@/components/copy-prompt-button"
-import { DOCS } from "@/components/docs-content"
-import { buildComponentPrompt } from "@/lib/ai-prompt"
-import { REGISTRY_SLUGS } from "@/lib/registry-slugs"
+import { CopyPromptButton } from "@/components/copy-prompt-button";
+import { DOCS } from "@/components/docs-content";
+import { buildComponentPrompt } from "@/lib/ai-prompt";
+import { REGISTRY_SLUGS } from "@/lib/registry-slugs";
 
 export function generateStaticParams() {
-  return Object.keys(DOCS).map((slug) => ({ slug }))
+  return Object.keys(DOCS).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params
-  const doc = DOCS[slug]
+  const { slug } = await params;
+  const doc = DOCS[slug];
 
-  if (!doc) return {}
+  if (!doc) return {};
 
   return {
     title: doc.title,
@@ -34,20 +34,20 @@ export async function generateMetadata({
       title: `${doc.title} — Aqua`,
       description: doc.description,
     },
-  }
+  };
 }
 
 export default async function DocsPage({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params
-  const doc = DOCS[slug]
+  const { slug } = await params;
+  const doc = DOCS[slug];
 
-  if (!doc) notFound()
+  if (!doc) notFound();
 
-  const isComponent = REGISTRY_SLUGS.includes(slug)
+  const isComponent = REGISTRY_SLUGS.includes(slug);
 
   return (
     <article className="flex flex-col gap-5">
@@ -70,5 +70,5 @@ export default async function DocsPage({
         {doc.body}
       </div>
     </article>
-  )
+  );
 }

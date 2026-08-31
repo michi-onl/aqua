@@ -1,22 +1,22 @@
-import registry from "@/registry.json"
-import { DOCS_NAV } from "@/lib/docs-nav"
+import registry from "@/registry.json";
+import { DOCS_NAV } from "@/lib/docs-nav";
 
-export const dynamic = "force-static"
+export const dynamic = "force-static";
 
-const SITE_URL = "https://aqua.michi.onl"
+const SITE_URL = "https://aqua.michi.onl";
 
 export function GET() {
   const components = registry.items
     .filter((item) => item.type === "registry:ui")
     .map(
       (item) =>
-        `- [${item.title}](${SITE_URL}/docs/${item.name}): ${item.description} Install: \`npx shadcn@latest add @aqua/${item.name}\` — registry JSON: ${SITE_URL}/r/${item.name}.json`
+        `- [${item.title}](${SITE_URL}/docs/${item.name}): ${item.description} Install: \`npx shadcn@latest add @aqua/${item.name}\` — registry JSON: ${SITE_URL}/r/${item.name}.json`,
     )
-    .join("\n")
+    .join("\n");
 
   const guides = DOCS_NAV[0].items
     .map((item) => `- [${item.title}](${SITE_URL}/docs/${item.slug})`)
-    .join("\n")
+    .join("\n");
 
   const body = `# Aqua
 
@@ -46,9 +46,9 @@ ${components}
 
 - [Mail (2009)](${SITE_URL}/demo/mail): an Apple Mail clone built entirely from Aqua components
 - [Chat](${SITE_URL}/demo/chat): an iChat-style conversation with gradient bubbles
-`
+`;
 
   return new Response(body, {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
-  })
+  });
 }

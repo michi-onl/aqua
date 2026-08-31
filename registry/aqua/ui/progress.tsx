@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Progress as ProgressPrimitive } from "@base-ui/react/progress"
+import * as React from "react";
+import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Progress({
   className,
@@ -14,7 +14,7 @@ function Progress({
       data-slot="progress"
       className={cn(
         "relative h-3.5 w-full overflow-hidden rounded-full bg-[#d7dbe2] shadow-[inset_0_1px_3px_rgba(0,0,0,0.25)]",
-        className
+        className,
       )}
       {...props}
     >
@@ -28,7 +28,7 @@ function Progress({
         />
       </ProgressPrimitive.Track>
     </ProgressPrimitive.Root>
-  )
+  );
 }
 
-export { Progress }
+export { Progress };

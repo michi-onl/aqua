@@ -4,10 +4,10 @@ export function ComponentDemo({
   name,
   children,
 }: {
-  title: string
-  description: string
-  name: string
-  children: React.ReactNode
+  title: string;
+  description: string;
+  name: string;
+  children: React.ReactNode;
 }) {
   return (
     <section className="flex flex-col gap-3">
@@ -29,5 +29,5 @@ export function ComponentDemo({
         </div>
       </div>
     </section>
-  )
+  );
 }

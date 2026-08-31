@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
-import { Loader } from "@/registry/aqua/ui/loader"
+import { cn } from "@/lib/utils";
+import { Loader } from "@/registry/aqua/ui/loader";
 
 /**
  * The Loader at icon size, sized and silenced to sit inline next to text.
@@ -20,7 +20,7 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
       className={cn("size-4", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Spinner }
+export { Spinner };

@@ -1,14 +1,14 @@
 export type DocsNavItem = {
-  title: string
-  slug: string
-  href?: string
-  external?: boolean
-}
+  title: string;
+  slug: string;
+  href?: string;
+  external?: boolean;
+};
 
 export type DocsNavSection = {
-  label: string
-  items: DocsNavItem[]
-}
+  label: string;
+  items: DocsNavItem[];
+};
 
 export const DOCS_NAV: DocsNavSection[] = [
   {
@@ -59,7 +59,12 @@ export const DOCS_NAV: DocsNavSection[] = [
     label: "Demos",
     items: [
       { title: "Chat", slug: "chat", href: "/demo/chat", external: true },
-      { title: "Mail (2009)", slug: "mail", href: "/demo/mail", external: true },
+      {
+        title: "Mail (2009)",
+        slug: "mail",
+        href: "/demo/mail",
+        external: true,
+      },
     ],
   },
   {
@@ -71,4 +76,4 @@ export const DOCS_NAV: DocsNavSection[] = [
       { title: "Window", slug: "window" },
     ],
   },
-]
+];

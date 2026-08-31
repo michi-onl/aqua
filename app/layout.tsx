@@ -66,7 +66,11 @@ const JSON_LD = JSON.stringify({
       url: SITE_URL,
       description:
         "Glossy Mac OS X era components for shadcn/ui. Base UI underneath, Aqua on top.",
-      author: { "@type": "Person", name: "michi.onl", url: "https://michi.onl" },
+      author: {
+        "@type": "Person",
+        name: "michi.onl",
+        url: "https://michi.onl",
+      },
     },
     {
       "@type": "SoftwareSourceCode",
@@ -77,7 +81,11 @@ const JSON_LD = JSON.stringify({
       runtimePlatform: "React 19",
       description:
         "A shadcn/ui registry of skeuomorphic Mac OS X era components: buttons, tabs, dialogs, the Dock, the iPod and more.",
-      author: { "@type": "Person", name: "michi.onl", url: "https://michi.onl" },
+      author: {
+        "@type": "Person",
+        name: "michi.onl",
+        url: "https://michi.onl",
+      },
     },
   ],
 });

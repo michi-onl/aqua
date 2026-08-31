@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Slider as SliderPrimitive } from "@base-ui/react/slider"
+import * as React from "react";
+import { Slider as SliderPrimitive } from "@base-ui/react/slider";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Slider({
   className,
@@ -14,10 +14,10 @@ function Slider({
   ...props
 }: React.ComponentProps<typeof SliderPrimitive.Root>) {
   const values = React.useMemo(() => {
-    if (Array.isArray(value)) return value
-    if (Array.isArray(defaultValue)) return defaultValue
-    return [min]
-  }, [value, defaultValue, min])
+    if (Array.isArray(value)) return value;
+    if (Array.isArray(defaultValue)) return defaultValue;
+    return [min];
+  }, [value, defaultValue, min]);
 
   return (
     <SliderPrimitive.Root
@@ -52,7 +52,7 @@ function Slider({
         </SliderPrimitive.Track>
       </SliderPrimitive.Control>
     </SliderPrimitive.Root>
-  )
+  );
 }
 
-export { Slider }
+export { Slider };

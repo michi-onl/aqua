@@ -1,8 +1,8 @@
-import type { MetadataRoute } from "next"
+import type { MetadataRoute } from "next";
 
-import { DOCS_NAV } from "@/lib/docs-nav"
+import { DOCS_NAV } from "@/lib/docs-nav";
 
-const SITE_URL = "https://aqua.michi.onl"
+const SITE_URL = "https://aqua.michi.onl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const docs = DOCS_NAV.flatMap((section) => section.items).map((item) => ({
@@ -11,10 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : `${SITE_URL}/docs/${item.slug}`,
     changeFrequency: "weekly" as const,
     priority: item.external ? 0.5 : 0.7,
-  }))
+  }));
 
-  return [
-    { url: SITE_URL, changeFrequency: "weekly", priority: 1 },
-    ...docs,
-  ]
+  return [{ url: SITE_URL, changeFrequency: "weekly", priority: 1 }, ...docs];
 }

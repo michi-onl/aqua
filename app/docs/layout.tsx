@@ -1,10 +1,10 @@
-import { DocsSidebar } from "@/components/docs-sidebar"
-import { Menubar } from "@/components/menubar"
+import { DocsSidebar } from "@/components/docs-sidebar";
+import { Menubar } from "@/components/menubar";
 
 export default function DocsLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <>
@@ -16,5 +16,5 @@ export default function DocsLayout({
         </main>
       </div>
     </>
-  )
+  );
 }

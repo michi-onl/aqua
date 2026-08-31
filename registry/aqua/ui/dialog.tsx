@@ -1,32 +1,32 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
+import * as React from "react";
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Dialog({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root>) {
-  return <DialogPrimitive.Root {...props} />
+  return <DialogPrimitive.Root {...props} />;
 }
 
 function DialogTrigger({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
 }
 
 function DialogPortal({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Portal>) {
-  return <DialogPrimitive.Portal {...props} />
+  return <DialogPrimitive.Portal {...props} />;
 }
 
 function DialogClose({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Close>) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
 
 function DialogOverlay({
@@ -38,11 +38,11 @@ function DialogOverlay({
       data-slot="dialog-overlay"
       className={cn(
         "fixed inset-0 z-50 bg-[rgba(30,38,50,0.35)] transition-opacity duration-200 data-ending-style:opacity-0 data-starting-style:opacity-0",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function DialogContent({
@@ -57,14 +57,14 @@ function DialogContent({
         data-slot="dialog-content"
         className={cn(
           "fixed left-1/2 top-1/2 z-50 flex w-[min(480px,calc(100%-2rem))] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-xl bg-[linear-gradient(180deg,#fbfbfc_0%,#eceef2_100%)] p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_0_0_1px_rgba(20,30,50,0.2),0_26px_60px_rgba(20,30,50,0.35),0_5px_14px_rgba(20,30,50,0.18)] outline-none transition-[opacity,scale] duration-200 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
-          className
+          className,
         )}
         {...props}
       >
         {children}
       </DialogPrimitive.Popup>
     </DialogPortal>
-  )
+  );
 }
 
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
@@ -74,7 +74,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex flex-col gap-1.5", className)}
       {...props}
     />
-  )
+  );
 }
 
 function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
@@ -84,7 +84,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex justify-end gap-2.5 pt-1", className)}
       {...props}
     />
-  )
+  );
 }
 
 function DialogTitle({
@@ -96,11 +96,11 @@ function DialogTitle({
       data-slot="dialog-title"
       className={cn(
         "text-[15px] font-bold tracking-tight text-[#33383f]",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function DialogDescription({
@@ -113,7 +113,7 @@ function DialogDescription({
       className={cn("text-[13px] leading-5 text-[#7a8089]", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -127,4 +127,4 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-}
+};

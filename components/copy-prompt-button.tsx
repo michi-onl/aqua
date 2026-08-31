@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { CheckIcon, SparklesIcon } from "lucide-react"
+import { useEffect, useRef, useState } from "react";
+import { CheckIcon, SparklesIcon } from "lucide-react";
 
 export function CopyPromptButton({ prompt }: { prompt: string }) {
-  const [copied, setCopied] = useState(false)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current)
-    }
-  }, [])
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const copy = async () => {
-    await navigator.clipboard.writeText(prompt)
-    setCopied(true)
-    if (timerRef.current) clearTimeout(timerRef.current)
-    timerRef.current = setTimeout(() => setCopied(false), 2000)
-  }
+    await navigator.clipboard.writeText(prompt);
+    setCopied(true);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <button
@@ -33,5 +33,5 @@ export function CopyPromptButton({ prompt }: { prompt: string }) {
       )}
       {copied ? "Copied" : "Copy AI prompt"}
     </button>
-  )
+  );
 }

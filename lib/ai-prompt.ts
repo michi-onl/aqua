@@ -1,13 +1,13 @@
-const SITE_URL = "https://aqua.michi.onl"
+const SITE_URL = "https://aqua.michi.onl";
 
 export function buildComponentPrompt({
   name,
   title,
   description,
 }: {
-  name: string
-  title: string
-  description: string
+  name: string;
+  title: string;
+  description: string;
 }) {
   return `Add the ${title} component from Aqua to my project.
 
@@ -32,5 +32,5 @@ npx shadcn@latest add @aqua/theme @aqua/${name}
 References:
 - Docs: ${SITE_URL}/docs/${name}
 - Component source and dependencies (registry JSON): ${SITE_URL}/r/${name}.json
-- Full library reference for LLMs: ${SITE_URL}/llms-full.txt`
+- Full library reference for LLMs: ${SITE_URL}/llms-full.txt`;
 }
