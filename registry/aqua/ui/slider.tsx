@@ -46,7 +46,7 @@ function Slider({
               key={i}
               index={i}
               data-slot="slider-thumb"
-              className="block size-[22px] rounded-full border border-[var(--aqua-deep,#1c5fb8)] bg-[radial-gradient(circle_at_50%_35%,#cfe6ff_0%,#6fb4f7_45%,var(--aqua-accent,#2f7de0)_70%,#1c5fb8_100%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_2px_4px_rgba(20,50,120,0.4)] outline-none transition-[filter] hover:brightness-105 has-[:focus-visible]:ring-[3px] has-[:focus-visible]:ring-[var(--aqua-ring,#6cb0f7)]/70 active:brightness-95"
+              className="block size-[18px] rounded-full border border-[#8b909a] bg-[radial-gradient(circle_at_50%_30%,#ffffff,#d5d9df_70%,#c3c8cf_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_3px_rgba(20,30,50,0.35)] outline-none transition-[filter] hover:brightness-103 has-[:focus-visible]:ring-[3px] has-[:focus-visible]:ring-[var(--aqua-ring,#6cb0f7)]/70 active:brightness-97"
             />
           ))}
         </SliderPrimitive.Track>

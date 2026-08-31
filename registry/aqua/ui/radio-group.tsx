@@ -36,9 +36,7 @@ function RadioGroupItem({
         data-slot="radio-group-indicator"
         className="flex size-full items-center justify-center data-unchecked:hidden"
       >
-        <span className="flex size-3.5 items-center justify-center rounded-full border border-[#6b7a8c] bg-[radial-gradient(circle_at_50%_35%,#ffffff,#e6ecf2_70%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.85),0_1px_1px_rgba(10,40,90,0.3)]">
-          <span className="size-[7px] rounded-full bg-[#23262b] shadow-[inset_0_1px_1px_rgba(0,0,0,0.9)]" />
-        </span>
+        <span className="size-2 rounded-full bg-white shadow-[0_1px_1px_rgba(10,40,90,0.35)]" />
       </RadioPrimitive.Indicator>
     </RadioPrimitive.Root>
   )
