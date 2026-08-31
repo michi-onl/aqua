@@ -3,7 +3,7 @@ import { DOCS_NAV } from "@/lib/docs-nav"
 
 export const dynamic = "force-static"
 
-const SITE_URL = "https://aqua.duca.dev"
+const SITE_URL = "https://aqua.michi.onl"
 
 export function GET() {
   const components = registry.items
@@ -20,7 +20,7 @@ export function GET() {
 
   const body = `# Aqua
 
-> Aqua is a shadcn/ui component registry that recreates the classic Mac OS X (2000–2007) interface — gel buttons, pinstripes, brushed metal, the Dock, the iPod — as accessible React components built on Base UI primitives and Tailwind CSS. Components are distributed as open code under the @aqua namespace and copied into the user's project, shadcn-style. Made by Igor Duca (https://duca.dev, @ducaswtf on X).
+> Aqua is a shadcn/ui component registry that recreates the classic Mac OS X (2000–2007) interface — gel buttons, pinstripes, brushed metal, the Dock, the iPod — as accessible React components built on Base UI primitives and Tailwind CSS. Components are distributed as open code under the @aqua namespace and copied into the user's project, shadcn-style. Made by michi.onl (https://michi.onl).
 
 To install components, first register the namespace in the project's components.json:
 

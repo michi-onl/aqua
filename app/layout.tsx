@@ -4,7 +4,7 @@ import "./globals.css";
 import { AquaCursor } from "@/registry/aqua/ui/cursor";
 import { Toaster } from "@/registry/aqua/ui/toast";
 
-const SITE_URL = "https://aqua.duca.dev";
+const SITE_URL = "https://aqua.michi.onl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     "retro ui",
     "apple aqua interface",
   ],
-  authors: [{ name: "Igor Duca", url: "https://duca.dev" }],
-  creator: "Igor Duca",
+  authors: [{ name: "michi.onl", url: "https://michi.onl" }],
+  creator: "michi.onl",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@ducaswtf",
+    creator: "@michi.onl",
     title: "Aqua — the classic Apple UI, as a shadcn registry",
     description:
       "Glossy Mac OS X era components for shadcn/ui. Base UI underneath, Aqua on top.",
@@ -67,18 +67,18 @@ const JSON_LD = JSON.stringify({
       url: SITE_URL,
       description:
         "Glossy Mac OS X era components for shadcn/ui. Base UI underneath, Aqua on top.",
-      author: { "@type": "Person", name: "Igor Duca", url: "https://duca.dev" },
+      author: { "@type": "Person", name: "michi.onl", url: "https://michi.onl" },
     },
     {
       "@type": "SoftwareSourceCode",
       name: "Aqua UI",
       url: SITE_URL,
-      codeRepository: "https://github.com/igorfelipeduca/aqua",
+      codeRepository: "https://github.com/michi-onl/aqua",
       programmingLanguage: ["TypeScript", "React"],
       runtimePlatform: "React 19",
       description:
         "A shadcn/ui registry of skeuomorphic Mac OS X era components: buttons, tabs, dialogs, the Dock, the iPod and more.",
-      author: { "@type": "Person", name: "Igor Duca", url: "https://duca.dev" },
+      author: { "@type": "Person", name: "michi.onl", url: "https://michi.onl" },
     },
   ],
 });

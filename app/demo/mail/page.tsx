@@ -225,7 +225,7 @@ export default function MailDemo() {
                       {shownEntry.msg.from} &lt;{shownEntry.msg.address}&gt;
                     </p>
                     <p className="text-[#7a8089]">
-                      To: Igor Duca &lt;igor@duca.dev&gt;
+                      To: michi.onl &lt;kontakt@michi.onl&gt;
                     </p>
                   </div>
                   <div className="flex flex-col gap-3 px-5 py-4 leading-6">

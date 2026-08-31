@@ -2,7 +2,7 @@ import registry from "@/registry.json"
 
 export const dynamic = "force-static"
 
-const SITE_URL = "https://aqua.duca.dev"
+const SITE_URL = "https://aqua.michi.onl"
 
 const USAGE: Record<string, string> = {
   theme: `Installs the Aqua palette (light gray #eef0f3 background, #2f7de0 accent), the Lucida Grande font stack and the --aqua-* derived color variables. Install this first.`,
@@ -86,7 +86,7 @@ ${usage}`
 
   const body = `# Aqua — full component reference for LLMs
 
-> Aqua recreates the classic Mac OS X (2000–2007) interface as a shadcn/ui registry: accessible React components on Base UI primitives, styled with Tailwind CSS into gel gradients, pinstripes and brushed metal. Made by Igor Duca (https://duca.dev, @ducaswtf on X).
+> Aqua recreates the classic Mac OS X (2000–2007) interface as a shadcn/ui registry: accessible React components on Base UI primitives, styled with Tailwind CSS into gel gradients, pinstripes and brushed metal. Made by michi.onl (https://michi.onl).
 
 ## Setup
 

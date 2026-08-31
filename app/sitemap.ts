@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 
 import { DOCS_NAV } from "@/lib/docs-nav"
 
-const SITE_URL = "https://aqua.duca.dev"
+const SITE_URL = "https://aqua.michi.onl"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const docs = DOCS_NAV.flatMap((section) => section.items).map((item) => ({

@@ -27,7 +27,7 @@ export function Menubar() {
       </Link>
       <CommandPalette />
       <a
-        href="https://github.com/igorfelipeduca/aqua"
+        href="https://github.com/michi-onl/aqua"
         target="_blank"
         rel="noreferrer"
         className="hover:text-[#1c5fb8]"

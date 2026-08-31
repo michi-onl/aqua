@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://aqua.duca.dev">aqua.duca.dev</a> ·
-  <a href="https://aqua.duca.dev/docs/introduction">Docs</a> ·
-  <a href="https://aqua.duca.dev/demo/mail">Mail demo</a> ·
-  <a href="https://aqua.duca.dev/demo/chat">Chat demo</a>
+  <a href="https://aqua.michi.onl">aqua.michi.onl</a> ·
+  <a href="https://aqua.michi.onl/docs/introduction">Docs</a> ·
+  <a href="https://aqua.michi.onl/demo/mail">Mail demo</a> ·
+  <a href="https://aqua.michi.onl/demo/chat">Chat demo</a>
 </p>
 
 ---
@@ -26,7 +26,7 @@ Register the namespace in your `components.json`:
 ```json
 {
   "registries": {
-    "@aqua": "https://aqua.duca.dev/r/{name}.json"
+    "@aqua": "https://aqua.michi.onl/r/{name}.json"
   }
 }
 ```
@@ -70,7 +70,7 @@ The gel gradients, edges and focus rings are derived with `color-mix`, so one li
 
 ## For AI agents
 
-Aqua ships [`/llms.txt`](https://aqua.duca.dev/llms.txt) and [`/llms-full.txt`](https://aqua.duca.dev/llms-full.txt) with complete setup and per-component usage, and every docs page has a **Copy AI prompt** button that produces a ready-to-paste instruction for your agent of choice.
+Aqua ships [`/llms.txt`](https://aqua.michi.onl/llms.txt) and [`/llms-full.txt`](https://aqua.michi.onl/llms-full.txt) with complete setup and per-component usage, and every docs page has a **Copy AI prompt** button that produces a ready-to-paste instruction for your agent of choice.
 
 ## Development
 
@@ -86,7 +86,7 @@ Component sources live in `registry/aqua/ui/`. The docs live in `components/docs
 
 ## Credits
 
-Designed and built by [Igor Duca](https://duca.dev) ([@ducaswtf](https://x.com/ducaswtf)). The original design language belongs to Apple — this is a tribute, not an affiliation.
+Maintained by [michi.onl](https://michi.onl). The original design and initial implementation are by [Igor Duca](https://duca.dev) ([@ducaswtf](https://x.com/ducaswtf)). The original design language belongs to Apple — this is a tribute, not an affiliation.
 
 ## License
 

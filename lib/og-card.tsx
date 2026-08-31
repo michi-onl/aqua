@@ -79,7 +79,7 @@ export function OgCard({
               color: "#5a6069",
             }}
           >
-            aqua.duca.dev
+            aqua.michi.onl
           </div>
         </div>
         <div

@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "description": "The classic Mac OS X interface rebuilt as a shadcn/ui registry: gel buttons, pinstripes, brushed metal, the Dock and the iPod.",
-  "homepage": "https://aqua.duca.dev",
+  "homepage": "https://aqua.michi.onl",
   "repository": {
     "type": "git",
-    "url": "https://github.com/igorfelipeduca/aqua"
+    "url": "https://github.com/michi-onl/aqua"
   },
-  "author": "Igor Duca <yelldutz@gmail.com> (https://duca.dev)",
+  "author": "michi.onl <kontakt@michi.onl> (https://michi.onl)",
   "license": "MIT",
   "keywords": [
     "shadcn",

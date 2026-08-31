@@ -1,4 +1,4 @@
-const SITE_URL = "https://aqua.duca.dev"
+const SITE_URL = "https://aqua.michi.onl"
 
 export function buildComponentPrompt({
   name,
@@ -11,7 +11,7 @@ export function buildComponentPrompt({
 }) {
   return `Add the ${title} component from Aqua to my project.
 
-Aqua is a shadcn/ui registry of skeuomorphic Mac OS X era components (gel gradients, pinstripes, brushed metal) built on Base UI primitives and Tailwind CSS, by Igor Duca. ${title}: ${description}
+Aqua is a shadcn/ui registry of skeuomorphic Mac OS X era components (gel gradients, pinstripes, brushed metal) built on Base UI primitives and Tailwind CSS, by michi.onl. ${title}: ${description}
 
 Steps:
 
