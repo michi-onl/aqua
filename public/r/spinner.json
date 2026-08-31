@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "title": "Spinner",
+  "description": "The twelve-spoke Loader at icon size, silenced to sit inline beside text.",
+  "registryDependencies": [
+    "@aqua/loader"
+  ],
+  "files": [
+    {
+      "path": "registry/aqua/ui/spinner.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Loader } from \"@/registry/aqua/ui/loader\"\n\n/**\n * The Loader at icon size, sized and silenced to sit inline next to text.\n * The wrapping element carries the wording and the live region; the spokes\n * themselves are decoration, so they stay out of the accessibility tree.\n */\nfunction Spinner({ className, ...props }: React.ComponentProps<\"svg\">) {\n  return (\n    <Loader\n      data-slot=\"spinner\"\n      role=\"presentation\"\n      aria-label={undefined}\n      aria-hidden=\"true\"\n      className={cn(\"size-4\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Spinner }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

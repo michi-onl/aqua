@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { Select as SelectPrimitive } from "@base-ui/react/select"
+import { cva, type VariantProps } from "class-variance-authority"
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -24,22 +25,40 @@ function SelectValue({
   return <SelectPrimitive.Value data-slot="select-value" {...props} />
 }
 
+const selectTriggerVariants = cva(
+  "flex w-fit select-none items-center justify-between gap-3 whitespace-nowrap rounded-md border border-[#8b909a] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] py-0 pr-1 text-[#33383f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:truncate",
+  {
+    variants: {
+      size: {
+        sm: "h-7 min-w-24 pl-2.5 text-[12px] [&_[data-slot=select-icon]]:h-5 [&_[data-slot=select-icon]]:w-4",
+        default: "h-8 min-w-36 pl-3 text-[13px]",
+      },
+    },
+    defaultVariants: {
+      size: "default",
+    },
+  }
+)
+
 function SelectTrigger({
   className,
   children,
+  size,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Trigger>) {
+}: React.ComponentProps<typeof SelectPrimitive.Trigger> &
+  VariantProps<typeof selectTriggerVariants>) {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
-      className={cn(
-        "flex h-8 w-fit min-w-36 select-none items-center justify-between gap-3 whitespace-nowrap rounded-md border border-[#8b909a] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] py-0 pl-3 pr-1 text-[13px] text-[#33383f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:truncate",
-        className
-      )}
+      data-size={size ?? "default"}
+      className={cn(selectTriggerVariants({ size }), className)}
       {...props}
     >
       {children}
-      <SelectPrimitive.Icon className="flex h-6 w-5 shrink-0 flex-col items-center justify-center rounded-[4px] border border-[var(--aqua-edge,#1c5fb8)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+      <SelectPrimitive.Icon
+        data-slot="select-icon"
+        className="flex h-6 w-5 shrink-0 flex-col items-center justify-center rounded-[4px] border border-[var(--aqua-edge,#1c5fb8)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]"
+      >
         <ChevronUpIcon className="size-2.5" strokeWidth={3} />
         <ChevronDownIcon className="size-2.5" strokeWidth={3} />
       </SelectPrimitive.Icon>

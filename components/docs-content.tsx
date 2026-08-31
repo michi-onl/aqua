@@ -1,10 +1,20 @@
 import Image from "next/image"
 import Link from "next/link"
-import { InfoIcon, OctagonXIcon, TriangleAlertIcon } from "lucide-react"
+import {
+  ChevronRightIcon,
+  FolderOpenIcon,
+  InfoIcon,
+  OctagonXIcon,
+  TriangleAlertIcon,
+} from "lucide-react"
 
 import { CodeBlock, InstallCommand } from "@/components/code-block"
 import { Alert, AlertDescription, AlertTitle } from "@/registry/aqua/ui/alert"
-import { Avatar } from "@/registry/aqua/ui/avatar"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/aqua/ui/avatar"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -26,6 +36,56 @@ import { ThemePicker } from "@/components/theme-picker"
 import { ToastDemo } from "@/components/toast-demo"
 import { Badge } from "@/registry/aqua/ui/badge"
 import { Button } from "@/registry/aqua/ui/button"
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+} from "@/registry/aqua/ui/button-group"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/aqua/ui/card"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/aqua/ui/collapsible"
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/registry/aqua/ui/empty"
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from "@/registry/aqua/ui/item"
+import { Separator } from "@/registry/aqua/ui/separator"
+import { Skeleton } from "@/registry/aqua/ui/skeleton"
+import { Spinner } from "@/registry/aqua/ui/spinner"
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/registry/aqua/ui/table"
+import { Toggle } from "@/registry/aqua/ui/toggle"
 import { ChatBubble, ChatPanel } from "@/registry/aqua/ui/chat-bubble"
 import { Checkbox } from "@/registry/aqua/ui/checkbox"
 import { Dock, DockItem } from "@/registry/aqua/ui/dock"
@@ -209,8 +269,14 @@ export const DOCS: Record<string, Doc> = {
           <Button>default</Button>
           <Button variant="secondary">secondary</Button>
           <Button variant="destructive">destructive</Button>
+          <Button variant="outline">outline</Button>
+          <Button variant="ghost">ghost</Button>
           <Button size="lg">large</Button>
           <Button size="sm">small</Button>
+          <Button size="xs">tiny</Button>
+          <Button size="icon" variant="secondary" aria-label="Get info">
+            <InfoIcon />
+          </Button>
           <Button disabled>disabled</Button>
         </Preview>
         <InstallCommand name="button" />
@@ -220,7 +286,10 @@ export const DOCS: Record<string, Doc> = {
 
 <Button>save</Button>
 <Button variant="secondary">cancel</Button>
-<Button variant="destructive" size="sm">delete</Button>`}
+<Button variant="destructive" size="sm">delete</Button>
+<Button variant="ghost" size="icon" aria-label="Get info">
+  <InfoIcon />
+</Button>`}
         />
       </>
     ),
@@ -314,6 +383,33 @@ import { InfoIcon } from "lucide-react"
 <Avatar shape="circle" initials="SJ" />
 <Avatar />`}
         />
+        <SectionTitle>Composed</SectionTitle>
+        <p>
+          When the photo comes from somewhere that can fail, compose it instead:
+          the fallback holds the well until the image loads, and takes it back
+          if the image never arrives.
+        </p>
+        <Preview>
+          <Avatar size="lg">
+            <AvatarImage
+              src="https://github.com/igorfelipeduca.png"
+              alt="Igor Duca"
+            />
+            <AvatarFallback>ID</AvatarFallback>
+          </Avatar>
+          <Avatar size="lg" shape="circle">
+            <AvatarImage src="/does-not-exist.png" alt="" />
+            <AvatarFallback>SJ</AvatarFallback>
+          </Avatar>
+        </Preview>
+        <CodeBlock
+          code={`import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+<Avatar>
+  <AvatarImage src="/buddy.png" alt="Igor Duca" />
+  <AvatarFallback>ID</AvatarFallback>
+</Avatar>`}
+        />
         <p>
           With no <code>src</code> or <code>initials</code>, the avatar renders
           the generic buddy silhouette. Without an explicit color, the gel
@@ -335,6 +431,7 @@ import { InfoIcon } from "lucide-react"
           <Badge>install</Badge>
           <Badge variant="secondary">software engineer</Badge>
           <Badge variant="destructive">deprecated</Badge>
+          <Badge variant="outline">optional</Badge>
         </Preview>
         <InstallCommand name="badge" />
         <SectionTitle>Usage</SectionTitle>
@@ -911,6 +1008,22 @@ import { InfoIcon } from "lucide-react"
   </SelectContent>
 </Select>`}
         />
+        <p>
+          The trigger comes in two heights. <code>size=&quot;sm&quot;</code>{" "}
+          drops it to 28px and shrinks the arrow box with it, for toolbars and
+          panels too narrow for the full popup button.
+        </p>
+        <Preview>
+          <Select defaultValue="list" items={{ list: "List", icon: "Icon" }}>
+            <SelectTrigger size="sm">
+              <SelectValue placeholder="View" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="list">List</SelectItem>
+              <SelectItem value="icon">Icon</SelectItem>
+            </SelectContent>
+          </Select>
+        </Preview>
       </>
     ),
   },
@@ -1179,6 +1292,490 @@ toast({ variant: "destructive", title: "Disk not ejected properly" })`}
   <TooltipContent>Aqua Tooltip</TooltipContent>
 </Tooltip>`}
         />
+      </>
+    ),
+  },
+  "button-group": {
+    title: "Button Group",
+    description:
+      "The segmented control: pill ends kept, every seam in between squared off.",
+    body: (
+      <>
+        <Preview>
+          <ButtonGroup>
+            <Button variant="secondary" size="sm">
+              Cut
+            </Button>
+            <Button variant="secondary" size="sm">
+              Copy
+            </Button>
+            <Button variant="secondary" size="sm">
+              Paste
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup>
+            <ButtonGroupText>View</ButtonGroupText>
+            <Button variant="secondary" size="sm">
+              Icon
+            </Button>
+            <ButtonGroupSeparator />
+            <Button variant="secondary" size="sm">
+              List
+            </Button>
+          </ButtonGroup>
+        </Preview>
+        <InstallCommand name="button-group" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
+
+<ButtonGroup>
+  <Button variant="secondary">Cut</Button>
+  <Button variant="secondary">Copy</Button>
+  <Button variant="secondary">Paste</Button>
+</ButtonGroup>`}
+        />
+        <p>
+          The group squares off the inner corners and drops the doubled edges,
+          so the buttons keep their gel but read as one control. Pass{" "}
+          <code>orientation=&quot;vertical&quot;</code> to stack them instead.
+        </p>
+      </>
+    ),
+  },
+  card: {
+    title: "Card",
+    description:
+      "The era panel: white sheet, hairline border, brushed metal footer drawer.",
+    body: (
+      <>
+        <Preview>
+          <Card className="w-full max-w-sm">
+            <CardHeader className="border-b">
+              <CardTitle>Software Update</CardTitle>
+              <CardDescription>
+                New software is available for your computer.
+              </CardDescription>
+              <CardAction>
+                <Badge>2 new</Badge>
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              Mac OS X Update 10.4.11 improves the stability and compatibility
+              of your computer. Restarting is required.
+            </CardContent>
+            <CardFooter className="justify-end gap-2">
+              <Button variant="secondary" size="sm">
+                Not Now
+              </Button>
+              <Button size="sm">Install</Button>
+            </CardFooter>
+          </Card>
+        </Preview>
+        <InstallCommand name="card" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+<Card>
+  <CardHeader className="border-b">
+    <CardTitle>Software Update</CardTitle>
+    <CardDescription>New software is available.</CardDescription>
+  </CardHeader>
+  <CardContent>Restarting is required.</CardContent>
+  <CardFooter>
+    <Button size="sm">Install</Button>
+  </CardFooter>
+</Card>`}
+        />
+        <p>
+          Adding <code>CardFooter</code> turns the bottom into the brushed metal
+          drawer and drops the panel padding underneath it, the way the era put
+          its buttons on a shelf. <code>size=&quot;sm&quot;</code> tightens the
+          spacing for dense lists.
+        </p>
+      </>
+    ),
+  },
+  collapsible: {
+    title: "Collapsible",
+    description:
+      "Disclosure section that rotates its triangle and slides the panel open.",
+    body: (
+      <>
+        <Preview>
+          <Collapsible defaultOpen className="w-full max-w-sm">
+            <CollapsibleTrigger className="flex items-center gap-1.5 font-bold">
+              <ChevronRightIcon className="size-3.5" />
+              Sharing &amp; Permissions
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="pt-2 pl-5 text-[12.5px] leading-relaxed text-[#5a6069]">
+                You can read and write. Everyone else can read only. Ownership
+                changes take effect after the next login.
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        </Preview>
+        <InstallCommand name="collapsible" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+
+<Collapsible defaultOpen>
+  <CollapsibleTrigger className="flex items-center gap-1.5">
+    <ChevronRightIcon className="size-3.5" />
+    Sharing & Permissions
+  </CollapsibleTrigger>
+  <CollapsibleContent>You can read and write.</CollapsibleContent>
+</Collapsible>`}
+        />
+        <p>
+          Any icon inside the trigger becomes the disclosure triangle: it points
+          right when shut and turns a quarter clockwise when open. The panel
+          animates its own measured height, so the content can be any size.
+        </p>
+      </>
+    ),
+  },
+  empty: {
+    title: "Empty",
+    description:
+      "Dashed pinstripe placeholder for a list, folder or search with nothing in it.",
+    body: (
+      <>
+        <Preview>
+          <Empty className="max-w-sm">
+            <EmptyHeader>
+              <EmptyMedia variant="icon">
+                <FolderOpenIcon />
+              </EmptyMedia>
+              <EmptyTitle>No Items</EmptyTitle>
+              <EmptyDescription>
+                This folder is empty. Drag files here to put them in it.
+              </EmptyDescription>
+            </EmptyHeader>
+            <EmptyContent>
+              <Button variant="secondary" size="sm">
+                Get Info
+              </Button>
+            </EmptyContent>
+          </Empty>
+        </Preview>
+        <InstallCommand name="empty" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty"
+
+<Empty>
+  <EmptyHeader>
+    <EmptyMedia variant="icon">
+      <FolderOpenIcon />
+    </EmptyMedia>
+    <EmptyTitle>No Items</EmptyTitle>
+    <EmptyDescription>This folder is empty.</EmptyDescription>
+  </EmptyHeader>
+</Empty>`}
+        />
+      </>
+    ),
+  },
+  item: {
+    title: "Item",
+    description:
+      "A list row with media, title, description and actions, in three weights.",
+    body: (
+      <>
+        <Preview>
+          <ItemGroup className="w-full max-w-sm">
+            <Item variant="outline">
+              <ItemMedia>
+                <Avatar size="sm" initials="ID" randomColor />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle>Igor Duca</ItemTitle>
+                <ItemDescription>
+                  Available — building the registry
+                </ItemDescription>
+              </ItemContent>
+              <ItemActions>
+                <Button variant="secondary" size="sm">
+                  Chat
+                </Button>
+              </ItemActions>
+            </Item>
+            <ItemSeparator />
+            <Item variant="muted" size="sm">
+              <ItemMedia>
+                <Avatar size="sm" initials="SJ" randomColor />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle>Steve</ItemTitle>
+                <ItemDescription>Idle — one more thing</ItemDescription>
+              </ItemContent>
+            </Item>
+          </ItemGroup>
+        </Preview>
+        <InstallCommand name="item" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import {
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from "@/components/ui/item"
+
+<Item variant="outline">
+  <ItemMedia>
+    <Avatar initials="ID" randomColor />
+  </ItemMedia>
+  <ItemContent>
+    <ItemTitle>Igor Duca</ItemTitle>
+    <ItemDescription>Available</ItemDescription>
+  </ItemContent>
+</Item>`}
+        />
+        <p>
+          <code>variant=&quot;outline&quot;</code> gives the row its own panel,{" "}
+          <code>muted</code> lays it on pinstripes, and the default keeps it
+          bare for rows that already sit inside a list. Pass{" "}
+          <code>render</code> to make the whole row a link.
+        </p>
+      </>
+    ),
+  },
+  separator: {
+    title: "Separator",
+    description:
+      "The engraved divider: a gray hairline over a white one, cut into the panel.",
+    body: (
+      <>
+        <Preview>
+          <div className="w-full max-w-sm rounded-lg border border-[#aeb3bc] bg-white p-4 text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+            <div className="font-bold">Startup Disk</div>
+            <Separator className="my-3" />
+            <div className="flex h-8 items-center gap-3">
+              <span>Macintosh HD</span>
+              <Separator orientation="vertical" />
+              <span className="text-[#7a8089]">74.5 GB</span>
+            </div>
+          </div>
+        </Preview>
+        <InstallCommand name="separator" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import { Separator } from "@/components/ui/separator"
+
+<Separator />
+<Separator orientation="vertical" />`}
+        />
+        <p>
+          The era never drew a flat line. It cut a groove: one gray pixel with a
+          white one underneath, so the divider looks pressed into the panel
+          rather than painted on top of it.
+        </p>
+      </>
+    ),
+  },
+  skeleton: {
+    title: "Skeleton",
+    description:
+      "Pearl placeholder with a sheen sweeping across it while content loads.",
+    body: (
+      <>
+        <Preview>
+          <div className="flex w-full max-w-sm items-center gap-3">
+            <Skeleton className="size-10 rounded-[7px]" />
+            <div className="flex flex-1 flex-col gap-2">
+              <Skeleton className="h-3.5 w-2/3" />
+              <Skeleton className="h-3 w-full" />
+            </div>
+          </div>
+        </Preview>
+        <InstallCommand name="skeleton" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import { Skeleton } from "@/components/ui/skeleton"
+
+<Skeleton className="size-10 rounded-[7px]" />
+<Skeleton className="h-3.5 w-2/3" />`}
+        />
+        <p>
+          The sheen sweeps rather than pulses, which is closer to the way the
+          era polished its surfaces. It stops on its own under{" "}
+          <code>prefers-reduced-motion</code>.
+        </p>
+      </>
+    ),
+  },
+  spinner: {
+    title: "Spinner",
+    description:
+      "The twelve-spoke Loader at icon size, silenced to sit inline beside text.",
+    body: (
+      <>
+        <Preview>
+          <span role="status" className="flex items-center gap-2 text-[13px]">
+            <Spinner />
+            Connecting to server…
+          </span>
+          <Button variant="secondary" size="sm" disabled>
+            <Spinner />
+            Copying
+          </Button>
+        </Preview>
+        <InstallCommand name="spinner" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import { Spinner } from "@/components/ui/spinner"
+
+<span role="status" className="flex items-center gap-2">
+  <Spinner />
+  Connecting to server…
+</span>`}
+        />
+        <p>
+          Same spokes as <Link href="/docs/loader">Loader</Link>, sized to sit
+          next to a line of text and kept out of the accessibility tree: the
+          wording beside it carries the announcement, so a screen reader hears
+          the status once instead of twice.
+        </p>
+      </>
+    ),
+  },
+  table: {
+    title: "Table",
+    description:
+      "The list view: brushed metal column heads and alternating blue rows.",
+    body: (
+      <>
+        <Preview>
+          <div className="w-full max-w-lg">
+            <Table>
+              <TableCaption>4 items, 74.5 GB available</TableCaption>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Name</TableHead>
+                  <TableHead>Date Modified</TableHead>
+                  <TableHead className="text-right">Size</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Applications</TableCell>
+                  <TableCell>Today, 09:14</TableCell>
+                  <TableCell className="text-right">--</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>iChat.app</TableCell>
+                  <TableCell>12 Oct 2003</TableCell>
+                  <TableCell className="text-right">18.2 MB</TableCell>
+                </TableRow>
+                <TableRow data-state="selected">
+                  <TableCell>Aqua.dmg</TableCell>
+                  <TableCell>Yesterday, 22:40</TableCell>
+                  <TableCell className="text-right">4.1 MB</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Sherlock.app</TableCell>
+                  <TableCell>3 Jan 2002</TableCell>
+                  <TableCell className="text-right">7.8 MB</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </Preview>
+        <InstallCommand name="table" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Size</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow data-state="selected">
+      <TableCell>Aqua.dmg</TableCell>
+      <TableCell>4.1 MB</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>`}
+        />
+        <p>
+          Rows alternate blue and white on their own, the way every era list
+          view did. Column heads paint their own metal over the stripe, so the
+          zebra never reaches the header. Mark the current row with{" "}
+          <code>data-state=&quot;selected&quot;</code> and it fills with gel.
+        </p>
+      </>
+    ),
+  },
+  toggle: {
+    title: "Toggle",
+    description:
+      "A gel button that stays depressed: pressed sinks under an inner shadow.",
+    body: (
+      <>
+        <Preview>
+          <Toggle defaultPressed>Bold</Toggle>
+          <Toggle>Italic</Toggle>
+          <Toggle variant="outline" defaultPressed>
+            List View
+          </Toggle>
+          <Toggle variant="outline">Icon View</Toggle>
+          <Toggle variant="outline" size="sm">
+            Small
+          </Toggle>
+          <Toggle variant="outline" disabled>
+            Disabled
+          </Toggle>
+        </Preview>
+        <InstallCommand name="toggle" />
+        <SectionTitle>Usage</SectionTitle>
+        <CodeBlock
+          code={`import { Toggle } from "@/components/ui/toggle"
+
+<Toggle defaultPressed>Bold</Toggle>
+<Toggle variant="outline" onPressedChange={setPressed}>
+  List View
+</Toggle>`}
+        />
+        <p>
+          Pressed is the era recessed state, the same one the tab strip uses:
+          the gel fills in and the face sinks under an inner shadow, so the
+          button reads as held down rather than merely tinted.
+        </p>
       </>
     ),
   },

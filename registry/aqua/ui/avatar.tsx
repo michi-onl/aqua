@@ -1,4 +1,7 @@
+"use client"
+
 import * as React from "react"
+import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -65,7 +68,7 @@ function AvatarSilhouette() {
   )
 }
 
-export type AvatarProps = React.ComponentProps<"span"> &
+export type AvatarProps = AvatarPrimitive.Root.Props &
   VariantProps<typeof avatarVariants> & {
     src?: string
     alt?: string
@@ -74,6 +77,11 @@ export type AvatarProps = React.ComponentProps<"span"> &
     randomColor?: boolean
   }
 
+/**
+ * Takes either shape: hand it `src` or `initials` and it fills itself in, or
+ * compose `AvatarImage` and `AvatarFallback` inside it when the photo comes
+ * from somewhere that can fail and the initial has to take over.
+ */
 function Avatar({
   className,
   size,
@@ -83,34 +91,62 @@ function Avatar({
   initials,
   color,
   randomColor,
+  children,
   ...props
 }: AvatarProps) {
   const resolvedColor =
     color ?? (randomColor ? seededColor(initials ?? alt ?? "aqua") : undefined)
+  const composed = children != null
 
   return (
-    <span
+    <AvatarPrimitive.Root
       data-slot="avatar"
-      role={src ? undefined : "img"}
-      aria-label={src ? undefined : alt ?? initials ?? "avatar"}
+      role={composed || src ? undefined : "img"}
+      aria-label={composed || src ? undefined : (alt ?? initials ?? "avatar")}
       className={cn(avatarVariants({ size, shape }), className)}
-      style={resolvedColor ? { background: gelBackground(resolvedColor) } : undefined}
+      style={
+        resolvedColor ? { background: gelBackground(resolvedColor) } : undefined
+      }
       {...props}
     >
-      {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={src}
-          alt={alt ?? ""}
-          className="absolute inset-0 z-0 size-full object-cover"
-        />
-      ) : initials ? (
-        <span className="relative">{initials.slice(0, 2)}</span>
+      {composed ? (
+        children
       ) : (
-        <AvatarSilhouette />
+        <>
+          {src ? <AvatarImage src={src} alt={alt ?? ""} /> : null}
+          <AvatarFallback>
+            {initials ? initials.slice(0, 2) : <AvatarSilhouette />}
+          </AvatarFallback>
+        </>
       )}
-    </span>
+    </AvatarPrimitive.Root>
   )
 }
 
-export { Avatar, avatarVariants }
+function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
+  return (
+    <AvatarPrimitive.Image
+      data-slot="avatar-image"
+      className={cn("absolute inset-0 z-0 size-full object-cover", className)}
+      {...props}
+    />
+  )
+}
+
+function AvatarFallback({
+  className,
+  ...props
+}: AvatarPrimitive.Fallback.Props) {
+  return (
+    <AvatarPrimitive.Fallback
+      data-slot="avatar-fallback"
+      className={cn(
+        "relative z-0 flex size-full items-center justify-center",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Avatar, AvatarFallback, AvatarImage, avatarVariants }

@@ -18,11 +18,18 @@ const buttonVariants = cva(
           "border border-[#aeb3bc] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#3a3f47] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] before:opacity-60 [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
         destructive:
           "border border-[#a81f1f] bg-[linear-gradient(180deg,#ffc4c4_0%,#f7826c_42%,#e03a2f_50%,#f2604d_78%,#ffb09f_100%)] text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.75),inset_0_-3px_7px_rgba(255,255,255,0.5),0_1px_3px_rgba(130,20,20,0.35)] [text-shadow:0_-1px_1px_rgba(90,10,10,0.45)]",
+        outline:
+          "border border-[#8b909a] bg-[linear-gradient(180deg,#ffffff_0%,#f4f6f9_100%)] text-[#3a3f47] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.16)] before:opacity-40 [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
+        ghost:
+          "border border-transparent bg-transparent text-[#3a3f47] shadow-none before:opacity-0 [text-shadow:0_1px_0_rgba(255,255,255,0.8)] hover:border-[#c3c7cf] hover:bg-[linear-gradient(180deg,#fdfdfe_0%,#eceef2_100%)] hover:before:opacity-60",
       },
       size: {
+        xs: "px-3.5 py-1 text-xs",
         sm: "px-5 py-[7px] text-sm",
         default: "px-7 py-2.5 text-base",
         lg: "px-8 py-[13px] text-xl",
+        "icon-sm": "size-7 p-0 text-sm [&_svg:not([class*='size-'])]:size-3.5",
+        icon: "size-9 p-0 [&_svg:not([class*='size-'])]:size-4",
       },
     },
     defaultVariants: {
