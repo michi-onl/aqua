@@ -13,7 +13,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "border border-[var(--aqua-edge,#1c5fb8)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#b9dcff)_0%,var(--aqua-gel-light,#6cb0f7)_42%,var(--aqua-accent,#2f7de0)_50%,var(--aqua-gel-light,#4d9cf2)_78%,var(--aqua-gel-hi,#9fd7ff)_100%)] text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),inset_0_1px_3px_rgba(255,255,255,0.35),inset_0_-4px_8px_rgba(255,255,255,0.55),0_1px_3px_rgba(20,60,130,0.35)] [text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]",
+          "border border-[var(--aqua-edge,#1c5fb8)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#b9dcff)_0%,var(--aqua-gel-light,#6cb0f7)_42%,var(--aqua-accent,#2f7de0)_50%,var(--aqua-gel-light,#4d9cf2)_78%,var(--aqua-gel-hi,#9fd7ff)_100%)] text-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),inset_0_1px_3px_rgba(255,255,255,0.35),inset_0_-4px_8px_rgba(255,255,255,0.55),0_1px_3px_rgba(20,60,130,0.35)] [text-shadow:0_1px_0_rgba(255,255,255,0.5)]",
         secondary:
           "border border-[#7f8289] bg-[linear-gradient(180deg,#ffffff_0%,#e9ecf0_20%,#c9cdd4_46%,#ced2d9_54%,#eef0f3_74%,#ffffff_100%)] text-[#33383f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(20,60,130,0.2)] before:opacity-30 [text-shadow:0_1px_0_rgba(255,255,255,0.9)]",
         destructive:
