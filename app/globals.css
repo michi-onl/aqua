@@ -129,13 +129,15 @@
 
 /* The stripes are a 14px repeating-linear-gradient at 135deg, so one full period
    costs 14px / cos(45deg) = 14 * sqrt(2) of horizontal travel. Anything else leaves
-   a visible hitch each time the animation loops. */
+   a visible hitch each time the animation loops. Marching the layer with transform
+   rather than background-position keeps the diagonal pattern from tearing at a tile
+   seam mid-bar. */
 @keyframes aqua-progress-stripes {
   from {
-    background-position: 0 0;
+    transform: translateX(0);
   }
   to {
-    background-position: calc(14px * 1.41421356) 0;
+    transform: translateX(calc(14px * 1.4142135624));
   }
 }
 
