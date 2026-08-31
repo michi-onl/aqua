@@ -41,7 +41,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@michi.onl",
     title: "Aqua — the classic Apple UI, as a shadcn registry",
     description:
       "Glossy Mac OS X era components for shadcn/ui. Base UI underneath, Aqua on top.",
