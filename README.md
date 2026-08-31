@@ -48,7 +48,7 @@ import { Button } from "@/components/ui/button"
 
 ## Components
 
-**Core** — Alert, Avatar, Badge, Button, Checkbox, Code Block, Cursor, Dialog, Dropdown Menu, Input, Label, Loader, Progress, Radio Group, Select, Slider, Switch, Tabs, Textarea, Toast, Tooltip
+**Core** — Alert, Avatar, Badge, Button, Button Group, Card, Checkbox, Code Block, Collapsible, Cursor, Dialog, Dropdown Menu, Empty, Input, Item, Label, Loader, Progress, Radio Group, Select, Separator, Skeleton, Slider, Spinner, Switch, Table, Tabs, Textarea, Toast, Toggle, Tooltip
 
 **Signature** — the pieces that only make sense in this design language:
 

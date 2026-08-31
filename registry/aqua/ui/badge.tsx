@@ -18,6 +18,8 @@ const badgeVariants = cva(
           "border-[#aeb3bc] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#3a3f47]",
         destructive:
           "border-[#d9958d] bg-[linear-gradient(180deg,#fef6f5_0%,#fadfdc_48%,#f5c9c4_52%,#fbe7e5_100%)] text-[#a81f1f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(130,20,20,0.2)]",
+        outline:
+          "border-[#aeb3bc] bg-transparent text-[#4a4f57] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]",
       },
     },
     defaultVariants: {

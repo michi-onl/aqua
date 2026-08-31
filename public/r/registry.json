@@ -52,7 +52,7 @@
       "type": "registry:ui",
       "title": "Avatar",
       "description": "The iChat buddy icon: photo, initials over a gel color, or the classic generic silhouette.",
-      "dependencies": ["class-variance-authority"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/aqua/ui/avatar.tsx",
@@ -263,7 +263,7 @@
       "type": "registry:ui",
       "title": "Select",
       "description": "The Aqua popup button: glossy capsule with a gel arrow box, menu with gel highlight.",
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "devDependencies": ["tw-animate-css"],
       "files": [
         {
@@ -380,6 +380,145 @@
       "files": [
         {
           "path": "registry/aqua/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "The engraved divider: a gray hairline over a white one, cut into the panel.",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/aqua/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Pearl placeholder with a sheen sweeping across it while content loads.",
+      "css": {
+        "@keyframes aqua-skeleton-sheen": {
+          "from": {
+            "transform": "translateX(-100%)"
+          },
+          "to": {
+            "transform": "translateX(100%)"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/aqua/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "The twelve-spoke Loader at icon size, silenced to sit inline beside text.",
+      "registryDependencies": ["@aqua/loader"],
+      "files": [
+        {
+          "path": "registry/aqua/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "The era panel: white sheet, hairline border, brushed metal footer drawer.",
+      "files": [
+        {
+          "path": "registry/aqua/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Disclosure section that rotates its triangle and slides the panel open.",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/aqua/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A gel button that stays depressed: pressed sinks under an inner shadow.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/aqua/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "The list view: brushed metal column heads and alternating blue rows.",
+      "files": [
+        {
+          "path": "registry/aqua/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "A list row with media, title, description and actions, in three weights.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["@aqua/separator"],
+      "files": [
+        {
+          "path": "registry/aqua/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "The segmented control: pill ends kept, every inner seam squared off.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["@aqua/separator"],
+      "files": [
+        {
+          "path": "registry/aqua/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Dashed pinstripe placeholder for a list, folder or search with nothing in it.",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/aqua/ui/empty.tsx",
           "type": "registry:ui"
         }
       ]
