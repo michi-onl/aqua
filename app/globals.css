@@ -126,12 +126,15 @@
   --aqua-ring: color-mix(in oklab, var(--aqua-accent) 55%, white);
 }
 
+/* The stripes are a 14px repeating-linear-gradient at 135deg, so one full period
+   costs 14px / cos(45deg) = 14 * sqrt(2) of horizontal travel. Anything else leaves
+   a visible hitch each time the animation loops. */
 @keyframes aqua-progress-stripes {
   from {
     background-position: 0 0;
   }
   to {
-    background-position: 19.8px 0;
+    background-position: calc(14px * 1.41421356) 0;
   }
 }
 

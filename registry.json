@@ -311,7 +311,7 @@
             "background-position": "0 0"
           },
           "to": {
-            "background-position": "19.8px 0"
+            "background-position": "calc(14px * 1.41421356) 0"
           }
         }
       },
