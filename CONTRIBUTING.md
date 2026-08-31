@@ -25,4 +25,4 @@ This is the hill we die on. Before styling anything, check how it actually looke
 
 ## Commits
 
-Plain English, imperative mood, no scopes: `Add select: Aqua popup button on Radix Select`.
+Plain English, imperative mood, no scopes: `Add select: Aqua popup button on Base UI Select`.

@@ -402,8 +402,12 @@ export default function Home() {
                   one llms.txt.
                 </p>
                 <div className="mt-auto flex flex-col items-center gap-2 pt-3">
-                  <Button asChild variant="secondary" size="sm">
-                    <a href="/llms.txt">Learn more &#9656;</a>
+                  <Button
+                    render={<a href="/llms.txt" />}
+                    variant="secondary"
+                    size="sm"
+                  >
+                    Learn more &#9656;
                   </Button>
                   <span className="text-[11px] text-[#7a8089]">
                     Special pricing available.
@@ -430,8 +434,12 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="mt-auto pt-3">
-                  <Button asChild variant="secondary" size="sm">
-                    <Link href="/docs/cursor">Buy now &#9656;</Link>
+                  <Button
+                    render={<Link href="/docs/cursor" />}
+                    variant="secondary"
+                    size="sm"
+                  >
+                    Buy now &#9656;
                   </Button>
                 </div>
               </StoreBox>
@@ -460,10 +468,10 @@ export default function Home() {
                     Aqua Tooltip
                   </Link>
                   <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button variant="secondary" size="sm">
-                        hover me
-                      </Button>
+                    <TooltipTrigger
+                      render={<Button variant="secondary" size="sm" />}
+                    >
+                      hover me
                     </TooltipTrigger>
                     <TooltipContent>Add to cart</TooltipContent>
                   </Tooltip>

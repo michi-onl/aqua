@@ -78,7 +78,7 @@
       "type": "registry:ui",
       "title": "Dropdown Menu",
       "description": "Aqua context menu: white panel, gel highlight, checkable items and submenus.",
-      "dependencies": ["@radix-ui/react-dropdown-menu", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "devDependencies": ["tw-animate-css"],
       "files": [
         {
@@ -92,7 +92,7 @@
       "type": "registry:ui",
       "title": "Label",
       "description": "Etched form label in classic panel typography.",
-      "dependencies": ["@radix-ui/react-label"],
+      "dependencies": ["@base-ui/react"],
       "files": [
         {
           "path": "registry/aqua/ui/label.tsx",
@@ -105,7 +105,7 @@
       "type": "registry:ui",
       "title": "Radio Group",
       "description": "Glossy round radios that fill with gel and a white pip when selected.",
-      "dependencies": ["@radix-ui/react-radio-group"],
+      "dependencies": ["@base-ui/react"],
       "files": [
         {
           "path": "registry/aqua/ui/radio-group.tsx",
@@ -186,7 +186,7 @@
       "type": "registry:ui",
       "title": "Badge",
       "description": "Tinted capsule label in blue, glossy gray and red.",
-      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/aqua/ui/badge.tsx",
@@ -199,7 +199,7 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "Glossy Aqua pill button with gel highlight, in blue, capsule and red.",
-      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/aqua/ui/button.tsx",
@@ -212,7 +212,7 @@
       "type": "registry:ui",
       "title": "Tabs",
       "description": "Aqua tab bar with glossy active state over a pinstripe content pane.",
-      "dependencies": ["@radix-ui/react-tabs"],
+      "dependencies": ["@base-ui/react"],
       "files": [
         {
           "path": "registry/aqua/ui/tabs.tsx",
@@ -237,7 +237,7 @@
       "type": "registry:ui",
       "title": "Checkbox",
       "description": "Glossy square that fills with blue gel when checked.",
-      "dependencies": ["@radix-ui/react-checkbox", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/aqua/ui/checkbox.tsx",
@@ -250,7 +250,7 @@
       "type": "registry:ui",
       "title": "Switch",
       "description": "Gel toggle with a polished metal thumb.",
-      "dependencies": ["@radix-ui/react-switch"],
+      "dependencies": ["@base-ui/react"],
       "files": [
         {
           "path": "registry/aqua/ui/switch.tsx",
@@ -263,7 +263,7 @@
       "type": "registry:ui",
       "title": "Select",
       "description": "The Aqua popup button: glossy capsule with a gel arrow box, menu with gel highlight.",
-      "dependencies": ["@radix-ui/react-select", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "devDependencies": ["tw-animate-css"],
       "files": [
         {
@@ -277,7 +277,7 @@
       "type": "registry:ui",
       "title": "Slider",
       "description": "iTunes volume slider: groove track, blue gel range, polished knob.",
-      "dependencies": ["@radix-ui/react-slider"],
+      "dependencies": ["@base-ui/react"],
       "files": [
         {
           "path": "registry/aqua/ui/slider.tsx",
@@ -290,7 +290,7 @@
       "type": "registry:ui",
       "title": "Dialog",
       "description": "The Aqua alert panel: soft gradient sheet with a deep drop shadow.",
-      "dependencies": ["@radix-ui/react-dialog"],
+      "dependencies": ["@base-ui/react"],
       "devDependencies": ["tw-animate-css"],
       "files": [
         {
@@ -304,7 +304,7 @@
       "type": "registry:ui",
       "title": "Progress",
       "description": "The iconic striped blue barber-pole progress bar.",
-      "dependencies": ["@radix-ui/react-progress"],
+      "dependencies": ["@base-ui/react"],
       "css": {
         "@keyframes aqua-progress-stripes": {
           "from": {
@@ -375,7 +375,7 @@
       "type": "registry:ui",
       "title": "Tooltip",
       "description": "Dock-style label tooltip: dark translucent capsule with white text.",
-      "dependencies": ["@radix-ui/react-tooltip"],
+      "dependencies": ["@base-ui/react"],
       "devDependencies": ["tw-animate-css"],
       "files": [
         {

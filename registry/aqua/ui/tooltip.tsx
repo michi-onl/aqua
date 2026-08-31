@@ -1,21 +1,15 @@
 "use client"
 
 import * as React from "react"
-import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip"
 
 import { cn } from "@/lib/utils"
 
 function TooltipProvider({
-  delayDuration = 200,
+  delay = 200,
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
-  return (
-    <TooltipPrimitive.Provider
-      data-slot="tooltip-provider"
-      delayDuration={delayDuration}
-      {...props}
-    />
-  )
+  return <TooltipPrimitive.Provider delay={delay} {...props} />
 }
 
 function Tooltip({
@@ -23,7 +17,7 @@ function Tooltip({
 }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
   return (
     <TooltipProvider>
-      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+      <TooltipPrimitive.Root {...props} />
     </TooltipProvider>
   )
 }
@@ -37,22 +31,36 @@ function TooltipTrigger({
 function TooltipContent({
   className,
   sideOffset = 8,
+  side,
+  align,
+  alignOffset,
   children,
   ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
+}: React.ComponentProps<typeof TooltipPrimitive.Popup> &
+  Pick<
+    React.ComponentProps<typeof TooltipPrimitive.Positioner>,
+    "side" | "align" | "sideOffset" | "alignOffset"
+  >) {
   return (
     <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Content
-        data-slot="tooltip-content"
+      <TooltipPrimitive.Positioner
+        className="z-50 outline-none"
         sideOffset={sideOffset}
-        className={cn(
-          "z-50 w-fit max-w-64 rounded-[3px] border border-[#9a9a6e] bg-[#ffffc7] px-2 py-[3px] text-[11px] leading-snug text-black shadow-[0_2px_5px_rgba(20,30,50,0.35)] animate-in fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
-          className
-        )}
-        {...props}
+        side={side}
+        align={align}
+        alignOffset={alignOffset}
       >
-        {children}
-      </TooltipPrimitive.Content>
+        <TooltipPrimitive.Popup
+          data-slot="tooltip-content"
+          className={cn(
+            "w-fit max-w-64 origin-[var(--transform-origin)] rounded-[3px] border border-[#9a9a6e] bg-[#ffffc7] px-2 py-[3px] text-[11px] leading-snug text-black shadow-[0_2px_5px_rgba(20,30,50,0.35)] transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0",
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </TooltipPrimitive.Popup>
+      </TooltipPrimitive.Positioner>
     </TooltipPrimitive.Portal>
   )
 }
