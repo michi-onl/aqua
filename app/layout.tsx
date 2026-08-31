@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "react components",
     "design system",
     "tailwind",
-    "radix",
+    "base ui",
     "retro ui",
     "apple aqua interface",
   ],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Aqua",
     title: "Aqua — the classic Apple UI, as a shadcn registry",
     description:
-      "Glossy Mac OS X era components for shadcn/ui. Radix underneath, Aqua on top.",
+      "Glossy Mac OS X era components for shadcn/ui. Base UI underneath, Aqua on top.",
     locale: "en_US",
   },
   twitter: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     creator: "@ducaswtf",
     title: "Aqua — the classic Apple UI, as a shadcn registry",
     description:
-      "Glossy Mac OS X era components for shadcn/ui. Radix underneath, Aqua on top.",
+      "Glossy Mac OS X era components for shadcn/ui. Base UI underneath, Aqua on top.",
   },
   robots: {
     index: true,
@@ -66,7 +66,7 @@ const JSON_LD = JSON.stringify({
       name: "Aqua",
       url: SITE_URL,
       description:
-        "Glossy Mac OS X era components for shadcn/ui. Radix underneath, Aqua on top.",
+        "Glossy Mac OS X era components for shadcn/ui. Base UI underneath, Aqua on top.",
       author: { "@type": "Person", name: "Igor Duca", url: "https://duca.dev" },
     },
     {

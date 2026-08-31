@@ -102,8 +102,8 @@ export const DOCS: Record<string, Doc> = {
           Aqua is a set of glossy, skeuomorphic components in the visual
           language Apple shipped between 2000 and 2007: gel buttons, pinstripe
           panes, brushed metal and Dock labels. Underneath the gloss, every
-          component is built on Radix primitives, so keyboard navigation, focus
-          management and ARIA semantics come for free.
+          component is built on Base UI primitives, so keyboard navigation,
+          focus management and ARIA semantics come for free.
         </p>
         <p>
           Like everything in the shadcn ecosystem, Aqua is not a package you
@@ -393,16 +393,24 @@ import { InfoIcon } from "lucide-react"
           <label className="flex items-center gap-2 text-[13px]">
             <Checkbox /> Empty Trash securely
           </label>
+          <label className="flex items-center gap-2 text-[13px]">
+            <Checkbox indeterminate /> Some items selected
+          </label>
           <label className="flex items-center gap-2 text-[13px] opacity-70">
             <Checkbox disabled /> Requires restart
           </label>
         </Preview>
         <InstallCommand name="checkbox" />
         <SectionTitle>Usage</SectionTitle>
+        <p>
+          Set <code>indeterminate</code> for a partial selection: the box fills
+          with the same blue gel and shows a dash instead of a check.
+        </p>
         <CodeBlock
           code={`import { Checkbox } from "@/components/ui/checkbox"
 
-<Checkbox defaultChecked />`}
+<Checkbox defaultChecked />
+<Checkbox indeterminate />`}
         />
       </>
     ),
@@ -504,8 +512,8 @@ import { InfoIcon } from "lucide-react"
       <>
         <Preview>
           <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="secondary">show dialog</Button>
+            <DialogTrigger render={<Button variant="secondary" />}>
+              show dialog
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
@@ -518,15 +526,15 @@ import { InfoIcon } from "lucide-react"
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter>
-                <DialogClose asChild>
-                  <Button variant="secondary" size="sm">
-                    Cancel
-                  </Button>
+                <DialogClose
+                  render={<Button variant="secondary" size="sm" />}
+                >
+                  Cancel
                 </DialogClose>
-                <DialogClose asChild>
-                  <Button variant="destructive" size="sm">
-                    Empty Trash
-                  </Button>
+                <DialogClose
+                  render={<Button variant="destructive" size="sm" />}
+                >
+                  Empty Trash
                 </DialogClose>
               </DialogFooter>
             </DialogContent>
@@ -546,8 +554,8 @@ import { InfoIcon } from "lucide-react"
 } from "@/components/ui/dialog"
 
 <Dialog>
-  <DialogTrigger asChild>
-    <Button variant="secondary">show dialog</Button>
+  <DialogTrigger render={<Button variant="secondary" />}>
+    show dialog
   </DialogTrigger>
   <DialogContent>
     <DialogHeader>
@@ -638,8 +646,8 @@ import { InfoIcon } from "lucide-react"
       <>
         <Preview>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary">Action</Button>
+            <DropdownMenuTrigger render={<Button variant="secondary" />}>
+              Action
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem>
@@ -653,8 +661,8 @@ import { InfoIcon } from "lucide-react"
                 Show Item Info
               </DropdownMenuCheckboxItem>
               <DropdownMenuSeparator />
-              <DropdownMenuLabel>Arrange By</DropdownMenuLabel>
               <DropdownMenuRadioGroup value="name">
+                <DropdownMenuLabel>Arrange By</DropdownMenuLabel>
                 <DropdownMenuRadioItem value="name">Name</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="kind">Kind</DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
@@ -668,6 +676,12 @@ import { InfoIcon } from "lucide-react"
         </Preview>
         <InstallCommand name="dropdown-menu" />
         <SectionTitle>Usage</SectionTitle>
+        <p>
+          <code>DropdownMenuLabel</code> labels the group it sits in, so it has
+          to be nested inside a <code>DropdownMenuGroup</code> or{" "}
+          <code>DropdownMenuRadioGroup</code> rather than dropped straight into
+          the menu.
+        </p>
         <CodeBlock
           code={`import {
   DropdownMenu,
@@ -677,8 +691,8 @@ import { InfoIcon } from "lucide-react"
 } from "@/components/ui/dropdown-menu"
 
 <DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="secondary">Action</Button>
+  <DropdownMenuTrigger render={<Button variant="secondary" />}>
+    Action
   </DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuItem>Get Info</DropdownMenuItem>
@@ -835,7 +849,17 @@ import { InfoIcon } from "lucide-react"
     body: (
       <>
         <Preview>
-          <Select defaultValue="aqua">
+          <Select
+            defaultValue="aqua"
+            items={{
+              aqua: "Blue",
+              graphite: "Graphite",
+              gold: "Gold",
+              lime: "Lime",
+              strawberry: "Strawberry",
+              tangerine: "Tangerine (requires 10.4)",
+            }}
+          >
             <SelectTrigger>
               <SelectValue placeholder="Appearance" />
             </SelectTrigger>
@@ -859,6 +883,12 @@ import { InfoIcon } from "lucide-react"
         </Preview>
         <InstallCommand name="select" />
         <SectionTitle>Usage</SectionTitle>
+        <p>
+          Pass <code>items</code> to <code>Select</code> so the trigger can
+          render a selected item&rsquo;s label. Without it the trigger shows the
+          raw value, because the value text is resolved from this map rather
+          than read back out of the open menu.
+        </p>
         <CodeBlock
           code={`import {
   Select,
@@ -868,7 +898,10 @@ import { InfoIcon } from "lucide-react"
   SelectValue,
 } from "@/components/ui/select"
 
-<Select defaultValue="aqua">
+<Select
+  defaultValue="aqua"
+  items={{ aqua: "Blue", graphite: "Graphite" }}
+>
   <SelectTrigger>
     <SelectValue placeholder="Appearance" />
   </SelectTrigger>
@@ -950,8 +983,8 @@ import { InfoIcon } from "lucide-react"
             </TabsContent>
             <TabsContent value="advanced">
               <p className="text-sm">
-                Radix primitives underneath: keyboard navigation and ARIA out
-                of the box.
+                Base UI primitives underneath: keyboard navigation and ARIA
+                out of the box.
               </p>
             </TabsContent>
           </Tabs>
@@ -1128,8 +1161,8 @@ toast({ variant: "destructive", title: "Disk not ejected properly" })`}
       <>
         <Preview>
           <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="secondary">hover me</Button>
+            <TooltipTrigger render={<Button variant="secondary" />}>
+              hover me
             </TooltipTrigger>
             <TooltipContent>Aqua Tooltip</TooltipContent>
           </Tooltip>
@@ -1140,8 +1173,8 @@ toast({ variant: "destructive", title: "Disk not ejected properly" })`}
           code={`import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 <Tooltip>
-  <TooltipTrigger asChild>
-    <Button variant="secondary">hover me</Button>
+  <TooltipTrigger render={<Button variant="secondary" />}>
+    hover me
   </TooltipTrigger>
   <TooltipContent>Aqua Tooltip</TooltipContent>
 </Tooltip>`}
