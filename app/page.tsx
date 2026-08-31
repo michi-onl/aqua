@@ -1,39 +1,48 @@
-import Link from "next/link"
-import { HomeIcon, ShoppingCartIcon } from "lucide-react"
+import { HomeIcon, ShoppingCartIcon } from "lucide-react";
+import Link from "next/link";
 
-import { CommandPalette } from "@/components/command-palette"
-import { ToastPromoButton } from "@/components/store-promos"
-import { Avatar } from "@/registry/aqua/ui/avatar"
-import { Badge } from "@/registry/aqua/ui/badge"
-import { Button } from "@/registry/aqua/ui/button"
-import { ChatBubble, ChatPanel } from "@/registry/aqua/ui/chat-bubble"
-import { Checkbox } from "@/registry/aqua/ui/checkbox"
-import { Dock, DockIcon, DockItem } from "@/registry/aqua/ui/dock"
-import { ClickWheel, IPod, IPodHeader, IPodScreen } from "@/registry/aqua/ui/ipod"
-import { Loader } from "@/registry/aqua/ui/loader"
-import { Progress } from "@/registry/aqua/ui/progress"
-import { Slider } from "@/registry/aqua/ui/slider"
-import { Switch } from "@/registry/aqua/ui/switch"
+import { CommandPalette } from "@/components/command-palette";
+import { ToastPromoButton } from "@/components/store-promos";
+import { Avatar } from "@/registry/aqua/ui/avatar";
+import { Badge } from "@/registry/aqua/ui/badge";
+import { Button } from "@/registry/aqua/ui/button";
+import { ChatBubble, ChatPanel } from "@/registry/aqua/ui/chat-bubble";
+import { Checkbox } from "@/registry/aqua/ui/checkbox";
+import { Dock, DockIcon, DockItem } from "@/registry/aqua/ui/dock";
+import {
+  ClickWheel,
+  IPod,
+  IPodHeader,
+  IPodScreen,
+} from "@/registry/aqua/ui/ipod";
+import { Loader } from "@/registry/aqua/ui/loader";
+import { Progress } from "@/registry/aqua/ui/progress";
+import { Slider } from "@/registry/aqua/ui/slider";
+import { Switch } from "@/registry/aqua/ui/switch";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/registry/aqua/ui/tooltip"
+} from "@/registry/aqua/ui/tooltip";
 import {
   TrafficLights,
   Window,
   WindowContent,
   WindowTitle,
   WindowTitlebar,
-} from "@/registry/aqua/ui/window"
+} from "@/registry/aqua/ui/window";
 
 const NAV_TABS = [
   { label: "Store", href: "/", active: true },
   { label: "Components", href: "/docs/button" },
   { label: "Docs", href: "/docs/introduction" },
   { label: "Demos", href: "/demo/mail" },
-  { label: "GitHub", href: "https://github.com/igorfelipeduca/aqua", external: true },
-]
+  {
+    label: "GitHub",
+    href: "https://github.com/michi-onl/aqua",
+    external: true,
+  },
+];
 
 const FORM_PICKS = [
   { title: "Input", slug: "input" },
@@ -44,7 +53,7 @@ const FORM_PICKS = [
   { title: "Switch", slug: "switch" },
   { title: "Textarea", slug: "textarea" },
   { title: "Label", slug: "label" },
-]
+];
 
 const FEEDBACK_PICKS = [
   { title: "Alert", slug: "alert" },
@@ -53,7 +62,7 @@ const FEEDBACK_PICKS = [
   { title: "Progress", slug: "progress" },
   { title: "Tooltip", slug: "tooltip" },
   { title: "Dialog", slug: "dialog" },
-]
+];
 
 const NEW_TO_STORE = [
   { title: "Loader", slug: "loader" },
@@ -66,10 +75,23 @@ const NEW_TO_STORE = [
   { title: "Radio Group", slug: "radio-group" },
   { title: "Label", slug: "label" },
   { title: "Textarea", slug: "textarea" },
-]
+];
 
-const TOP_SELLERS_CORE = ["button", "tabs", "input", "select", "dialog", "switch"]
-const TOP_SELLERS_SIGNATURE = ["ipod", "dock", "window", "chat-bubble", "cursor"]
+const TOP_SELLERS_CORE = [
+  "button",
+  "tabs",
+  "input",
+  "select",
+  "dialog",
+  "switch",
+];
+const TOP_SELLERS_SIGNATURE = [
+  "ipod",
+  "dock",
+  "window",
+  "chat-bubble",
+  "cursor",
+];
 
 const SLUG_TITLES: Record<string, string> = {
   button: "Button",
@@ -83,28 +105,30 @@ const SLUG_TITLES: Record<string, string> = {
   window: "Window",
   "chat-bubble": "Chat Bubble",
   cursor: "Cursor",
-}
+};
 
 function StoreHeader({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-8 items-center bg-[linear-gradient(180deg,#4a6f9e_0%,#2c5083_50%,#1d3d6b_51%,#2a4b7c_100%)] px-3 text-[13px] font-bold text-white [text-shadow:0_-1px_0_rgba(0,0,0,0.35)]">
       {children}
     </div>
-  )
+  );
 }
 
 function StoreBox({
   children,
   className = "",
 }: {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className={`overflow-hidden rounded-[4px] border border-[#c4c9d1] bg-white ${className}`}>
+    <div
+      className={`overflow-hidden rounded-[4px] border border-[#c4c9d1] bg-white ${className}`}
+    >
       {children}
     </div>
-  )
+  );
 }
 
 function ProductCell({
@@ -114,11 +138,11 @@ function ProductCell({
   children,
   tall = false,
 }: {
-  title: string
-  slug: string
-  price: string
-  children: React.ReactNode
-  tall?: boolean
+  title: string;
+  slug: string;
+  price: string;
+  children: React.ReactNode;
+  tall?: boolean;
 }) {
   return (
     <div className="flex flex-col items-center gap-1.5 px-3 py-5">
@@ -137,7 +161,7 @@ function ProductCell({
       </Link>
       <span className="text-[12px] text-[#7a8089]">{price}</span>
     </div>
-  )
+  );
 }
 
 function SideLink({ title, slug }: { title: string; slug: string }) {
@@ -150,7 +174,7 @@ function SideLink({ title, slug }: { title: string; slug: string }) {
         {title}
       </Link>
     </li>
-  )
+  );
 }
 
 export default function Home() {
@@ -188,7 +212,7 @@ export default function Home() {
               >
                 {tab.label}
               </Link>
-            )
+            ),
           )}
           <div className="flex items-center px-2">
             <CommandPalette />
@@ -205,7 +229,7 @@ export default function Home() {
             </Link>
             <span className="text-[#c9ccd1]">|</span>
             <a
-              href="https://github.com/igorfelipeduca"
+              href="https://github.com/michi-onl"
               target="_blank"
               rel="noreferrer"
               className="hover:underline"
@@ -231,7 +255,9 @@ export default function Home() {
                 </p>
                 <div className="mt-1 flex items-center justify-between rounded-full bg-white px-3 py-1 text-[11px] text-[#7a8089] shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]">
                   Search Store
-                  <kbd className="font-sans text-[10px] text-[#9aa0aa]">&#8984;K</kbd>
+                  <kbd className="font-sans text-[10px] text-[#9aa0aa]">
+                    &#8984;K
+                  </kbd>
                 </div>
               </div>
             </StoreBox>
@@ -239,39 +265,60 @@ export default function Home() {
             <StoreBox className="bg-[#f4f5f8]">
               <ul className="flex flex-col gap-0.5 p-3 text-[13px] font-bold">
                 <li>
-                  <Link href="/docs/button" className="text-[#1c5fb8] hover:underline">
+                  <Link
+                    href="/docs/button"
+                    className="text-[#1c5fb8] hover:underline"
+                  >
                     Shop Components
                   </Link>
                 </li>
                 <li>
-                  <Link href="/docs/ipod" className="text-[#1c5fb8] hover:underline">
+                  <Link
+                    href="/docs/ipod"
+                    className="text-[#1c5fb8] hover:underline"
+                  >
                     Shop Signature
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo/mail" className="text-[#1c5fb8] hover:underline">
+                  <Link
+                    href="/demo/mail"
+                    className="text-[#1c5fb8] hover:underline"
+                  >
                     Shop Demos
                   </Link>
                 </li>
               </ul>
               <ul className="flex flex-col gap-0.5 border-t border-[#d2d5da] p-3 text-[12px]">
                 <li>
-                  <Link href="/docs/introduction" className="text-[#1c5fb8] hover:underline">
+                  <Link
+                    href="/docs/introduction"
+                    className="text-[#1c5fb8] hover:underline"
+                  >
                     Introduction
                   </Link>
                 </li>
                 <li>
-                  <Link href="/docs/installation" className="text-[#1c5fb8] hover:underline">
+                  <Link
+                    href="/docs/installation"
+                    className="text-[#1c5fb8] hover:underline"
+                  >
                     Installation
                   </Link>
                 </li>
                 <li>
-                  <Link href="/docs/theming" className="text-[#1c5fb8] hover:underline">
+                  <Link
+                    href="/docs/theming"
+                    className="text-[#1c5fb8] hover:underline"
+                  >
                     Theming
                   </Link>
                 </li>
                 <li>
-                  <a href="/llms.txt" className="text-[#1c5fb8] hover:underline">
+                  <a
+                    href="/llms.txt"
+                    className="text-[#1c5fb8] hover:underline"
+                  >
                     For AI Agents
                   </a>
                 </li>
@@ -334,7 +381,9 @@ export default function Home() {
                 <ProductCell title="Dock" slug="dock" price="Now $0" tall>
                   <Dock className="gap-2.5 px-3.5 pb-2 pt-2.5">
                     <DockItem label="Finder">
-                      <DockIcon className="size-9 rounded-[9px] text-sm">A</DockIcon>
+                      <DockIcon className="size-9 rounded-[9px] text-sm">
+                        A
+                      </DockIcon>
                     </DockItem>
                     <DockItem label="Mail">
                       <DockIcon className="size-9 rounded-[9px] bg-[linear-gradient(180deg,#b8f2a2_0%,#6cc94a_55%,#4aa82e_100%)] text-sm">
@@ -348,7 +397,12 @@ export default function Home() {
                     </DockItem>
                   </Dock>
                 </ProductCell>
-                <ProductCell title="Chat Bubble" slug="chat-bubble" price="From $0" tall>
+                <ProductCell
+                  title="Chat Bubble"
+                  slug="chat-bubble"
+                  price="From $0"
+                  tall
+                >
                   <ChatPanel className="w-[170px] gap-1.5 p-3 text-[12px]">
                     <ChatBubble className="px-3 py-1.5 text-[12px]">
                       we&apos;re so back
@@ -424,7 +478,11 @@ export default function Home() {
                     <span>Now $0</span>
                     <span>Ships within 24 hours.</span>
                   </div>
-                  <svg viewBox="0 0 20 22" aria-hidden="true" className="h-12 w-11">
+                  <svg
+                    viewBox="0 0 20 22"
+                    aria-hidden="true"
+                    className="h-12 w-11"
+                  >
                     <path
                       d="M5.9 2.5 L5.9 17.5 L9.5 14.1 L11.9 19.6 L14.5 18.4 L12.1 13 L17.1 13 Z"
                       fill="#fff"
@@ -551,31 +609,31 @@ export default function Home() {
 
         <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-[#d2d5da] pt-3 text-[11px] text-[#7a8089]">
           <span>
-            All components ship free, as open code, via npx shadcn. A tribute
-            to the 2007 Apple Store &mdash; no affiliation with Apple.
+            All components ship free, as open code, via npx shadcn. A tribute to
+            the 2007 Apple Store &mdash; no affiliation with Apple.
           </span>
           <span>
             Made by{" "}
             <a
               className="font-semibold text-[#1c5fb8] hover:underline"
-              href="https://duca.dev"
+              href="https://michi.onl"
               target="_blank"
               rel="noreferrer"
             >
-              Igor Duca
+              michi.onl
             </a>{" "}
             <a
               className="text-[#1c5fb8] hover:underline"
-              href="https://x.com/ducaswtf"
+              href="https://bsky.app/profile/michi.onl"
               target="_blank"
               rel="noreferrer"
             >
-              @ducaswtf
+              @michi.onl
             </a>{" "}
             &middot; &copy; 2026
           </span>
         </footer>
       </div>
     </div>
-  )
+  );
 }

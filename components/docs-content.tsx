@@ -1,20 +1,53 @@
-import Image from "next/image"
-import Link from "next/link"
 import {
   ChevronRightIcon,
   FolderOpenIcon,
   InfoIcon,
   OctagonXIcon,
   TriangleAlertIcon,
-} from "lucide-react"
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-import { CodeBlock, InstallCommand } from "@/components/code-block"
-import { Alert, AlertDescription, AlertTitle } from "@/registry/aqua/ui/alert"
+import { CodeBlock, InstallCommand } from "@/components/code-block";
+import { IPodDemo } from "@/components/ipod-demo";
+import { ThemePicker } from "@/components/theme-picker";
+import { ToastDemo } from "@/components/toast-demo";
+import { Alert, AlertDescription, AlertTitle } from "@/registry/aqua/ui/alert";
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/aqua/ui/avatar";
+import { Badge } from "@/registry/aqua/ui/badge";
+import { Button } from "@/registry/aqua/ui/button";
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/aqua/ui/avatar"
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+} from "@/registry/aqua/ui/button-group";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/aqua/ui/card";
+import { ChatBubble, ChatPanel } from "@/registry/aqua/ui/chat-bubble";
+import { Checkbox } from "@/registry/aqua/ui/checkbox";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/aqua/ui/collapsible";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/registry/aqua/ui/dialog";
+import { Dock, DockItem } from "@/registry/aqua/ui/dock";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -26,35 +59,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/registry/aqua/ui/dropdown-menu"
-import { Label } from "@/registry/aqua/ui/label"
-import { Loader } from "@/registry/aqua/ui/loader"
-import { RadioGroup, RadioGroupItem } from "@/registry/aqua/ui/radio-group"
-import { Textarea } from "@/registry/aqua/ui/textarea"
-import { IPodDemo } from "@/components/ipod-demo"
-import { ThemePicker } from "@/components/theme-picker"
-import { ToastDemo } from "@/components/toast-demo"
-import { Badge } from "@/registry/aqua/ui/badge"
-import { Button } from "@/registry/aqua/ui/button"
-import {
-  ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-} from "@/registry/aqua/ui/button-group"
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/registry/aqua/ui/card"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/aqua/ui/collapsible"
+} from "@/registry/aqua/ui/dropdown-menu";
 import {
   Empty,
   EmptyContent,
@@ -62,7 +67,8 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/registry/aqua/ui/empty"
+} from "@/registry/aqua/ui/empty";
+import { Input } from "@/registry/aqua/ui/input";
 import {
   Item,
   ItemActions,
@@ -72,42 +78,11 @@ import {
   ItemMedia,
   ItemSeparator,
   ItemTitle,
-} from "@/registry/aqua/ui/item"
-import { Separator } from "@/registry/aqua/ui/separator"
-import { Skeleton } from "@/registry/aqua/ui/skeleton"
-import { Spinner } from "@/registry/aqua/ui/spinner"
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/registry/aqua/ui/table"
-import { Toggle } from "@/registry/aqua/ui/toggle"
-import { ChatBubble, ChatPanel } from "@/registry/aqua/ui/chat-bubble"
-import { Checkbox } from "@/registry/aqua/ui/checkbox"
-import { Dock, DockItem } from "@/registry/aqua/ui/dock"
-import {
-  TrafficLights,
-  Window,
-  WindowContent,
-  WindowTitle,
-  WindowTitlebar,
-} from "@/registry/aqua/ui/window"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/registry/aqua/ui/dialog"
-import { Input } from "@/registry/aqua/ui/input"
-import { Progress } from "@/registry/aqua/ui/progress"
+} from "@/registry/aqua/ui/item";
+import { Label } from "@/registry/aqua/ui/label";
+import { Loader } from "@/registry/aqua/ui/loader";
+import { Progress } from "@/registry/aqua/ui/progress";
+import { RadioGroup, RadioGroupItem } from "@/registry/aqua/ui/radio-group";
 import {
   Select,
   SelectContent,
@@ -116,40 +91,61 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/registry/aqua/ui/select"
-import { Slider } from "@/registry/aqua/ui/slider"
-import { Switch } from "@/registry/aqua/ui/switch"
+} from "@/registry/aqua/ui/select";
+import { Separator } from "@/registry/aqua/ui/separator";
+import { Skeleton } from "@/registry/aqua/ui/skeleton";
+import { Slider } from "@/registry/aqua/ui/slider";
+import { Spinner } from "@/registry/aqua/ui/spinner";
+import { Switch } from "@/registry/aqua/ui/switch";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/registry/aqua/ui/table";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/aqua/ui/tabs"
+} from "@/registry/aqua/ui/tabs";
+import { Textarea } from "@/registry/aqua/ui/textarea";
+import { Toggle } from "@/registry/aqua/ui/toggle";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/registry/aqua/ui/tooltip"
+} from "@/registry/aqua/ui/tooltip";
+import {
+  TrafficLights,
+  Window,
+  WindowContent,
+  WindowTitle,
+  WindowTitlebar,
+} from "@/registry/aqua/ui/window";
 
 function Preview({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-[220px] flex-wrap items-center justify-center gap-4 rounded-xl border border-[#aeb3bc] bg-white px-4 py-8 shadow-[0_2px_10px_rgba(20,30,50,0.08)] sm:p-10">
       {children}
     </div>
-  )
+  );
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="mt-4 text-lg font-semibold tracking-tight">{children}</h2>
-  )
+  );
 }
 
 export type Doc = {
-  title: string
-  description: string
-  body: React.ReactNode
-}
+  title: string;
+  description: string;
+  body: React.ReactNode;
+};
 
 export const DOCS: Record<string, Doc> = {
   introduction: {
@@ -178,21 +174,21 @@ export const DOCS: Record<string, Doc> = {
         <p>
           Aqua is designed and built by{" "}
           <a
-            href="https://duca.dev"
+            href="https://michi.onl"
             target="_blank"
             rel="noreferrer"
             className="font-semibold text-[#1c5fb8] hover:underline"
           >
-            Igor Duca
+            michi.onl
           </a>{" "}
           (
           <a
-            href="https://x.com/ducaswtf"
+            href="https://bsky.app/profile/michi.onl"
             target="_blank"
             rel="noreferrer"
             className="text-[#1c5fb8] hover:underline"
           >
-            @ducaswtf
+            @michi.onl
           </a>
           ).
         </p>
@@ -211,7 +207,7 @@ export const DOCS: Record<string, Doc> = {
         <CodeBlock
           code={`{
   "registries": {
-    "@aqua": "https://aqua.duca.dev/r/{name}.json"
+    "@aqua": "https://aqua.michi.onl/r/{name}.json"
   }
 }`}
         />
@@ -240,8 +236,8 @@ export const DOCS: Record<string, Doc> = {
         <InstallCommand name="theme" />
         <SectionTitle>Accent color</SectionTitle>
         <p>
-          Buttons, tabs, checkboxes, switches, sliders and progress bars all
-          mix their gradients from <code>--aqua-accent</code> with{" "}
+          Buttons, tabs, checkboxes, switches, sliders and progress bars all mix
+          their gradients from <code>--aqua-accent</code> with{" "}
           <code>color-mix()</code>. Try it live:
         </p>
         <ThemePicker />
@@ -296,7 +292,8 @@ export const DOCS: Record<string, Doc> = {
   },
   alert: {
     title: "Alert",
-    description: "Soft gradient notice panel in note, caution and stop flavors.",
+    description:
+      "Soft gradient notice panel in note, caution and stop flavors.",
     body: (
       <>
         <Preview>
@@ -356,14 +353,23 @@ import { InfoIcon } from "lucide-react"
         <Preview>
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-4">
-              <Avatar size="lg" src="https://github.com/igorfelipeduca.png" alt="Igor Duca" />
+              <Avatar
+                size="lg"
+                src="https://github.com/michi-onl.png"
+                alt="michi.onl"
+              />
               <Avatar size="lg" initials="SJ" />
               <Avatar size="lg" initials="ID" color="#e02f6b" />
               <Avatar size="lg" initials="JI" randomColor />
               <Avatar size="lg" alt="Unknown buddy" />
             </div>
             <div className="flex items-center gap-4">
-              <Avatar size="lg" shape="circle" src="https://github.com/igorfelipeduca.png" alt="Igor Duca" />
+              <Avatar
+                size="lg"
+                shape="circle"
+                src="https://github.com/michi-onl.png"
+                alt="michi.onl"
+              />
               <Avatar size="lg" shape="circle" initials="SJ" />
               <Avatar size="lg" shape="circle" initials="ID" color="#e02f6b" />
               <Avatar size="lg" shape="circle" initials="JI" randomColor />
@@ -376,7 +382,7 @@ import { InfoIcon } from "lucide-react"
         <CodeBlock
           code={`import { Avatar } from "@/components/ui/avatar"
 
-<Avatar src="/buddy.png" alt="Igor Duca" />
+<Avatar src="/buddy.png" alt="michi.onl" />
 <Avatar initials="SJ" />
 <Avatar initials="ID" color="#e02f6b" />
 <Avatar initials="JI" randomColor />
@@ -391,10 +397,7 @@ import { InfoIcon } from "lucide-react"
         </p>
         <Preview>
           <Avatar size="lg">
-            <AvatarImage
-              src="https://github.com/igorfelipeduca.png"
-              alt="Igor Duca"
-            />
+            <AvatarImage src="https://github.com/michi-onl.png" alt="michi.onl" />
             <AvatarFallback>ID</AvatarFallback>
           </Avatar>
           <Avatar size="lg" shape="circle">
@@ -406,7 +409,7 @@ import { InfoIcon } from "lucide-react"
           code={`import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 <Avatar>
-  <AvatarImage src="/buddy.png" alt="Igor Duca" />
+  <AvatarImage src="/buddy.png" alt="michi.onl" />
   <AvatarFallback>ID</AvatarFallback>
 </Avatar>`}
         />
@@ -545,9 +548,9 @@ import { InfoIcon } from "lucide-react"
           >
             shiki
           </a>{" "}
-          at render time, so no highlighter ships to the client. The copy
-          button in the corner is a separate client island — every snippet on
-          this site, including this one, is this exact component.
+          at render time, so no highlighter ships to the client. The copy button
+          in the corner is a separate client island — every snippet on this
+          site, including this one, is this exact component.
         </p>
       </>
     ),
@@ -579,8 +582,8 @@ import { InfoIcon } from "lucide-react"
         <InstallCommand name="cursor" />
         <SectionTitle>Usage</SectionTitle>
         <p>
-          Wrap your app once — <code>cursor</code> is an inherited CSS
-          property, so everything inside gets the era pointers:
+          Wrap your app once — <code>cursor</code> is an inherited CSS property,
+          so everything inside gets the era pointers:
         </p>
         <CodeBlock
           code={`import { AquaCursor } from "@/components/ui/cursor"
@@ -593,10 +596,8 @@ import { InfoIcon } from "lucide-react"
           The three cursors are inline SVG data URIs: the black arrow with its
           white outline, the white pointing hand for links, and a seriffed
           I-beam over selectable text and text fields. No image assets, and the
-          native cursor stays
-          as a fallback. The wrapper renders with{" "}
-          <code>display:&nbsp;contents</code>, so it adds no box to your
-          layout.
+          native cursor stays as a fallback. The wrapper renders with{" "}
+          <code>display:&nbsp;contents</code>, so it adds no box to your layout.
         </p>
       </>
     ),
@@ -623,9 +624,7 @@ import { InfoIcon } from "lucide-react"
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter>
-                <DialogClose
-                  render={<Button variant="secondary" size="sm" />}
-                >
+                <DialogClose render={<Button variant="secondary" size="sm" />}>
                   Cancel
                 </DialogClose>
                 <DialogClose
@@ -677,19 +676,39 @@ import { InfoIcon } from "lucide-react"
         <Preview>
           <Dock>
             <DockItem label="Finder" active>
-              <Image src="/icons/finder.png" alt="Finder" width={58} height={58} />
+              <Image
+                src="/icons/finder.png"
+                alt="Finder"
+                width={58}
+                height={58}
+              />
             </DockItem>
             <DockItem label="Mail" active>
               <Image src="/icons/mail.png" alt="Mail" width={58} height={58} />
             </DockItem>
             <DockItem label="Safari">
-              <Image src="/icons/safari.png" alt="Safari" width={58} height={58} />
+              <Image
+                src="/icons/safari.png"
+                alt="Safari"
+                width={58}
+                height={58}
+              />
             </DockItem>
             <DockItem label="iTunes" active>
-              <Image src="/icons/itunes.png" alt="iTunes" width={58} height={58} />
+              <Image
+                src="/icons/itunes.png"
+                alt="iTunes"
+                width={58}
+                height={58}
+              />
             </DockItem>
             <DockItem label="iChat">
-              <Image src="/icons/ichat.png" alt="iChat" width={58} height={58} />
+              <Image
+                src="/icons/ichat.png"
+                alt="iChat"
+                width={58}
+                height={58}
+              />
             </DockItem>
             <DockItem label="GarageBand">
               <Image
@@ -708,7 +727,12 @@ import { InfoIcon } from "lucide-react"
               />
             </DockItem>
             <DockItem label="Trash">
-              <Image src="/icons/trash.png" alt="Trash" width={58} height={58} />
+              <Image
+                src="/icons/trash.png"
+                alt="Trash"
+                width={58}
+                height={58}
+              />
             </DockItem>
           </Dock>
         </Preview>
@@ -730,7 +754,8 @@ import { InfoIcon } from "lucide-react"
           <code>DockItem</code> takes any icon content. Era app icons are
           freeform artwork, so drop an <code>&lt;img&gt;</code> straight in;{" "}
           <code>DockIcon</code> is the glossy rounded tile for when you
-          don&apos;t have artwork. <code>active</code> shows the running-app dot.
+          don&apos;t have artwork. <code>active</code> shows the running-app
+          dot.
         </p>
       </>
     ),
@@ -831,7 +856,7 @@ import { InfoIcon } from "lucide-react"
         <Preview>
           <div className="grid w-full max-w-xs gap-2">
             <Label htmlFor="account-name">Account Name</Label>
-            <Input id="account-name" placeholder="Igor Duca" />
+            <Input id="account-name" placeholder="michi.onl" />
           </div>
         </Preview>
         <InstallCommand name="label" />
@@ -1096,8 +1121,8 @@ import { InfoIcon } from "lucide-react"
             </TabsContent>
             <TabsContent value="advanced">
               <p className="text-sm">
-                Base UI primitives underneath: keyboard navigation and ARIA
-                out of the box.
+                Base UI primitives underneath: keyboard navigation and ARIA out
+                of the box.
               </p>
             </TabsContent>
           </Tabs>
@@ -1149,8 +1174,8 @@ import { InfoIcon } from "lucide-react"
 </IPod>`}
         />
         <p>
-          The screen takes any content: menus, album art, a game of Brick.
-          Every wheel button and the center click accept a handler.
+          The screen takes any content: menus, album art, a game of Brick. Every
+          wheel button and the center click accept a handler.
         </p>
       </>
     ),
@@ -1202,7 +1227,8 @@ import { InfoIcon } from "lucide-react"
   },
   textarea: {
     title: "Textarea",
-    description: "Multi-line Aqua text well with an inset shadow and blue focus halo.",
+    description:
+      "Multi-line Aqua text well with an inset shadow and blue focus halo.",
     body: (
       <>
         <Preview>
@@ -1511,7 +1537,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
                 <Avatar size="sm" initials="ID" randomColor />
               </ItemMedia>
               <ItemContent>
-                <ItemTitle>Igor Duca</ItemTitle>
+                <ItemTitle>michi.onl</ItemTitle>
                 <ItemDescription>
                   Available — building the registry
                 </ItemDescription>
@@ -1550,7 +1576,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
     <Avatar initials="ID" randomColor />
   </ItemMedia>
   <ItemContent>
-    <ItemTitle>Igor Duca</ItemTitle>
+    <ItemTitle>michi.onl</ItemTitle>
     <ItemDescription>Available</ItemDescription>
   </ItemContent>
 </Item>`}
@@ -1558,8 +1584,8 @@ import { ButtonGroup } from "@/components/ui/button-group"
         <p>
           <code>variant=&quot;outline&quot;</code> gives the row its own panel,{" "}
           <code>muted</code> lays it on pinstripes, and the default keeps it
-          bare for rows that already sit inside a list. Pass{" "}
-          <code>render</code> to make the whole row a link.
+          bare for rows that already sit inside a list. Pass <code>render</code>{" "}
+          to make the whole row a link.
         </p>
       </>
     ),
@@ -1779,4 +1805,4 @@ import { ButtonGroup } from "@/components/ui/button-group"
       </>
     ),
   },
-}
+};

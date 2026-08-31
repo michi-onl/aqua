@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { DOCS_NAV } from "@/lib/docs-nav"
-import { cn } from "@/lib/utils"
+import { DOCS_NAV } from "@/lib/docs-nav";
+import { cn } from "@/lib/utils";
 
 export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <>
@@ -18,8 +18,8 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
           </p>
           <ul className="flex flex-col gap-px">
             {section.items.map((item) => {
-              const href = item.href ?? `/docs/${item.slug}`
-              const active = pathname === href
+              const href = item.href ?? `/docs/${item.slug}`;
+              const active = pathname === href;
 
               return (
                 <li key={item.slug}>
@@ -31,13 +31,13 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
                       "block rounded-md px-3 py-1 text-[13px] transition-colors",
                       active
                         ? "bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] font-semibold text-white [text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]"
-                        : "text-[#3a3f47] hover:bg-white/60"
+                        : "text-[#3a3f47] hover:bg-white/60",
                     )}
                   >
                     {item.title}
                   </Link>
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
@@ -45,25 +45,25 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
       <div className="mt-8 border-t border-[#b6bcc6] px-3 pt-3 text-[11px] leading-5 text-[#7a8089]">
         Made by{" "}
         <a
-          href="https://duca.dev"
+          href="https://michi.onl"
           target="_blank"
           rel="noreferrer"
           className="font-semibold text-[#1c5fb8] hover:underline"
         >
-          Igor Duca
+          michi.onl
         </a>
         <br />
         <a
-          href="https://x.com/ducaswtf"
+          href="https://bsky.app/profile/michi.onl"
           target="_blank"
           rel="noreferrer"
           className="text-[#1c5fb8] hover:underline"
         >
-          @ducaswtf
+          @michi.onl
         </a>
       </div>
     </>
-  )
+  );
 }
 
 export function DocsSidebar() {
@@ -71,5 +71,5 @@ export function DocsSidebar() {
     <aside className="sticky top-[37px] hidden h-[calc(100dvh-37px)] w-56 shrink-0 overflow-y-auto border-r border-[#b6bcc6] bg-[#dde4ed] px-3 py-4 md:block">
       <SidebarNav />
     </aside>
-  )
+  );
 }
