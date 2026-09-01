@@ -297,7 +297,7 @@ export default function MailDemo() {
                   defaultValue={
                     "Steve,\n\nTwelve components shipped. Site deployed next.\n\nmichi"
                   }
-                  className="resize-none rounded-lg border border-[#9599a1] bg-white px-3 py-2 shadow-[inset_0_2px_3px_rgba(20,30,50,0.15)] outline-none focus-visible:border-[#6cb0f7] focus-visible:ring-[3px] focus-visible:ring-[#6cb0f7]/70"
+                  className="resize-none rounded-lg border border-[#9599a1] bg-white px-3 py-2 shadow-[inset_0_2px_3px_rgba(20,30,50,0.15)] outline-none focus-visible:border-[#2f7de0] focus-visible:ring-[3px] focus-visible:ring-[#2f7de0]"
                 />
                 <div className="flex justify-end gap-2.5">
                   <Button

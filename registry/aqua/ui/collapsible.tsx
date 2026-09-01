@@ -18,7 +18,7 @@ function CollapsibleTrigger({
       className={cn(
         // Whatever icon you put in the trigger becomes the disclosure
         // triangle: it points right when shut and rotates down when open.
-        "cursor-default select-none rounded-[4px] text-[13px] text-[#33383f] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-150 data-panel-open:[&_svg]:rotate-90",
+        "cursor-default select-none rounded-[4px] text-[13px] text-[#33383f] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-150 data-panel-open:[&_svg]:rotate-90",
         className,
       )}
       {...props}

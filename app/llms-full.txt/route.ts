@@ -102,7 +102,7 @@ ${usage}`;
 3. Install the theme first: npx shadcn@latest add @aqua/theme
 4. Add components as needed: npx shadcn@latest add @aqua/button @aqua/tabs
 
-Components are copied into the project as source files and import as @/components/ui/<name>. Dependencies (Base UI, lucide-react, shiki) install automatically.
+Components are copied into the project as source files and import as @/components/ui/<name>. Dependencies (Base UI, @phosphor-icons/react, shiki) install automatically.
 
 ## Theming
 

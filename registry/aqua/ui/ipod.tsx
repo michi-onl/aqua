@@ -120,7 +120,7 @@ function ClickWheel({
         type="button"
         aria-label="Select"
         onClick={onSelect}
-        className="absolute left-1/2 top-1/2 size-[72px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_50%_35%,#f7f8fa,#dcdfe5_70%,#ced2d9_100%)] shadow-[inset_0_2px_5px_rgba(20,30,50,0.18),0_1px_0_rgba(255,255,255,0.9)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 active:shadow-[inset_0_3px_7px_rgba(20,30,50,0.28),0_1px_0_rgba(255,255,255,0.9)]"
+        className="absolute left-1/2 top-1/2 size-[72px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_50%_35%,#f7f8fa,#dcdfe5_70%,#ced2d9_100%)] shadow-[inset_0_2px_5px_rgba(20,30,50,0.18),0_1px_0_rgba(255,255,255,0.9)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:shadow-[inset_0_3px_7px_rgba(20,30,50,0.28),0_1px_0_rgba(255,255,255,0.9)]"
       />
     </div>
   );

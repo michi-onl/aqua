@@ -1,10 +1,10 @@
 import {
-  ChevronRightIcon,
-  FolderOpenIcon,
-  InfoIcon,
-  OctagonXIcon,
-  TriangleAlertIcon,
-} from "lucide-react";
+  CaretRight,
+  FolderOpen,
+  Info,
+  Warning,
+  WarningOctagon,
+} from "@phosphor-icons/react/ssr";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -271,7 +271,7 @@ export const DOCS: Record<string, Doc> = {
           <Button size="sm">small</Button>
           <Button size="xs">tiny</Button>
           <Button size="icon" variant="secondary" aria-label="Get info">
-            <InfoIcon />
+            <Info />
           </Button>
           <Button disabled>disabled</Button>
         </Preview>
@@ -284,7 +284,7 @@ export const DOCS: Record<string, Doc> = {
 <Button variant="secondary">cancel</Button>
 <Button variant="destructive" size="sm">delete</Button>
 <Button variant="ghost" size="icon" aria-label="Get info">
-  <InfoIcon />
+  <Info />
 </Button>`}
         />
       </>
@@ -299,21 +299,21 @@ export const DOCS: Record<string, Doc> = {
         <Preview>
           <div className="flex w-full max-w-md flex-col gap-3">
             <Alert>
-              <InfoIcon />
+              <Info />
               <AlertTitle>Software Update</AlertTitle>
               <AlertDescription>
                 Mac OS X 10.4 &quot;Tiger&quot; is available for your computer.
               </AlertDescription>
             </Alert>
             <Alert variant="warning">
-              <TriangleAlertIcon />
+              <Warning />
               <AlertTitle>Low battery</AlertTitle>
               <AlertDescription>
                 You are now running on reserve power. Plug in your PowerBook.
               </AlertDescription>
             </Alert>
             <Alert variant="destructive">
-              <OctagonXIcon />
+              <WarningOctagon />
               <AlertTitle>Disk not ejected properly</AlertTitle>
               <AlertDescription>
                 Eject a disk before disconnecting it, or you may lose data.
@@ -325,10 +325,10 @@ export const DOCS: Record<string, Doc> = {
         <SectionTitle>Usage</SectionTitle>
         <CodeBlock
           code={`import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { InfoIcon } from "lucide-react"
+import { Info } from "@phosphor-icons/react"
 
 <Alert variant="warning">
-  <InfoIcon />
+  <Info />
   <AlertTitle>Low battery</AlertTitle>
   <AlertDescription>Plug in your PowerBook.</AlertDescription>
 </Alert>`}
@@ -1443,7 +1443,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
         <Preview>
           <Collapsible defaultOpen className="w-full max-w-sm">
             <CollapsibleTrigger className="flex items-center gap-1.5 font-bold">
-              <ChevronRightIcon className="size-3.5" />
+              <CaretRight className="size-3.5" />
               Sharing &amp; Permissions
             </CollapsibleTrigger>
             <CollapsibleContent>
@@ -1465,7 +1465,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
 
 <Collapsible defaultOpen>
   <CollapsibleTrigger className="flex items-center gap-1.5">
-    <ChevronRightIcon className="size-3.5" />
+    <CaretRight className="size-3.5" />
     Sharing & Permissions
   </CollapsibleTrigger>
   <CollapsibleContent>You can read and write.</CollapsibleContent>
@@ -1489,7 +1489,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
           <Empty className="max-w-sm">
             <EmptyHeader>
               <EmptyMedia variant="icon">
-                <FolderOpenIcon />
+                <FolderOpen />
               </EmptyMedia>
               <EmptyTitle>No Items</EmptyTitle>
               <EmptyDescription>
@@ -1517,7 +1517,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
 <Empty>
   <EmptyHeader>
     <EmptyMedia variant="icon">
-      <FolderOpenIcon />
+      <FolderOpen />
     </EmptyMedia>
     <EmptyTitle>No Items</EmptyTitle>
     <EmptyDescription>This folder is empty.</EmptyDescription>

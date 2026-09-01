@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CornerDownLeftIcon, SearchIcon } from "lucide-react";
+import { KeyReturn, MagnifyingGlass } from "@phosphor-icons/react";
 
 import { DOCS_NAV } from "@/lib/docs-nav";
 import { cn } from "@/lib/utils";
@@ -100,9 +100,9 @@ export function CommandPalette() {
       <button
         type="button"
         onClick={openPalette}
-        className="ml-auto flex h-7 select-none items-center gap-2 rounded-full border border-[#9599a1] bg-white px-2.5 text-[12px] text-[#9aa0a8] shadow-[inset_0_2px_3px_rgba(20,30,50,0.12)] outline-none transition-[box-shadow] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 md:w-52 md:px-3"
+        className="ml-auto flex h-7 select-none items-center gap-2 rounded-full border border-[#9599a1] bg-white px-2.5 text-[12px] text-[#9aa0a8] shadow-[inset_0_2px_3px_rgba(20,30,50,0.12)] outline-none transition-[box-shadow] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] md:w-52 md:px-3"
       >
-        <SearchIcon className="size-3.5 shrink-0" />
+        <MagnifyingGlass className="size-3.5 shrink-0" />
         <span className="hidden md:block">Search</span>
         <kbd className="ml-auto hidden rounded-[4px] border border-[#c9ccd1] bg-[linear-gradient(180deg,#fdfdfe_0%,#eceef2_100%)] px-1.5 py-px font-sans text-[10px] text-[#7a8089] shadow-[0_1px_0_rgba(255,255,255,0.8)] md:block">
           &#8984;K
@@ -117,7 +117,7 @@ export function CommandPalette() {
         >
           <div className="h-fit w-full max-w-lg overflow-hidden rounded-xl border border-[#82868e] bg-[#f7f8fa] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_20px_50px_rgba(20,30,50,0.45),0_4px_12px_rgba(20,30,50,0.25)]">
             <div className="flex items-center gap-2.5 border-b border-[#c9ccd1] bg-white px-4 py-3">
-              <SearchIcon className="size-4 shrink-0 text-[#7a8089]" />
+              <MagnifyingGlass className="size-4 shrink-0 text-[#7a8089]" />
               <input
                 autoFocus
                 value={query}
@@ -176,7 +176,7 @@ export function CommandPalette() {
               )}
             </div>
             <div className="flex items-center gap-1.5 border-t border-[#c9ccd1] bg-[repeating-linear-gradient(180deg,#f4f6fa_0px,#f4f6fa_2px,#eaeef4_2px,#eaeef4_4px)] px-4 py-2 text-[11px] text-[#7a8089]">
-              <CornerDownLeftIcon className="size-3" />
+              <KeyReturn className="size-3" />
               Go to page
             </div>
           </div>

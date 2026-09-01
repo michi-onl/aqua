@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { XIcon } from "lucide-react";
+import { X } from "@phosphor-icons/react";
 
 import { cn } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/registry/aqua/ui/alert";
@@ -96,9 +96,9 @@ function Toaster({ className }: { className?: string }) {
             type="button"
             aria-label="Dismiss notification"
             onClick={() => dismissToast(item.id)}
-            className="absolute -left-2 -top-2 flex size-5 items-center justify-center rounded-full border border-[#5a5f66] bg-[radial-gradient(circle_at_35%_30%,#9aa0a8_0%,#5f646b_60%,#43474d_100%)] text-white opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_1px_2px_rgba(20,30,50,0.4)] transition-opacity focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 group-hover:opacity-100"
+            className="absolute -left-2 -top-2 flex size-5 items-center justify-center rounded-full border border-[#5a5f66] bg-[radial-gradient(circle_at_35%_30%,#9aa0a8_0%,#5f646b_60%,#43474d_100%)] text-white opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_1px_2px_rgba(20,30,50,0.4)] transition-opacity focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] group-hover:opacity-100"
           >
-            <XIcon className="size-3" strokeWidth={3} />
+            <X className="size-3" weight="bold" />
           </button>
         </Alert>
       ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MenuIcon, XIcon } from "lucide-react";
+import { List, X } from "@phosphor-icons/react";
 
 import { SidebarNav } from "@/components/docs-sidebar";
 
@@ -14,9 +14,9 @@ export function MobileNav() {
         type="button"
         aria-label="Open navigation"
         onClick={() => setOpen(true)}
-        className="flex size-7 items-center justify-center rounded-md border border-[#9599a1] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#4a5058] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,30,50,0.2)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 active:brightness-95 md:hidden"
+        className="flex size-7 items-center justify-center rounded-md border border-[#9599a1] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#4a5058] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,30,50,0.2)] outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 md:hidden"
       >
-        <MenuIcon className="size-4" />
+        <List className="size-4" />
       </button>
       {open ? (
         <div
@@ -36,7 +36,7 @@ export function MobileNav() {
                 onClick={() => setOpen(false)}
                 className="flex size-6 items-center justify-center rounded-full border border-[#9599a1] bg-white text-[#4a5058] shadow-[0_1px_2px_rgba(20,30,50,0.2)]"
               >
-                <XIcon className="size-3.5" />
+                <X className="size-3.5" />
               </button>
             </div>
             <SidebarNav onNavigate={() => setOpen(false)} />

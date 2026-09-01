@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { cva, type VariantProps } from "class-variance-authority";
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import { CaretDown, CaretUp, Check } from "@phosphor-icons/react";
 
 import { cn } from "@/lib/utils";
 
@@ -26,7 +26,7 @@ function SelectValue({
 }
 
 const selectTriggerVariants = cva(
-  "flex w-fit select-none items-center justify-between gap-3 whitespace-nowrap rounded-lg border border-[#7f8289] bg-[linear-gradient(180deg,#ffffff_0%,#e9ecf0_20%,#c9cdd4_46%,#ced2d9_54%,#eef0f3_74%,#ffffff_100%)] py-0 pr-1 text-[#33383f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),inset_0_-1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(20,60,130,0.2)] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#6cb0f7)]/70 active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:truncate",
+  "flex w-fit select-none items-center justify-between gap-3 whitespace-nowrap rounded-lg border border-[#7f8289] bg-[linear-gradient(180deg,#ffffff_0%,#e9ecf0_20%,#c9cdd4_46%,#ced2d9_54%,#eef0f3_74%,#ffffff_100%)] py-0 pr-1 text-[#33383f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),inset_0_-1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(20,60,130,0.2)] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:truncate",
   {
     variants: {
       size: {
@@ -59,8 +59,8 @@ function SelectTrigger({
         data-slot="select-icon"
         className="flex h-6 w-5 shrink-0 flex-col items-center justify-center rounded-[4px] border border-[var(--aqua-edge,#1c5fb8)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),inset_0_-1px_2px_rgba(255,255,255,0.35),0_1px_2px_rgba(20,60,130,0.3)]"
       >
-        <ChevronUpIcon className="size-2.5" strokeWidth={3} />
-        <ChevronDownIcon className="size-2.5" strokeWidth={3} />
+        <CaretUp className="size-2.5" weight="bold" />
+        <CaretDown className="size-2.5" weight="bold" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -99,13 +99,13 @@ function SelectContent({
           {...props}
         >
           <SelectPrimitive.ScrollUpArrow className="flex h-5 w-full items-center justify-center bg-white text-[#7a8089]">
-            <ChevronUpIcon className="size-3.5" />
+            <CaretUp className="size-3.5" />
           </SelectPrimitive.ScrollUpArrow>
           <SelectPrimitive.List className="max-h-[min(24rem,var(--available-height))] overflow-y-auto overflow-x-hidden p-0">
             {children}
           </SelectPrimitive.List>
           <SelectPrimitive.ScrollDownArrow className="flex h-5 w-full items-center justify-center bg-white text-[#7a8089]">
-            <ChevronDownIcon className="size-3.5" />
+            <CaretDown className="size-3.5" />
           </SelectPrimitive.ScrollDownArrow>
         </SelectPrimitive.Popup>
       </SelectPrimitive.Positioner>
@@ -145,7 +145,7 @@ function SelectItem({
     >
       <span className="absolute left-2 flex size-3.5 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="size-3.5" strokeWidth={3} />
+          <Check className="size-3.5" weight="bold" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>

@@ -1,4 +1,4 @@
-import { HomeIcon, ShoppingCartIcon } from "lucide-react";
+import { House, ShoppingCart } from "@phosphor-icons/react/ssr";
 import Link from "next/link";
 
 import { CommandPalette } from "@/components/command-palette";
@@ -220,7 +220,7 @@ export default function Home() {
         </nav>
 
         <div className="mt-3 flex h-9 items-center gap-2 rounded-[4px] border border-[#d2d5da] bg-[linear-gradient(180deg,#fcfcfd_0%,#e9ebee_100%)] px-3 text-[12px] text-[#5a6069]">
-          <HomeIcon className="size-3.5 text-[#7a8089]" />
+          <House className="size-3.5 text-[#7a8089]" />
           <span className="text-[#9aa0aa]">&rsaquo;</span>
           <span>Welcome to the Aqua Store</span>
           <span className="ml-auto hidden items-center gap-3 sm:flex">
@@ -238,7 +238,7 @@ export default function Home() {
             </a>
             <span className="text-[#c9ccd1]">|</span>
             <span className="flex items-center gap-1">
-              Cart <ShoppingCartIcon className="size-3.5" />
+              Cart <ShoppingCart className="size-3.5" />
             </span>
           </span>
         </div>
