@@ -29,7 +29,7 @@ function gelBackground(color: string) {
 }
 
 const avatarVariants = cva(
-  "relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden border border-[#7d828c] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] font-bold uppercase text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_1px_2px_rgba(20,30,50,0.25)] [text-shadow:0_-1px_1px_rgba(10,30,70,0.4)] before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[1px] before:z-10 before:h-[45%] before:rounded-t-[inherit] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.75),rgba(255,255,255,0.08))]",
+  "relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden border border-[var(--aqua-border-strong,#7d828c)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] font-bold uppercase text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_1px_2px_rgba(20,30,50,0.25)] [text-shadow:0_-1px_1px_rgba(10,30,70,0.4)] before:pointer-events-none before:absolute before:inset-x-[2px] before:top-[1px] before:z-10 before:h-[45%] before:rounded-t-[inherit] before:bg-[linear-gradient(180deg,rgba(255,255,255,0.75),rgba(255,255,255,0.08))]",
   {
     variants: {
       size: {

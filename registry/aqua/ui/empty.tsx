@@ -8,7 +8,7 @@ function Empty({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="empty"
       className={cn(
-        "flex w-full min-w-0 flex-1 flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-[#b9bec7] bg-[repeating-linear-gradient(180deg,#f7f8fa_0px,#f7f8fa_2px,#f0f2f6_2px,#f0f2f6_4px)] p-6 text-center text-[13px] text-balance text-[#33383f] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]",
+        "flex w-full min-w-0 flex-1 flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-[var(--aqua-border,#b9bec7)] bg-[image:var(--aqua-surface-stripes)] p-6 text-center text-[13px] text-balance text-[var(--aqua-text,#33383f)] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]",
         className,
       )}
       {...props}
@@ -32,7 +32,7 @@ const emptyMediaVariants = cva(
     variants: {
       variant: {
         default: "bg-transparent",
-        icon: "size-10 rounded-[8px] border border-[#aeb3bc] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#5a6069] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] [&_svg:not([class*='size-'])]:size-5",
+        icon: "size-10 rounded-[8px] border border-[var(--aqua-border,#aeb3bc)] bg-[image:var(--aqua-surface-metal)] text-[var(--aqua-text-secondary,#5a6069)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] [&_svg:not([class*='size-'])]:size-5",
       },
     },
     defaultVariants: {
@@ -74,7 +74,7 @@ function EmptyDescription({ className, ...props }: React.ComponentProps<"p">) {
     <div
       data-slot="empty-description"
       className={cn(
-        "text-[12.5px] leading-relaxed text-[#7a8089] [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-[#1c5fb8]",
+        "text-[12.5px] leading-relaxed text-[var(--aqua-text-muted,#7a8089)] [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-[var(--aqua-link,#1c5fb8)]",
         className,
       )}
       {...props}

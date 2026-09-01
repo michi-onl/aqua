@@ -34,7 +34,7 @@ export function CopyButton({
       onClick={copy}
       aria-label={copied ? "Copied" : "Copy code"}
       className={cn(
-        "inline-flex size-7 shrink-0 items-center justify-center rounded-md border border-[#9599a1] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#4a5058] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,30,50,0.2)] outline-none transition-[filter] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95",
+        "inline-flex size-7 shrink-0 items-center justify-center rounded-md border border-[var(--aqua-border-strong,#9599a1)] bg-[image:var(--aqua-surface-metal)] text-[var(--aqua-text-secondary,#4a5058)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,30,50,0.2)] outline-none transition-[filter] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95",
         className,
       )}
     >

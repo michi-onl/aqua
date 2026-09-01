@@ -12,7 +12,7 @@ function Loader({ className, ...props }: React.ComponentProps<"svg">) {
       role="status"
       aria-label="Loading"
       className={cn(
-        "size-6 animate-[spin_0.9s_steps(12)_infinite] text-[#5a6069] motion-reduce:animate-none",
+        "size-6 animate-[spin_0.9s_steps(12)_infinite] text-[var(--aqua-text-secondary,#5a6069)] motion-reduce:animate-none",
         className,
       )}
       {...props}

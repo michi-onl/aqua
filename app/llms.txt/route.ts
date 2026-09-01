@@ -30,7 +30,7 @@ To install components, first register the namespace in the project's components.
   }
 }
 
-Then add components with the shadcn CLI, e.g. \`npx shadcn@latest add @aqua/theme @aqua/button\`. Components import as \`@/components/ui/<name>\`. Install \`@aqua/theme\` first to get the palette and Lucida Grande typography. Theming: every component derives its color from the \`--aqua-accent\` CSS variable (set it on :root, or on any subtree for scoped themes).
+Then add components with the shadcn CLI, e.g. \`npx shadcn@latest add @aqua/theme @aqua/button\`. Components import as \`@/components/ui/<name>\`. Install \`@aqua/theme\` first to get the palette and Lucida Grande typography. Theming: every component derives its color from the \`--aqua-accent\` CSS variable (set it on :root, or on any subtree for scoped themes). Dark mode: add the \`.dark\` class to \`<html>\` to flip the \`--aqua-*\` neutral tokens to dark while the accent gel deepens; the docs site follows \`prefers-color-scheme\` via \`localStorage["aqua-theme"]\`.
 
 For complete per-component usage with code examples, see ${SITE_URL}/llms-full.txt
 

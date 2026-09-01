@@ -37,15 +37,14 @@ function ItemSeparator({
 }
 
 const itemVariants = cva(
-  "group/item flex w-full flex-wrap items-center rounded-lg border text-[13px] text-[#33383f] transition-colors duration-100 outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] [a]:transition-colors [a]:hover:bg-[#e0eafa]",
+  "group/item flex w-full flex-wrap items-center rounded-lg border text-[13px] text-[var(--aqua-text,#33383f)] transition-colors duration-100 outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] [a]:transition-colors [a]:hover:bg-[var(--aqua-row-hover,#e0eafa)]",
   {
     variants: {
       variant: {
         default: "border-transparent",
         outline:
-          "border-[#c3c7cf] bg-[linear-gradient(180deg,#ffffff_0%,#f6f7fa_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]",
-        muted:
-          "border-transparent bg-[repeating-linear-gradient(180deg,#f4f6fa_0px,#f4f6fa_2px,#eaeef4_2px,#eaeef4_4px)]",
+          "border-[var(--aqua-border-light,#c3c7cf)] bg-[image:var(--aqua-surface-white)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]",
+        muted: "border-transparent bg-[image:var(--aqua-surface-stripes)]",
       },
       size: {
         default: "gap-2.5 px-3 py-2.5",
@@ -90,9 +89,9 @@ const itemMediaVariants = cva(
     variants: {
       variant: {
         default: "bg-transparent",
-        icon: "text-[#5a6069] [&_svg:not([class*='size-'])]:size-4",
+        icon: "text-[var(--aqua-text-secondary,#5a6069)] [&_svg:not([class*='size-'])]:size-4",
         image:
-          "size-10 overflow-hidden rounded-[6px] border border-[#aeb3bc] shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_1px_2px_rgba(20,30,50,0.2)] group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 [&_img]:size-full [&_img]:object-cover",
+          "size-10 overflow-hidden rounded-[6px] border border-[var(--aqua-border,#aeb3bc)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_1px_2px_rgba(20,30,50,0.2)] group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 [&_img]:size-full [&_img]:object-cover",
       },
     },
     defaultVariants: {
@@ -147,7 +146,7 @@ function ItemDescription({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="item-description"
       className={cn(
-        "line-clamp-2 text-left text-[12.5px] leading-normal font-normal text-[#7a8089] group-data-[size=xs]/item:text-[11px] [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-[#1c5fb8]",
+        "line-clamp-2 text-left text-[12.5px] leading-normal font-normal text-[var(--aqua-text-muted,#7a8089)] group-data-[size=xs]/item:text-[11px] [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-[var(--aqua-link,#1c5fb8)]",
         className,
       )}
       {...props}

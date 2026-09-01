@@ -8,7 +8,7 @@ function ChatPanel({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="chat-panel"
       className={cn(
-        "flex w-full flex-col gap-2.5 overflow-hidden rounded-xl border border-[#c9ccd1] bg-[#f4f5f8] p-5 [--chat-panel:#f4f5f8]",
+        "flex w-full flex-col gap-2.5 overflow-hidden rounded-xl border border-[var(--aqua-border-light,#c9ccd1)] bg-[var(--aqua-surface-2,#f4f5f8)] p-5 [--chat-panel:var(--aqua-surface-2,#f4f5f8)]",
         className,
       )}
       {...props}

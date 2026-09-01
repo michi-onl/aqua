@@ -104,6 +104,11 @@ export default function RootLayout({
           }}
         />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `try{function aquaSetDark(d){document.documentElement.classList.toggle("dark",d)};var t=localStorage.getItem("aqua-theme");if(t==="dark")aquaSetDark(true);else if(t==="light")aquaSetDark(false);else{var m=window.matchMedia("(prefers-color-scheme: dark)");aquaSetDark(m.matches);m.addEventListener("change",function(e){if(!localStorage.getItem("aqua-theme"))aquaSetDark(e.matches)})}}catch(e){}`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON_LD }}
         />

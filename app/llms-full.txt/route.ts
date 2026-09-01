@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 const SITE_URL = "https://aqua.michi.onl";
 
 const USAGE: Record<string, string> = {
-  theme: `Installs the Aqua palette (light gray #eef0f3 background, #2f7de0 accent), the Lucida Grande font stack and the --aqua-* derived color variables. Install this first.`,
+  theme: `Installs the Aqua palette (light gray #eef0f3 background, #2f7de0 accent), the Lucida Grande font stack and the --aqua-* derived color variables. Ships both light and dark: add the .dark class to <html> to flip the neutral surfaces, text and borders to their dark values (--aqua-text, --aqua-surface, --aqua-border, etc.) while the accent gel deepens. Install this first.`,
   button: `import { Button } from "@/components/ui/button"
 <Button>Save</Button>
 <Button variant="secondary">Cancel</Button>
@@ -111,6 +111,8 @@ Every component derives its color from the --aqua-accent CSS variable and falls 
 :root { --aqua-accent: #e02f6b; }
 
 Scoped themes work too — set --aqua-accent on any element and its subtree recomputes (the derived --aqua-gel-* variables are declared on the universal selector).
+
+Dark mode is class-driven: add .dark to <html> and the --aqua-* neutral tokens (text, surface, border, link, sidebar, row) flip to dark values while the gel stops deepen to hold their gloss. Without an explicit choice the docs site follows prefers-color-scheme via localStorage["aqua-theme"].
 
 ${sections}
 `;

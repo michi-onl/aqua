@@ -11,6 +11,7 @@ import {
   WindowTitle,
   WindowTitlebar,
 } from "@/registry/aqua/ui/window";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const MESSAGES = [
   {
@@ -117,6 +118,7 @@ export default function MailDemo() {
         <WindowTitlebar>
           <TrafficLights />
           <WindowTitle>Inbox (5 messages)</WindowTitle>
+          <ThemeToggle className="ml-auto" />
         </WindowTitlebar>
 
         <div className="flex items-center gap-2.5 px-4 pb-3 pt-0.5">
@@ -152,9 +154,9 @@ export default function MailDemo() {
           />
         </div>
 
-        <div className="flex min-h-0 flex-1 border-t border-[#8b909a] bg-[#f4f5f8] text-[13px]">
-          <aside className="hidden w-44 shrink-0 overflow-y-auto border-r border-[#b6bcc6] bg-[#dde4ed] py-3 sm:block">
-            <p className="px-4 pb-1 text-[11px] font-bold uppercase tracking-wide text-[#7a8089] [text-shadow:0_1px_0_rgba(255,255,255,0.7)]">
+        <div className="flex min-h-0 flex-1 border-t border-[var(--aqua-border-strong,#8b909a)] bg-[var(--aqua-surface-2,#f4f5f8)] text-[13px]">
+          <aside className="hidden w-44 shrink-0 overflow-y-auto border-r border-[var(--aqua-border-light,#b6bcc6)] bg-[var(--aqua-sidebar,#dde4ed)] py-3 sm:block">
+            <p className="px-4 pb-1 text-[11px] font-bold uppercase tracking-wide text-[var(--aqua-text-muted,#7a8089)] [text-shadow:0_1px_0_rgba(255,255,255,0.7)]">
               Mailboxes
             </p>
             <ul>
@@ -165,7 +167,7 @@ export default function MailDemo() {
                     className={
                       box.selected
                         ? "flex w-full items-center justify-between bg-[linear-gradient(180deg,#7db9f5_0%,#3c86e4_50%,#2668c4_51%,#5da3ef_100%)] px-4 py-1 font-semibold text-white [text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]"
-                        : "flex w-full items-center justify-between px-4 py-1 text-[#3a3f47] hover:bg-white/60"
+                        : "flex w-full items-center justify-between px-4 py-1 text-[var(--aqua-text,#3a3f47)] hover:bg-[var(--aqua-surface-2)]"
                     }
                   >
                     {box.name}
@@ -187,8 +189,8 @@ export default function MailDemo() {
           </aside>
 
           <div className="flex min-w-0 flex-1 flex-col">
-            <div className="h-[38%] min-h-[150px] overflow-y-auto border-b border-[#b6bcc6]">
-              <div className="sticky top-0 flex border-b border-[#9599a1] bg-[linear-gradient(180deg,#fbfcfd_0%,#e8ebef_55%,#dcdfe4_100%)] px-3 py-1 text-[11px] font-bold text-[#43484f] [text-shadow:0_1px_0_rgba(255,255,255,0.7)]">
+            <div className="h-[38%] min-h-[150px] overflow-y-auto border-b border-[var(--aqua-border-light,#b6bcc6)]">
+              <div className="sticky top-0 flex border-b border-[var(--aqua-border-strong,#9599a1)] bg-[image:var(--aqua-surface-nav)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)] [text-shadow:0_1px_0_rgba(255,255,255,0.7)]">
                 <span className="w-24 shrink-0 sm:w-36">From</span>
                 <span className="flex-1">Subject</span>
                 <span className="hidden w-28 shrink-0 text-right sm:block">
@@ -196,7 +198,10 @@ export default function MailDemo() {
                 </span>
               </div>
               {visible.map(({ msg, index }, i) => {
-                const rowTint = i % 2 === 0 ? "bg-white" : "bg-[#f0f4fa]";
+                const rowTint =
+                  i % 2 === 0
+                    ? "bg-[var(--aqua-surface,#ffffff)]"
+                    : "bg-[var(--aqua-row-alt,#f0f4fa)]";
 
                 return (
                   <button
@@ -206,7 +211,7 @@ export default function MailDemo() {
                     className={
                       shownEntry && index === shownEntry.index
                         ? "flex w-full bg-[linear-gradient(180deg,#7db9f5_0%,#3c86e4_50%,#2668c4_51%,#5da3ef_100%)] px-3 py-1.5 text-left text-white [text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]"
-                        : `flex w-full ${rowTint} px-3 py-1.5 text-left text-[#33383f] hover:bg-[#e7f0fb]`
+                        : `flex w-full ${rowTint} px-3 py-1.5 text-left text-[var(--aqua-text,#33383f)] hover:bg-[var(--aqua-row-hover,#e7f0fb)]`
                     }
                   >
                     <span className="w-24 shrink-0 truncate font-semibold sm:w-36">
@@ -220,23 +225,23 @@ export default function MailDemo() {
                 );
               })}
               {visible.length === 0 ? (
-                <p className="px-3 py-6 text-center text-[#7a8089]">
+                <p className="px-3 py-6 text-center text-[var(--aqua-text-muted,#7a8089)]">
                   No messages found for &ldquo;{query}&rdquo;
                 </p>
               ) : null}
             </div>
 
-            <div className="flex-1 overflow-y-auto bg-white">
+            <div className="flex-1 overflow-y-auto bg-[var(--aqua-surface,#ffffff)]">
               {shownEntry ? (
                 <>
-                  <div className="border-b border-[#dcdfe4] px-5 py-3">
+                  <div className="border-b border-[var(--aqua-border-light,#dcdfe4)] px-5 py-3">
                     <p className="text-[15px] font-bold">
                       {shownEntry.msg.subject}
                     </p>
-                    <p className="text-[#7a8089]">
+                    <p className="text-[var(--aqua-text-muted,#7a8089)]">
                       {shownEntry.msg.from} &lt;{shownEntry.msg.address}&gt;
                     </p>
-                    <p className="text-[#7a8089]">
+                    <p className="text-[var(--aqua-text-muted,#7a8089)]">
                       To: michi.onl &lt;kontakt@michi.onl&gt;
                     </p>
                   </div>
@@ -249,7 +254,7 @@ export default function MailDemo() {
                   </div>
                 </>
               ) : (
-                <p className="px-5 py-10 text-center text-[#7a8089]">
+                <p className="px-5 py-10 text-center text-[var(--aqua-text-muted,#7a8089)]">
                   No message selected
                 </p>
               )}
@@ -281,13 +286,15 @@ export default function MailDemo() {
                 </button>
                 <WindowTitle>New Message</WindowTitle>
               </WindowTitlebar>
-              <div className="flex flex-col gap-2.5 bg-[#f4f5f8] p-4 text-[13px]">
+              <div className="flex flex-col gap-2.5 bg-[var(--aqua-surface-2,#f4f5f8)] p-4 text-[13px]">
                 <label className="flex items-center gap-2">
-                  <span className="w-14 text-right text-[#7a8089]">To:</span>
+                  <span className="w-14 text-right text-[var(--aqua-text-muted,#7a8089)]">
+                    To:
+                  </span>
                   <Input defaultValue="sjobs@apple.com" className="h-7" />
                 </label>
                 <label className="flex items-center gap-2">
-                  <span className="w-14 text-right text-[#7a8089]">
+                  <span className="w-14 text-right text-[var(--aqua-text-muted,#7a8089)]">
                     Subject:
                   </span>
                   <Input defaultValue="Re: Focus" className="h-7" />
@@ -297,7 +304,7 @@ export default function MailDemo() {
                   defaultValue={
                     "Steve,\n\nTwelve components shipped. Site deployed next.\n\nmichi"
                   }
-                  className="resize-none rounded-lg border border-[#9599a1] bg-white px-3 py-2 shadow-[inset_0_2px_3px_rgba(20,30,50,0.15)] outline-none focus-visible:border-[#2f7de0] focus-visible:ring-[3px] focus-visible:ring-[#2f7de0]"
+                  className="resize-none rounded-lg border border-[var(--aqua-border-strong,#9599a1)] bg-[var(--aqua-surface,#ffffff)] px-3 py-2 shadow-[inset_0_2px_3px_rgba(20,30,50,0.15)] outline-none focus-visible:border-[var(--aqua-ring,#2f7de0)] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)]"
                 />
                 <div className="flex justify-end gap-2.5">
                   <Button
@@ -316,11 +323,11 @@ export default function MailDemo() {
           </div>
         ) : null}
 
-        <div className="flex items-center justify-between border-t border-[#b6bcc6] bg-[#dde4ed] px-4 py-1 text-[11px] text-[#7a8089]">
+        <div className="flex items-center justify-between border-t border-[var(--aqua-border-light,#b6bcc6)] bg-[var(--aqua-sidebar,#dde4ed)] px-4 py-1 text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
           <span>Built entirely from @aqua registry components.</span>
           <Link
             href="/docs/introduction"
-            className="text-[#1c5fb8] hover:underline"
+            className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
           >
             Read the docs
           </Link>

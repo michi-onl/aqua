@@ -13,9 +13,9 @@ const toggleVariants = cva(
     variants: {
       variant: {
         default:
-          "border border-transparent bg-transparent text-[#3a3f47] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] hover:border-[#c3c7cf] hover:bg-[linear-gradient(180deg,#fdfdfe_0%,#eceef2_100%)]",
+          "border border-transparent bg-transparent text-[var(--aqua-text,#3a3f47)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] hover:border-[var(--aqua-border-light,#c3c7cf)] hover:bg-[image:var(--aqua-surface-metal)]",
         outline:
-          "border border-[#8b909a] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#3a3f47] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
+          "border border-[var(--aqua-border-strong,#8b909a)] bg-[image:var(--aqua-surface-metal)] text-[var(--aqua-text,#3a3f47)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
       },
       size: {
         sm: "h-7 min-w-7 px-3 text-[12px] [&_svg:not([class*='size-'])]:size-3.5",

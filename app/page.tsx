@@ -2,6 +2,7 @@ import { House, ShoppingCart } from "@phosphor-icons/react/ssr";
 import Link from "next/link";
 
 import { CommandPalette } from "@/components/command-palette";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { ToastPromoButton } from "@/components/store-promos";
 import { Avatar } from "@/registry/aqua/ui/avatar";
 import { Badge } from "@/registry/aqua/ui/badge";
@@ -124,7 +125,7 @@ function StoreBox({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-[4px] border border-[#c4c9d1] bg-white ${className}`}
+      className={`overflow-hidden rounded-[4px] border border-[var(--aqua-border,#c4c9d1)] bg-[var(--aqua-surface,#ffffff)] ${className}`}
     >
       {children}
     </div>
@@ -155,11 +156,13 @@ function ProductCell({
       </div>
       <Link
         href={`/docs/${slug}`}
-        className="text-[13px] font-bold text-[#1c5fb8] hover:underline"
+        className="text-[13px] font-bold text-[var(--aqua-link,#1c5fb8)] hover:underline"
       >
         {title}
       </Link>
-      <span className="text-[12px] text-[#7a8089]">{price}</span>
+      <span className="text-[12px] text-[var(--aqua-text-muted,#7a8089)]">
+        {price}
+      </span>
     </div>
   );
 }
@@ -169,7 +172,7 @@ function SideLink({ title, slug }: { title: string; slug: string }) {
     <li>
       <Link
         href={`/docs/${slug}`}
-        className="block px-3 py-[3px] text-[12px] text-[#1c5fb8] hover:underline"
+        className="block px-3 py-[3px] text-[12px] text-[var(--aqua-link,#1c5fb8)] hover:underline"
       >
         {title}
       </Link>
@@ -179,7 +182,7 @@ function SideLink({ title, slug }: { title: string; slug: string }) {
 
 export default function Home() {
   return (
-    <div className="min-h-svh bg-white pb-10">
+    <div className="min-h-svh bg-[var(--aqua-surface,#ffffff)] pb-10">
       <div className="mx-auto max-w-[1160px] px-3 pt-3">
         <nav className="flex h-9 items-stretch overflow-hidden rounded-[5px] bg-[linear-gradient(180deg,#bdbdbd_0%,#8f8f8f_48%,#767676_52%,#888888_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_1px_2px_rgba(0,0,0,0.25)]">
           <Link
@@ -214,20 +217,23 @@ export default function Home() {
               </Link>
             ),
           )}
-          <div className="flex items-center px-2">
+          <div className="flex items-center gap-1.5 px-2">
+            <ThemeToggle />
             <CommandPalette />
           </div>
         </nav>
 
-        <div className="mt-3 flex h-9 items-center gap-2 rounded-[4px] border border-[#d2d5da] bg-[linear-gradient(180deg,#fcfcfd_0%,#e9ebee_100%)] px-3 text-[12px] text-[#5a6069]">
-          <House className="size-3.5 text-[#7a8089]" />
-          <span className="text-[#9aa0aa]">&rsaquo;</span>
+        <div className="mt-3 flex h-9 items-center gap-2 rounded-[4px] border border-[var(--aqua-border-light,#d2d5da)] bg-[image:var(--aqua-surface-sheet)] px-3 text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
+          <House className="size-3.5 text-[var(--aqua-text-muted,#7a8089)]" />
+          <span className="text-[var(--aqua-text-subtle,#9aa0aa)]">
+            &rsaquo;
+          </span>
           <span>Welcome to the Aqua Store</span>
           <span className="ml-auto hidden items-center gap-3 sm:flex">
             <Link href="/docs/installation" className="hover:underline">
               Help
             </Link>
-            <span className="text-[#c9ccd1]">|</span>
+            <span className="text-[var(--aqua-border-light,#c9ccd1)]">|</span>
             <a
               href="https://github.com/michi-onl"
               target="_blank"
@@ -236,7 +242,7 @@ export default function Home() {
             >
               Account
             </a>
-            <span className="text-[#c9ccd1]">|</span>
+            <span className="text-[var(--aqua-border-light,#c9ccd1)]">|</span>
             <span className="flex items-center gap-1">
               Cart <ShoppingCart className="size-3.5" />
             </span>
@@ -253,21 +259,21 @@ export default function Home() {
                 <p className="font-mono text-[10px] text-white/80">
                   npx shadcn add @aqua
                 </p>
-                <div className="mt-1 flex items-center justify-between rounded-full bg-white px-3 py-1 text-[11px] text-[#7a8089] shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]">
+                <div className="mt-1 flex items-center justify-between rounded-full bg-[var(--aqua-surface,#ffffff)] px-3 py-1 text-[11px] text-[var(--aqua-text-muted,#7a8089)] shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]">
                   Search Store
-                  <kbd className="font-sans text-[10px] text-[#9aa0aa]">
+                  <kbd className="font-sans text-[10px] text-[var(--aqua-text-subtle,#9aa0aa)]">
                     &#8984;K
                   </kbd>
                 </div>
               </div>
             </StoreBox>
 
-            <StoreBox className="bg-[#f4f5f8]">
+            <StoreBox className="bg-[var(--aqua-surface-2,#f4f5f8)]">
               <ul className="flex flex-col gap-0.5 p-3 text-[13px] font-bold">
                 <li>
                   <Link
                     href="/docs/button"
-                    className="text-[#1c5fb8] hover:underline"
+                    className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Shop Components
                   </Link>
@@ -275,7 +281,7 @@ export default function Home() {
                 <li>
                   <Link
                     href="/docs/ipod"
-                    className="text-[#1c5fb8] hover:underline"
+                    className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Shop Signature
                   </Link>
@@ -283,17 +289,17 @@ export default function Home() {
                 <li>
                   <Link
                     href="/demo/mail"
-                    className="text-[#1c5fb8] hover:underline"
+                    className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Shop Demos
                   </Link>
                 </li>
               </ul>
-              <ul className="flex flex-col gap-0.5 border-t border-[#d2d5da] p-3 text-[12px]">
+              <ul className="flex flex-col gap-0.5 border-t border-[var(--aqua-border-light,#d2d5da)] p-3 text-[12px]">
                 <li>
                   <Link
                     href="/docs/introduction"
-                    className="text-[#1c5fb8] hover:underline"
+                    className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Introduction
                   </Link>
@@ -301,7 +307,7 @@ export default function Home() {
                 <li>
                   <Link
                     href="/docs/installation"
-                    className="text-[#1c5fb8] hover:underline"
+                    className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Installation
                   </Link>
@@ -309,7 +315,7 @@ export default function Home() {
                 <li>
                   <Link
                     href="/docs/theming"
-                    className="text-[#1c5fb8] hover:underline"
+                    className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Theming
                   </Link>
@@ -317,7 +323,7 @@ export default function Home() {
                 <li>
                   <a
                     href="/llms.txt"
-                    className="text-[#1c5fb8] hover:underline"
+                    className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     For AI Agents
                   </a>
@@ -327,7 +333,7 @@ export default function Home() {
 
             <StoreBox className="flex-1">
               <StoreHeader>Popular Components</StoreHeader>
-              <p className="border-b border-[#e0e3e8] bg-[#eceef2] px-3 py-1 text-[11px] font-bold text-[#43484f]">
+              <p className="border-b border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 For Forms
               </p>
               <ul className="py-1.5">
@@ -335,7 +341,7 @@ export default function Home() {
                   <SideLink key={item.slug} {...item} />
                 ))}
               </ul>
-              <p className="border-y border-[#e0e3e8] bg-[#eceef2] px-3 py-1 text-[11px] font-bold text-[#43484f]">
+              <p className="border-y border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 For Feedback
               </p>
               <ul className="py-1.5">
@@ -348,7 +354,7 @@ export default function Home() {
 
           <main className="order-1 flex min-w-0 flex-col gap-3 lg:order-2">
             <StoreBox>
-              <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x md:divide-[#e5e7eb]">
+              <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x md:divide-[var(--aqua-border-light,#e5e7eb)]">
                 <ProductCell title="iPod" slug="ipod" price="From $0" tall>
                   <div className="h-[142px] w-[100px] shrink-0">
                     <IPod className="origin-top-left scale-[0.34] shadow-[0_0_0_1px_rgba(20,30,50,0.12),0_10px_25px_rgba(20,30,50,0.2)]">
@@ -414,7 +420,7 @@ export default function Home() {
                 </ProductCell>
               </div>
 
-              <div className="grid grid-cols-2 border-t border-[#e5e7eb] sm:grid-cols-3 md:grid-cols-5 md:divide-x md:divide-[#e5e7eb]">
+              <div className="grid grid-cols-2 border-t border-[var(--aqua-border-light,#e5e7eb)] sm:grid-cols-3 md:grid-cols-5 md:divide-x md:divide-[var(--aqua-border-light,#e5e7eb)]">
                 <ProductCell title="Button" slug="button" price="Free">
                   <Button size="sm">Buy Now</Button>
                 </ProductCell>
@@ -434,24 +440,26 @@ export default function Home() {
             </StoreBox>
 
             <div className="grid gap-3 md:grid-cols-3">
-              <StoreBox className="flex flex-col items-center gap-2 bg-[linear-gradient(180deg,#fafbfc_0%,#e9edf2_100%)] p-6 text-center">
-                <h2 className="text-[21px] font-bold leading-tight tracking-tight text-[#23272e]">
+              <StoreBox className="flex flex-col items-center gap-2 bg-[image:var(--aqua-surface-sheet)] p-6 text-center">
+                <h2 className="text-[21px] font-bold leading-tight tracking-tight text-[var(--aqua-text-heading,#23272e)]">
                   The new Toast
                 </h2>
-                <p className="text-[12px] text-[#5a6069]">
+                <p className="text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
                   A little Growl for everyone.
                 </p>
                 <div className="mt-auto flex flex-col items-center gap-2 pt-3">
                   <ToastPromoButton />
-                  <span className="text-[11px] text-[#7a8089]">From $0</span>
+                  <span className="text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
+                    From $0
+                  </span>
                 </div>
               </StoreBox>
 
-              <StoreBox className="flex flex-col items-center gap-2 bg-[linear-gradient(180deg,#fafbfc_0%,#e9edf2_100%)] p-6 text-center">
-                <h2 className="text-[21px] font-bold leading-tight tracking-tight text-[#23272e]">
+              <StoreBox className="flex flex-col items-center gap-2 bg-[image:var(--aqua-surface-sheet)] p-6 text-center">
+                <h2 className="text-[21px] font-bold leading-tight tracking-tight text-[var(--aqua-text-heading,#23272e)]">
                   Agent Gifts
                 </h2>
-                <p className="text-[12px] text-[#5a6069]">
+                <p className="text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
                   Give your coding agent the ultimate context: every component,
                   one llms.txt.
                 </p>
@@ -463,7 +471,7 @@ export default function Home() {
                   >
                     Learn more &#9656;
                   </Button>
-                  <span className="text-[11px] text-[#7a8089]">
+                  <span className="text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
                     Special pricing available.
                   </span>
                 </div>
@@ -505,11 +513,11 @@ export default function Home() {
 
             <StoreBox>
               <StoreHeader>Staff Picks</StoreHeader>
-              <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x md:divide-[#e5e7eb]">
+              <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x md:divide-[var(--aqua-border-light,#e5e7eb)]">
                 <div className="flex flex-col items-center gap-3 px-4 py-5">
                   <Link
                     href="/docs/badge"
-                    className="text-[12px] font-bold text-[#1c5fb8] hover:underline"
+                    className="text-[12px] font-bold text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Aqua Badge
                   </Link>
@@ -521,7 +529,7 @@ export default function Home() {
                 <div className="flex flex-col items-center gap-3 px-4 py-5">
                   <Link
                     href="/docs/tooltip"
-                    className="text-[12px] font-bold text-[#1c5fb8] hover:underline"
+                    className="text-[12px] font-bold text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Aqua Tooltip
                   </Link>
@@ -537,11 +545,11 @@ export default function Home() {
                 <div className="flex flex-col items-center gap-3 px-4 py-5">
                   <Link
                     href="/docs/loader"
-                    className="text-[12px] font-bold text-[#1c5fb8] hover:underline"
+                    className="text-[12px] font-bold text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Aqua Loader
                   </Link>
-                  <div className="flex items-center gap-2 text-[11px] text-[#7a8089]">
+                  <div className="flex items-center gap-2 text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
                     <Loader className="size-4" />
                     Checking stock&hellip;
                   </div>
@@ -549,11 +557,11 @@ export default function Home() {
                 <div className="flex flex-col items-center gap-3 px-4 py-5">
                   <Link
                     href="/docs/checkbox"
-                    className="text-[12px] font-bold text-[#1c5fb8] hover:underline"
+                    className="text-[12px] font-bold text-[var(--aqua-link,#1c5fb8)] hover:underline"
                   >
                     Aqua Checkbox
                   </Link>
-                  <label className="flex items-center gap-2 text-[11px] text-[#43484f]">
+                  <label className="flex items-center gap-2 text-[11px] text-[var(--aqua-text-secondary,#43484f)]">
                     <Checkbox defaultChecked /> Gift wrap
                   </label>
                 </div>
@@ -573,30 +581,30 @@ export default function Home() {
 
             <StoreBox className="flex-1">
               <StoreHeader>Top Sellers</StoreHeader>
-              <p className="border-b border-[#e0e3e8] bg-[#eceef2] px-3 py-1 text-[11px] font-bold text-[#43484f]">
+              <p className="border-b border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 Core
               </p>
-              <ol className="list-decimal py-1.5 pl-8 pr-3 text-[12px] text-[#5a6069]">
+              <ol className="list-decimal py-1.5 pl-8 pr-3 text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
                 {TOP_SELLERS_CORE.map((slug) => (
                   <li key={slug} className="py-[2px] pl-1">
                     <Link
                       href={`/docs/${slug}`}
-                      className="text-[#1c5fb8] hover:underline"
+                      className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                     >
                       {SLUG_TITLES[slug]}
                     </Link>
                   </li>
                 ))}
               </ol>
-              <p className="border-y border-[#e0e3e8] bg-[#eceef2] px-3 py-1 text-[11px] font-bold text-[#43484f]">
+              <p className="border-y border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 Signature
               </p>
-              <ol className="list-decimal py-1.5 pl-8 pr-3 text-[12px] text-[#5a6069]">
+              <ol className="list-decimal py-1.5 pl-8 pr-3 text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
                 {TOP_SELLERS_SIGNATURE.map((slug) => (
                   <li key={slug} className="py-[2px] pl-1">
                     <Link
                       href={`/docs/${slug}`}
-                      className="text-[#1c5fb8] hover:underline"
+                      className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
                     >
                       {SLUG_TITLES[slug]}
                     </Link>
@@ -607,7 +615,7 @@ export default function Home() {
           </aside>
         </div>
 
-        <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-[#d2d5da] pt-3 text-[11px] text-[#7a8089]">
+        <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-[var(--aqua-border-light,#d2d5da)] pt-3 text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
           <span>
             All components ship free, as open code, via npx shadcn. A tribute to
             the 2007 Apple Store &mdash; no affiliation with Apple.
@@ -615,7 +623,7 @@ export default function Home() {
           <span>
             Made by{" "}
             <a
-              className="font-semibold text-[#1c5fb8] hover:underline"
+              className="font-semibold text-[var(--aqua-link,#1c5fb8)] hover:underline"
               href="https://michi.onl"
               target="_blank"
               rel="noreferrer"
@@ -623,7 +631,7 @@ export default function Home() {
               michi.onl
             </a>{" "}
             <a
-              className="text-[#1c5fb8] hover:underline"
+              className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
               href="https://bsky.app/profile/michi.onl"
               target="_blank"
               rel="noreferrer"

@@ -9,7 +9,7 @@ function IPod({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="ipod"
       className={cn(
-        "flex w-[290px] shrink-0 flex-col items-center gap-6 rounded-[36px] bg-[linear-gradient(160deg,#ffffff_0%,#eceef2_55%,#d8dbe1_100%)] px-[22px] pb-[30px] pt-6 shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-4px_10px_rgba(20,30,50,0.08),0_0_0_1px_rgba(20,30,50,0.12),0_26px_55px_rgba(20,30,50,0.28),0_4px_10px_rgba(20,30,50,0.12)]",
+        "flex w-[290px] shrink-0 flex-col items-center gap-6 rounded-[36px] bg-[image:var(--aqua-surface-shell)] px-[22px] pb-[30px] pt-6 shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-4px_10px_rgba(20,30,50,0.08),0_0_0_1px_rgba(20,30,50,0.12),0_26px_55px_rgba(20,30,50,0.28),0_4px_10px_rgba(20,30,50,0.12)]",
         className,
       )}
       {...props}
@@ -59,7 +59,7 @@ function IPodHeader({
 }
 
 const WHEEL_BUTTON =
-  "absolute p-1.5 text-[11px] font-bold tracking-[0.06em] text-[#9aa0aa] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] hover:brightness-95 focus-visible:text-[#6b7f9c] active:brightness-90";
+  "absolute p-1.5 text-[11px] font-bold tracking-[0.06em] text-[var(--aqua-text-subtle,#9aa0aa)] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] hover:brightness-95 focus-visible:text-[#6b7f9c] active:brightness-90";
 
 function ClickWheel({
   className,

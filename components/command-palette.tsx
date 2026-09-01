@@ -100,11 +100,11 @@ export function CommandPalette() {
       <button
         type="button"
         onClick={openPalette}
-        className="ml-auto flex h-7 select-none items-center gap-2 rounded-full border border-[#9599a1] bg-white px-2.5 text-[12px] text-[#9aa0a8] shadow-[inset_0_2px_3px_rgba(20,30,50,0.12)] outline-none transition-[box-shadow] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] md:w-52 md:px-3"
+        className="ml-auto flex h-7 select-none items-center gap-2 rounded-full border border-[var(--aqua-border-strong,#9599a1)] bg-[var(--aqua-surface,#ffffff)] px-2.5 text-[12px] text-[var(--aqua-text-subtle,#9aa0a8)] shadow-[inset_0_2px_3px_rgba(20,30,50,0.12)] outline-none transition-[box-shadow] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] md:w-52 md:px-3"
       >
         <MagnifyingGlass className="size-3.5 shrink-0" />
         <span className="hidden md:block">Search</span>
-        <kbd className="ml-auto hidden rounded-[4px] border border-[#c9ccd1] bg-[linear-gradient(180deg,#fdfdfe_0%,#eceef2_100%)] px-1.5 py-px font-sans text-[10px] text-[#7a8089] shadow-[0_1px_0_rgba(255,255,255,0.8)] md:block">
+        <kbd className="ml-auto hidden rounded-[4px] border border-[var(--aqua-border-light,#c9ccd1)] bg-[image:var(--aqua-surface-metal)] px-1.5 py-px font-sans text-[10px] text-[var(--aqua-text-muted,#7a8089)] shadow-[0_1px_0_rgba(255,255,255,0.8)] md:block">
           &#8984;K
         </kbd>
       </button>
@@ -115,9 +115,9 @@ export function CommandPalette() {
             if (event.target === event.currentTarget) setOpen(false);
           }}
         >
-          <div className="h-fit w-full max-w-lg overflow-hidden rounded-xl border border-[#82868e] bg-[#f7f8fa] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_20px_50px_rgba(20,30,50,0.45),0_4px_12px_rgba(20,30,50,0.25)]">
-            <div className="flex items-center gap-2.5 border-b border-[#c9ccd1] bg-white px-4 py-3">
-              <MagnifyingGlass className="size-4 shrink-0 text-[#7a8089]" />
+          <div className="h-fit w-full max-w-lg overflow-hidden rounded-xl border border-[var(--aqua-border-strong,#82868e)] bg-[var(--aqua-surface-2,#f7f8fa)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_20px_50px_rgba(20,30,50,0.45),0_4px_12px_rgba(20,30,50,0.25)]">
+            <div className="flex items-center gap-2.5 border-b border-[var(--aqua-border-light,#c9ccd1)] bg-[var(--aqua-surface,#ffffff)] px-4 py-3">
+              <MagnifyingGlass className="size-4 shrink-0 text-[var(--aqua-text-muted,#7a8089)]" />
               <input
                 autoFocus
                 value={query}
@@ -127,18 +127,18 @@ export function CommandPalette() {
                 }}
                 onKeyDown={onInputKeyDown}
                 placeholder="Search components..."
-                className="w-full bg-transparent text-[14px] text-[#33383f] outline-none placeholder:text-[#9aa0a8]"
+                className="w-full bg-transparent text-[14px] text-[var(--aqua-text,#33383f)] outline-none placeholder:text-[var(--aqua-text-subtle,#9aa0a8)]"
               />
             </div>
             <div ref={listRef} className="max-h-80 overflow-y-auto py-1.5">
               {groups.length === 0 ? (
-                <p className="px-4 py-6 text-center text-[13px] text-[#9aa0a8]">
+                <p className="px-4 py-6 text-center text-[13px] text-[var(--aqua-text-subtle,#9aa0a8)]">
                   Nothing found for &ldquo;{query}&rdquo;
                 </p>
               ) : (
                 groups.map((group) => (
                   <div key={group.label}>
-                    <p className="px-4 pb-1 pt-2 text-[11px] font-bold uppercase tracking-wide text-[#7a8089]">
+                    <p className="px-4 pb-1 pt-2 text-[11px] font-bold uppercase tracking-wide text-[var(--aqua-text-muted,#7a8089)]">
                       {group.label}
                     </p>
                     {group.entries.map((entry) => {
@@ -152,7 +152,7 @@ export function CommandPalette() {
                           onClick={() => select(entry)}
                           onMouseMove={() => setActive(index)}
                           className={cn(
-                            "flex w-full items-center gap-2 px-4 py-1.5 text-left text-[13px] text-[#33383f]",
+                            "flex w-full items-center gap-2 px-4 py-1.5 text-left text-[13px] text-[var(--aqua-text,#33383f)]",
                             index === active &&
                               "bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] text-white [text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]",
                           )}
@@ -161,7 +161,7 @@ export function CommandPalette() {
                           {entry.external ? (
                             <span
                               className={cn(
-                                "text-[11px] text-[#9aa0a8]",
+                                "text-[11px] text-[var(--aqua-text-subtle,#9aa0a8)]",
                                 index === active && "text-white/80",
                               )}
                             >
@@ -175,7 +175,7 @@ export function CommandPalette() {
                 ))
               )}
             </div>
-            <div className="flex items-center gap-1.5 border-t border-[#c9ccd1] bg-[repeating-linear-gradient(180deg,#f4f6fa_0px,#f4f6fa_2px,#eaeef4_2px,#eaeef4_4px)] px-4 py-2 text-[11px] text-[#7a8089]">
+            <div className="flex items-center gap-1.5 border-t border-[var(--aqua-border-light,#c9ccd1)] bg-[image:var(--aqua-surface-stripes)] px-4 py-2 text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
               <KeyReturn className="size-3" />
               Go to page
             </div>

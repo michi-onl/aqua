@@ -53,7 +53,7 @@ function ButtonGroupText({
     props: mergeProps<"div">(
       {
         className: cn(
-          "flex items-center gap-2 rounded-full border border-[#aeb3bc] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] px-3.5 text-[13px] font-semibold text-[#3a3f47] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
+          "flex items-center gap-2 rounded-full border border-[var(--aqua-border,#aeb3bc)] bg-[image:var(--aqua-surface-metal)] px-3.5 text-[13px] font-semibold text-[var(--aqua-text,#3a3f47)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)] [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
           className,
         ),
       },

@@ -7,7 +7,7 @@ function Dock({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="dock"
       className={cn(
-        "flex w-fit items-end gap-[18px] rounded-[22px] border border-white/90 bg-[linear-gradient(180deg,rgba(255,255,255,0.55)_0%,rgba(235,238,243,0.75)_100%)] px-[26px] pb-2.5 pt-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_0_0_1px_rgba(20,40,80,0.08),0_16px_38px_rgba(30,40,60,0.18)]",
+        "flex w-fit items-end gap-[18px] rounded-[22px] border-[var(--aqua-dock-border)] bg-[image:var(--aqua-surface-dock)] px-[26px] pb-2.5 pt-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_0_0_1px_rgba(20,40,80,0.08),0_16px_38px_rgba(30,40,60,0.18)]",
         className,
       )}
       {...props}

@@ -26,7 +26,7 @@ function SelectValue({
 }
 
 const selectTriggerVariants = cva(
-  "flex w-fit select-none items-center justify-between gap-3 whitespace-nowrap rounded-lg border border-[#7f8289] bg-[linear-gradient(180deg,#ffffff_0%,#e9ecf0_20%,#c9cdd4_46%,#ced2d9_54%,#eef0f3_74%,#ffffff_100%)] py-0 pr-1 text-[#33383f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),inset_0_-1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(20,60,130,0.2)] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:truncate",
+  "flex w-fit select-none items-center justify-between gap-3 whitespace-nowrap rounded-lg border border-[var(--aqua-border-strong,#7f8289)] bg-[image:var(--aqua-surface-silver)] py-0 pr-1 text-[var(--aqua-text,#33383f)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),inset_0_-1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(20,60,130,0.2)] outline-none transition-[filter] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:truncate",
   {
     variants: {
       size: {
@@ -93,18 +93,18 @@ function SelectContent({
         <SelectPrimitive.Popup
           data-slot="select-content"
           className={cn(
-            "relative min-w-[var(--anchor-width)] origin-[var(--transform-origin)] overflow-x-hidden rounded-lg border border-[#9599a1] bg-white py-1 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_10px_28px_rgba(20,30,50,0.3),0_2px_6px_rgba(20,30,50,0.15)] outline-none transition-[opacity,scale] duration-150 data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
+            "relative min-w-[var(--anchor-width)] origin-[var(--transform-origin)] overflow-x-hidden rounded-lg border border-[var(--aqua-border-strong,#9599a1)] bg-[var(--aqua-surface,#ffffff)] py-1 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_10px_28px_rgba(20,30,50,0.3),0_2px_6px_rgba(20,30,50,0.15)] outline-none transition-[opacity,scale] duration-150 data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
             className,
           )}
           {...props}
         >
-          <SelectPrimitive.ScrollUpArrow className="flex h-5 w-full items-center justify-center bg-white text-[#7a8089]">
+          <SelectPrimitive.ScrollUpArrow className="flex h-5 w-full items-center justify-center bg-[var(--aqua-surface,#ffffff)] text-[var(--aqua-text-muted,#7a8089)]">
             <CaretUp className="size-3.5" />
           </SelectPrimitive.ScrollUpArrow>
           <SelectPrimitive.List className="max-h-[min(24rem,var(--available-height))] overflow-y-auto overflow-x-hidden p-0">
             {children}
           </SelectPrimitive.List>
-          <SelectPrimitive.ScrollDownArrow className="flex h-5 w-full items-center justify-center bg-white text-[#7a8089]">
+          <SelectPrimitive.ScrollDownArrow className="flex h-5 w-full items-center justify-center bg-[var(--aqua-surface,#ffffff)] text-[var(--aqua-text-muted,#7a8089)]">
             <CaretDown className="size-3.5" />
           </SelectPrimitive.ScrollDownArrow>
         </SelectPrimitive.Popup>
@@ -121,7 +121,7 @@ function SelectLabel({
     <SelectPrimitive.GroupLabel
       data-slot="select-label"
       className={cn(
-        "px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#7a8089]",
+        "px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--aqua-text-muted,#7a8089)]",
         className,
       )}
       {...props}
@@ -138,7 +138,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default select-none items-center gap-2 py-1 pl-7 pr-3 text-[13px] text-[#33383f] outline-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] data-highlighted:text-white data-highlighted:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]",
+        "relative flex w-full cursor-default select-none items-center gap-2 py-1 pl-7 pr-3 text-[13px] text-[var(--aqua-text,#33383f)] outline-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] data-highlighted:text-white data-highlighted:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]",
         className,
       )}
       {...props}
@@ -160,7 +160,10 @@ function SelectSeparator({
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
-      className={cn("my-1 h-px bg-[#d3d7de]", className)}
+      className={cn(
+        "my-1 h-px bg-[var(--aqua-border-light,#d3d7de)]",
+        className,
+      )}
       {...props}
     />
   );

@@ -31,7 +31,7 @@ const chipClass = (active: boolean) =>
     "relative flex items-center gap-2 overflow-hidden rounded-full border px-3.5 py-1 text-[13px] transition-[filter] before:pointer-events-none before:absolute before:left-[7%] before:right-[7%] before:top-[2px] before:h-[46%] before:rounded-full before:bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.1))] before:content-[''] hover:brightness-103 active:translate-y-px active:brightness-95",
     active
       ? "border-[var(--aqua-edge,#1c5fb8)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] [text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]"
-      : "border-[#aeb3bc] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] text-[#3a3f47] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
+      : "border-[var(--aqua-border,#aeb3bc)] bg-[image:var(--aqua-surface-metal)] text-[var(--aqua-text,#3a3f47)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_1px_2px_rgba(20,60,130,0.2)] [text-shadow:0_1px_0_rgba(255,255,255,0.8)]",
   );
 
 export function ThemePicker() {
@@ -81,7 +81,7 @@ export function ThemePicker() {
         </label>
       </div>
 
-      <div className="flex flex-col items-center gap-6 rounded-xl border border-[#aeb3bc] bg-white p-10 shadow-[0_2px_10px_rgba(20,30,50,0.08)]">
+      <div className="flex flex-col items-center gap-6 rounded-xl border border-[var(--aqua-border,#aeb3bc)] bg-[var(--aqua-surface,#ffffff)] p-10 shadow-[0_2px_10px_rgba(20,30,50,0.08)]">
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Button>default</Button>
           <Button size="sm">small</Button>
@@ -112,7 +112,7 @@ export function ThemePicker() {
         The color applies to the whole site and sticks around; it&apos;s saved
         in your browser. In your own app it&apos;s one line:
       </p>
-      <div className="overflow-x-auto rounded-xl border border-[#aeb3bc] bg-white p-5 font-mono text-[13px] leading-6 shadow-[0_2px_10px_rgba(20,30,50,0.08)]">
+      <div className="overflow-x-auto rounded-xl border border-[var(--aqua-border,#aeb3bc)] bg-[var(--aqua-surface,#ffffff)] p-5 font-mono text-[13px] leading-6 shadow-[0_2px_10px_rgba(20,30,50,0.08)]">
         <pre>
           {`:root {\n  --aqua-accent: `}
           <span className="font-semibold" style={{ color: accent }}>

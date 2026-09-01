@@ -6,12 +6,12 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
     <div
       data-slot="table-container"
-      className="relative w-full overflow-x-auto rounded-lg border border-[#aeb3bc] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_3px_rgba(20,30,50,0.12)]"
+      className="relative w-full overflow-x-auto rounded-lg border border-[var(--aqua-border,#aeb3bc)] bg-[var(--aqua-surface,#ffffff)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_3px_rgba(20,30,50,0.12)]"
     >
       <table
         data-slot="table"
         className={cn(
-          "w-full caption-bottom border-collapse text-[13px] text-[#33383f]",
+          "w-full caption-bottom border-collapse text-[13px] text-[var(--aqua-text,#33383f)]",
           className,
         )}
         {...props}
@@ -24,7 +24,10 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b [&_tr]:border-[#9aa0aa]", className)}
+      className={cn(
+        "[&_tr]:border-b [&_tr]:border-[var(--aqua-border,#9aa0aa)]",
+        className,
+      )}
       {...props}
     />
   );
@@ -45,7 +48,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
     <tfoot
       data-slot="table-footer"
       className={cn(
-        "border-t border-[#9aa0aa] bg-[linear-gradient(180deg,#eef0f4_0%,#dfe2e8_100%)] font-semibold [text-shadow:0_1px_0_rgba(255,255,255,0.9)] [&>tr]:last:border-b-0",
+        "border-t border-[var(--aqua-border,#9aa0aa)] bg-[image:var(--aqua-surface-drawer)] font-semibold [text-shadow:0_1px_0_rgba(255,255,255,0.9)] [&>tr]:last:border-b-0",
         className,
       )}
       {...props}
@@ -60,7 +63,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
       className={cn(
         // Alternating blue rows are the era's list view. Header rows paint
         // their own metal over the stripe, so the zebra never reaches them.
-        "border-b border-[#e4e7ec] transition-colors even:bg-[#edf3fd] hover:bg-[#e0eafa] has-aria-expanded:bg-[#e0eafa] data-[state=selected]:bg-[linear-gradient(180deg,var(--aqua-gel-light,#6cb0f7)_0%,var(--aqua-accent,#2f7de0)_100%)]! data-[state=selected]:text-white data-[state=selected]:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]",
+        "border-b border-[var(--aqua-border-light,#e4e7ec)] transition-colors even:bg-[var(--aqua-row-alt,#edf3fd)] hover:bg-[var(--aqua-row-hover,#e0eafa)] has-aria-expanded:bg-[var(--aqua-row-hover,#e0eafa)] data-[state=selected]:bg-[linear-gradient(180deg,var(--aqua-gel-light,#6cb0f7)_0%,var(--aqua-accent,#2f7de0)_100%)]! data-[state=selected]:text-white data-[state=selected]:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]",
         className,
       )}
       {...props}
@@ -73,7 +76,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-[23px] border-r border-[#c9cdd4] bg-[linear-gradient(180deg,#fdfdfe_0%,#eceef2_48%,#e0e3e9_52%,#eff1f5_100%)] px-2.5 text-left align-middle text-[11px] font-bold whitespace-nowrap text-[#4a4f57] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] last:border-r-0 [&:has([role=checkbox])]:pr-0",
+        "h-[23px] border-r border-[var(--aqua-border-light,#c9cdd4)] bg-[image:var(--aqua-surface-menubar)] px-2.5 text-left align-middle text-[11px] font-bold whitespace-nowrap text-[var(--aqua-text-secondary,#4a4f57)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] last:border-r-0 [&:has([role=checkbox])]:pr-0",
         className,
       )}
       {...props}
@@ -101,7 +104,10 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("mt-3 text-[12px] text-[#7a8089]", className)}
+      className={cn(
+        "mt-3 text-[12px] text-[var(--aqua-text-muted,#7a8089)]",
+        className,
+      )}
       {...props}
     />
   );

@@ -42,7 +42,7 @@ function TabsTrigger({
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
       className={cn(
-        "relative -ml-px border border-[#8b909a] bg-[linear-gradient(180deg,#fdfdfe_0%,#e4e7ec_48%,#d3d7de_52%,#eceef2_100%)] px-5 py-[5px] text-[13px] text-[#3a3f47] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] outline-none transition-[filter] first:ml-0 first:rounded-l-full last:rounded-r-full hover:brightness-103 focus-visible:z-10 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 data-active:border-[var(--aqua-edge,#1c5fb8)] data-active:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] data-active:text-black data-active:shadow-[inset_0_2px_4px_rgba(10,40,90,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] data-active:[text-shadow:0_1px_0_rgba(255,255,255,0.45)]",
+        "relative -ml-px border border-[var(--aqua-border-strong,#8b909a)] bg-[image:var(--aqua-surface-metal)] px-5 py-[5px] text-[13px] text-[var(--aqua-text,#3a3f47)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] outline-none transition-[filter] first:ml-0 first:rounded-l-full last:rounded-r-full hover:brightness-103 focus-visible:z-10 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 data-active:border-[var(--aqua-edge,#1c5fb8)] data-active:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] data-active:text-black data-active:shadow-[inset_0_2px_4px_rgba(10,40,90,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] data-active:[text-shadow:0_1px_0_rgba(255,255,255,0.45)]",
         className,
       )}
       {...props}
@@ -58,7 +58,7 @@ function TabsContent({
     <TabsPrimitive.Panel
       data-slot="tabs-content"
       className={cn(
-        "w-full rounded-lg border border-[#a9adb5] bg-[repeating-linear-gradient(180deg,#f4f6fa_0px,#f4f6fa_2px,#eaeef4_2px,#eaeef4_4px)] p-6 pt-8 shadow-[inset_0_1px_4px_rgba(20,30,50,0.12)] outline-none",
+        "w-full rounded-lg border border-[var(--aqua-border,#a9adb5)] bg-[image:var(--aqua-surface-stripes)] p-6 pt-8 shadow-[inset_0_1px_4px_rgba(20,30,50,0.12)] outline-none",
         className,
       )}
       {...props}

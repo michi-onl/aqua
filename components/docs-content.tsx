@@ -129,7 +129,7 @@ import {
 
 function Preview({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-[220px] flex-wrap items-center justify-center gap-4 rounded-xl border border-[#aeb3bc] bg-white px-4 py-8 shadow-[0_2px_10px_rgba(20,30,50,0.08)] sm:p-10">
+    <div className="flex min-h-[220px] flex-wrap items-center justify-center gap-4 rounded-xl border border-[var(--aqua-border,#aeb3bc)] bg-[var(--aqua-surface,#ffffff)] px-4 py-8 shadow-[0_2px_10px_rgba(20,30,50,0.08)] sm:p-10">
       {children}
     </div>
   );
@@ -177,7 +177,7 @@ export const DOCS: Record<string, Doc> = {
             href="https://michi.onl"
             target="_blank"
             rel="noreferrer"
-            className="font-semibold text-[#1c5fb8] hover:underline"
+            className="font-semibold text-[var(--aqua-link,#1c5fb8)] hover:underline"
           >
             michi.onl
           </a>{" "}
@@ -186,7 +186,7 @@ export const DOCS: Record<string, Doc> = {
             href="https://bsky.app/profile/michi.onl"
             target="_blank"
             rel="noreferrer"
-            className="text-[#1c5fb8] hover:underline"
+            className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
           >
             @michi.onl
           </a>
@@ -251,6 +251,35 @@ export const DOCS: Record<string, Doc> = {
           gradients inside the components themselves: the gel highlight (a
           white-to-transparent cap on buttons and tabs), pinstripes (a 4px
           repeating gradient) and the dotted desktop background.
+        </p>
+        <SectionTitle>Dark mode</SectionTitle>
+        <p>
+          Aqua ships a dark mode that keeps the gloss and skeuomorphism, but
+          flips the neutral surfaces, text and borders to dark while the accent
+          gel deepens to hold its shine. Add the <code>.dark</code> class to{" "}
+          <code>&lt;html&gt;</code> and the whole kit retints:
+        </p>
+        <CodeBlock code={`<html lang="en" className="dark">`} lang="html" />
+        <p>
+          The theme follows <code>prefers-color-scheme</code> when no explicit
+          choice is stored. The docs site hand-rolls the state in{" "}
+          <code>localStorage[&quot;aqua-theme&quot;]</code> (
+          <code>&quot;light&quot;</code>, <code>&quot;dark&quot;</code>, or
+          unset for system) and applies the class before first paint, so there
+          is no flash of the wrong theme.
+        </p>
+        <p>
+          Underneath, the neutral surfaces and text are tokenized exactly like
+          the accent: <code>--aqua-text</code>, <code>--aqua-surface</code>,{" "}
+          <code>--aqua-border</code>, <code>--aqua-link</code> and friends hold
+          light values in <code>:root</code> and dark values under{" "}
+          <code>.dark</code>. Multi-stop surfaces like the silver buttons and
+          brushed metal get whole-gradient tokens such as{" "}
+          <code>--aqua-surface-silver</code> and{" "}
+          <code>--aqua-surface-metal</code>, referenced as{" "}
+          <code>bg-[image:var(--aqua-surface-silver)]</code>. The gel stops
+          themselves are deepened under <code>.dark</code> so the highlight cap
+          keeps reading as gloss.
         </p>
       </>
     ),
@@ -336,7 +365,10 @@ import { Info } from "@phosphor-icons/react"
         <p>
           Alerts render inline. To pop them onto the screen from an event, use
           the{" "}
-          <Link href="/docs/toast" className="text-[#1c5fb8] hover:underline">
+          <Link
+            href="/docs/toast"
+            className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
+          >
             Toast
           </Link>{" "}
           component, which wraps these same panels in a Growl-style notifier.
@@ -547,7 +579,7 @@ import { Info } from "@phosphor-icons/react"
             href="https://shiki.style"
             target="_blank"
             rel="noreferrer"
-            className="text-[#1c5fb8] hover:underline"
+            className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
           >
             shiki
           </a>{" "}
@@ -574,7 +606,7 @@ import { Info } from "@phosphor-icons/react"
               <Button>arrow on buttons</Button>
               <Link
                 href="/docs/introduction"
-                className="text-[#1c5fb8] hover:underline"
+                className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
               >
                 hand on links
               </Link>
@@ -884,7 +916,7 @@ import { Info } from "@phosphor-icons/react"
             <Loader className="size-4" />
             <Loader />
             <Loader className="size-10" />
-            <div className="flex items-center gap-2 text-[13px] text-[#5a6069]">
+            <div className="flex items-center gap-2 text-[13px] text-[var(--aqua-text-secondary,#5a6069)]">
               <Loader className="size-4" /> Connecting to iDisk&hellip;
             </div>
           </div>
@@ -1197,7 +1229,9 @@ import { Info } from "@phosphor-icons/react"
             </WindowTitlebar>
             <WindowContent className="flex flex-col gap-1 p-6">
               <p className="font-semibold">Mac OS X</p>
-              <p className="text-[#7a8089]">Version 10.3.9</p>
+              <p className="text-[var(--aqua-text-muted,#7a8089)]">
+                Version 10.3.9
+              </p>
               <p className="pt-2">
                 Processor: 1.25 GHz PowerPC G4
                 <br />
@@ -1447,7 +1481,7 @@ import { ButtonGroup } from "@/components/ui/button-group"
               Sharing &amp; Permissions
             </CollapsibleTrigger>
             <CollapsibleContent>
-              <div className="pt-2 pl-5 text-[12.5px] leading-relaxed text-[#5a6069]">
+              <div className="pt-2 pl-5 text-[12.5px] leading-relaxed text-[var(--aqua-text-secondary,#5a6069)]">
                 You can read and write. Everyone else can read only. Ownership
                 changes take effect after the next login.
               </div>
@@ -1600,13 +1634,15 @@ import { ButtonGroup } from "@/components/ui/button-group"
     body: (
       <>
         <Preview>
-          <div className="w-full max-w-sm rounded-lg border border-[#aeb3bc] bg-white p-4 text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+          <div className="w-full max-w-sm rounded-lg border border-[var(--aqua-border,#aeb3bc)] bg-[var(--aqua-surface,#ffffff)] p-4 text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
             <div className="font-bold">Startup Disk</div>
             <Separator className="my-3" />
             <div className="flex h-8 items-center gap-3">
               <span>Macintosh HD</span>
               <Separator orientation="vertical" />
-              <span className="text-[#7a8089]">74.5 GB</span>
+              <span className="text-[var(--aqua-text-muted,#7a8089)]">
+                74.5 GB
+              </span>
             </div>
           </div>
         </Preview>

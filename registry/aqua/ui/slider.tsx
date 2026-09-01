@@ -35,7 +35,7 @@ function Slider({
       >
         <SliderPrimitive.Track
           data-slot="slider-track"
-          className="relative h-2 w-full grow rounded-full bg-[#d7dbe2] shadow-[inset_0_1px_3px_rgba(0,0,0,0.25)]"
+          className="relative h-2 w-full grow rounded-full bg-[var(--aqua-groove,#d7dbe2)] shadow-[inset_0_1px_3px_rgba(0,0,0,0.25)]"
         >
           <SliderPrimitive.Indicator
             data-slot="slider-range"
@@ -46,7 +46,7 @@ function Slider({
               key={i}
               index={i}
               data-slot="slider-thumb"
-              className="block size-[18px] rounded-full border border-[#8b909a] bg-[radial-gradient(circle_at_50%_30%,#ffffff,#d5d9df_70%,#c3c8cf_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_3px_rgba(20,30,50,0.35)] outline-none transition-[filter] hover:brightness-103 has-[:focus-visible]:ring-[3px] has-[:focus-visible]:ring-[var(--aqua-ring,#2f7de0)] active:brightness-97"
+              className="block size-[18px] rounded-full border border-[var(--aqua-border-strong,#8b909a)] bg-[radial-gradient(circle_at_50%_30%,#ffffff,#d5d9df_70%,#c3c8cf_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_3px_rgba(20,30,50,0.35)] outline-none transition-[filter] hover:brightness-103 has-[:focus-visible]:ring-[3px] has-[:focus-visible]:ring-[var(--aqua-ring,#2f7de0)] active:brightness-97"
             />
           ))}
         </SliderPrimitive.Track>

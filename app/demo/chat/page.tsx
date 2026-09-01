@@ -16,6 +16,7 @@ import {
   WindowTitle,
   WindowTitlebar,
 } from "@/registry/aqua/ui/window";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const OPENING: UIMessage[] = [
   {
@@ -76,8 +77,9 @@ export default function ChatDemo() {
         <WindowTitlebar>
           <TrafficLights />
           <WindowTitle>sjobs &mdash; Instant Message</WindowTitle>
+          <ThemeToggle className="ml-auto" />
         </WindowTitlebar>
-        <div className="flex min-h-0 flex-1 flex-col border-t border-[#8b909a] bg-[#f4f5f8] [--chat-panel:#f4f5f8]">
+        <div className="flex min-h-0 flex-1 flex-col border-t border-[var(--aqua-border-strong,#8b909a)] bg-[var(--aqua-surface-2,#f4f5f8)] [--chat-panel:var(--aqua-surface-2,#f4f5f8)]">
           <div
             ref={scrollRef}
             className="flex min-h-0 flex-1 flex-col gap-2.5 overflow-y-auto overflow-x-hidden p-5"
@@ -106,7 +108,7 @@ export default function ChatDemo() {
               </p>
             ) : null}
           </div>
-          <div className="flex items-center gap-2.5 border-t border-[#c9ccd1] bg-[linear-gradient(180deg,#fbfcfd_0%,#e8ebef_100%)] p-3">
+          <div className="flex items-center gap-2.5 border-t border-[var(--aqua-border-light,#c9ccd1)] bg-[image:var(--aqua-surface-nav)] p-3">
             <Input
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
@@ -126,7 +128,7 @@ export default function ChatDemo() {
         Built from @aqua registry components.{" "}
         <Link
           href="/docs/chat-bubble"
-          className="text-[#1c5fb8] hover:underline"
+          className="text-[var(--aqua-link,#1c5fb8)] hover:underline"
         >
           See the chat bubble docs
         </Link>
