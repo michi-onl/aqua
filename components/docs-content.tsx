@@ -135,9 +135,29 @@ function Preview({ children }: { children: React.ReactNode }) {
   );
 }
 
-function SectionTitle({ children }: { children: React.ReactNode }) {
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function SectionTitle({ children }: { children: string }) {
+  const slug = slugify(children);
   return (
-    <h2 className="mt-4 text-lg font-semibold tracking-tight">{children}</h2>
+    <h2
+      id={slug}
+      className="group mt-4 scroll-mt-24 text-lg font-semibold tracking-tight"
+    >
+      {children}{" "}
+      <a
+        href={`#${slug}`}
+        aria-label={`Link to ${children}`}
+        className="text-[var(--aqua-link,#1c5fb8)] opacity-0 group-hover:opacity-100"
+      >
+        #
+      </a>
+    </h2>
   );
 }
 

@@ -11,7 +11,7 @@ export default function DocsLayout({
       <Menubar />
       <div className="flex">
         <DocsSidebar />
-        <main className="mx-auto w-full min-w-0 max-w-3xl px-4 py-8 sm:px-6 sm:py-10">
+        <main className="mx-auto w-full min-w-0 max-w-4xl px-4 py-8 sm:px-6 sm:py-10">
           {children}
         </main>
       </div>
