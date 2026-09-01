@@ -52,8 +52,8 @@
   --aqua-text: #33383f;
   --aqua-text-heading: #23272e;
   --aqua-text-secondary: #5a6069;
-  --aqua-text-muted: #7a8089;
-  --aqua-text-subtle: #9aa0aa;
+  --aqua-text-muted: #5f656e;
+  --aqua-text-subtle: #767c86;
   --aqua-link: #1c5fb8;
   --aqua-border-strong: #8b909a;
   --aqua-border: #aeb3bc;
@@ -91,13 +91,6 @@
     #e4e7ec 48%,
     #d3d7de 52%,
     #eceef2 100%
-  );
-  --aqua-surface-menubar: linear-gradient(
-    180deg,
-    #fdfdfe 0%,
-    #eceef2 48%,
-    #e0e3e9 52%,
-    #eff1f5 100%
   );
   --aqua-surface-drawer: linear-gradient(180deg, #eef0f4 0%, #dfe2e8 100%);
   --aqua-surface-window: linear-gradient(180deg, #d9dbde 0%, #c3c6ca 100%);
@@ -141,7 +134,7 @@
   --secondary: #e4e7ec;
   --secondary-foreground: #3a3f47;
   --muted: #e4e7ec;
-  --muted-foreground: #7a8089;
+  --muted-foreground: #5f656e;
   --accent: #d5e6fb;
   --accent-foreground: #1c5fb8;
   --destructive: #e03a2f;
@@ -207,13 +200,6 @@
     #262b31 48%,
     #22262c 52%,
     #2a2f35 100%
-  );
-  --aqua-surface-menubar: linear-gradient(
-    180deg,
-    #2e333a 0%,
-    #282d33 48%,
-    #24292f 52%,
-    #2b3036 100%
   );
   --aqua-surface-drawer: linear-gradient(180deg, #282d33 0%, #22262c 100%);
   --aqua-surface-window: linear-gradient(180deg, #2e333a 0%, #22262c 100%);

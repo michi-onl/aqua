@@ -1,7 +1,10 @@
-import { House, ShoppingCart } from "@phosphor-icons/react/ssr";
+import { House } from "@phosphor-icons/react/ssr";
+import Image from "next/image";
 import Link from "next/link";
 
+import { AccentChips } from "@/components/accent-chips";
 import { CommandPalette } from "@/components/command-palette";
+import { InstallCommand } from "@/components/code-block";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ToastPromoButton } from "@/components/store-promos";
 import { Avatar } from "@/registry/aqua/ui/avatar";
@@ -9,7 +12,7 @@ import { Badge } from "@/registry/aqua/ui/badge";
 import { Button } from "@/registry/aqua/ui/button";
 import { ChatBubble, ChatPanel } from "@/registry/aqua/ui/chat-bubble";
 import { Checkbox } from "@/registry/aqua/ui/checkbox";
-import { Dock, DockIcon, DockItem } from "@/registry/aqua/ui/dock";
+import { Dock, DockItem } from "@/registry/aqua/ui/dock";
 import {
   ClickWheel,
   IPod,
@@ -110,9 +113,9 @@ const SLUG_TITLES: Record<string, string> = {
 
 function StoreHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-8 items-center bg-[linear-gradient(180deg,#4a6f9e_0%,#2c5083_50%,#1d3d6b_51%,#2a4b7c_100%)] px-3 text-[13px] font-bold text-white [text-shadow:0_-1px_0_rgba(0,0,0,0.35)]">
+    <h2 className="flex h-8 items-center bg-[linear-gradient(180deg,#4a6f9e_0%,#2c5083_50%,#1d3d6b_51%,#2a4b7c_100%)] px-3 text-[13px] font-bold text-white [text-shadow:0_-1px_0_rgba(0,0,0,0.35)]">
       {children}
-    </div>
+    </h2>
   );
 }
 
@@ -135,13 +138,13 @@ function StoreBox({
 function ProductCell({
   title,
   slug,
-  price,
+  description,
   children,
   tall = false,
 }: {
   title: string;
   slug: string;
-  price: string;
+  description?: string;
   children: React.ReactNode;
   tall?: boolean;
 }) {
@@ -156,13 +159,15 @@ function ProductCell({
       </div>
       <Link
         href={`/docs/${slug}`}
-        className="text-[13px] font-bold text-[var(--aqua-link,#1c5fb8)] hover:underline"
+        className="text-[13px] font-bold text-[var(--aqua-link,#1c5fb8)] hover:underline focus-visible:outline-2 focus-visible:outline-[color:var(--aqua-ring,#2f7de0)]"
       >
         {title}
       </Link>
-      <span className="text-[12px] text-[var(--aqua-text-muted,#7a8089)]">
-        {price}
-      </span>
+      {description ? (
+        <span className="text-center text-[12px] text-[var(--aqua-text-muted,#5f656e)]">
+          {description}
+        </span>
+      ) : null}
     </div>
   );
 }
@@ -172,7 +177,7 @@ function SideLink({ title, slug }: { title: string; slug: string }) {
     <li>
       <Link
         href={`/docs/${slug}`}
-        className="block px-3 py-[3px] text-[12px] text-[var(--aqua-link,#1c5fb8)] hover:underline"
+        className="block px-3 py-[3px] text-[12px] text-[var(--aqua-link,#1c5fb8)] hover:underline focus-visible:outline-2 focus-visible:outline-[color:var(--aqua-ring,#2f7de0)]"
       >
         {title}
       </Link>
@@ -224,50 +229,56 @@ export default function Home() {
         </nav>
 
         <div className="mt-3 flex h-9 items-center gap-2 rounded-[4px] border border-[var(--aqua-border-light,#d2d5da)] bg-[image:var(--aqua-surface-sheet)] px-3 text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
-          <House className="size-3.5 text-[var(--aqua-text-muted,#7a8089)]" />
-          <span className="text-[var(--aqua-text-subtle,#9aa0aa)]">
+          <House className="size-3.5 text-[var(--aqua-text-muted,#5f656e)]" />
+          <span className="text-[var(--aqua-text-subtle,#767c86)]">
             &rsaquo;
           </span>
           <span>Welcome to the Aqua Store</span>
           <span className="ml-auto hidden items-center gap-3 sm:flex">
-            <Link href="/docs/installation" className="hover:underline">
+            <Link
+              href="/docs/installation"
+              className="hover:underline focus-visible:outline-2 focus-visible:outline-[color:var(--aqua-ring,#2f7de0)]"
+            >
               Help
             </Link>
-            <span className="text-[var(--aqua-border-light,#c9ccd1)]">|</span>
-            <a
-              href="https://github.com/michi-onl"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:underline"
-            >
-              Account
-            </a>
-            <span className="text-[var(--aqua-border-light,#c9ccd1)]">|</span>
-            <span className="flex items-center gap-1">
-              Cart <ShoppingCart className="size-3.5" />
-            </span>
           </span>
         </div>
 
-        <div className="mt-3 grid gap-3 lg:grid-cols-[200px_minmax(0,1fr)_210px]">
-          <aside className="order-2 flex flex-col gap-3 lg:order-1">
-            <StoreBox>
-              <div className="flex flex-col gap-2 bg-[linear-gradient(180deg,#37598a_0%,#26456f_100%)] p-4">
-                <h1 className="text-[24px] font-bold leading-none tracking-tight text-white [text-shadow:0_-1px_0_rgba(0,0,0,0.35)]">
-                  Aqua Store
-                </h1>
-                <p className="font-mono text-[10px] text-white/80">
-                  npx shadcn add @aqua
-                </p>
-                <div className="mt-1 flex items-center justify-between rounded-full bg-[var(--aqua-surface,#ffffff)] px-3 py-1 text-[11px] text-[var(--aqua-text-muted,#7a8089)] shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]">
-                  Search Store
-                  <kbd className="font-sans text-[10px] text-[var(--aqua-text-subtle,#9aa0aa)]">
-                    &#8984;K
-                  </kbd>
-                </div>
+        <StoreBox className="mt-3">
+          <div className="flex flex-col gap-4 bg-[linear-gradient(180deg,#37598a_0%,#26456f_100%)] p-4 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:p-6">
+            <div className="flex max-w-lg flex-col items-start gap-3">
+              <p className="text-[11px] font-bold uppercase tracking-wide text-white/80 [text-shadow:0_-1px_0_rgba(0,0,0,0.35)]">
+                Aqua Store
+              </p>
+              <h1 className="text-[24px] font-bold leading-tight tracking-tight text-white [text-shadow:0_-1px_0_rgba(0,0,0,0.35)]">
+                Aqua &mdash; the classic Mac OS X interface, rebuilt as a
+                shadcn/ui registry
+              </h1>
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  render={<Link href="/docs/installation" />}
+                  variant="secondary"
+                  size="sm"
+                >
+                  Get started
+                </Button>
+                <Button
+                  render={<Link href="/docs/button" />}
+                  variant="secondary"
+                  size="sm"
+                >
+                  Browse components
+                </Button>
               </div>
-            </StoreBox>
+            </div>
+            <div className="lg:w-[420px] lg:shrink-0">
+              <InstallCommand name="theme" />
+            </div>
+          </div>
+        </StoreBox>
 
+        <div className="mt-3 grid gap-3 lg:grid-cols-[200px_minmax(0,1fr)_210px]">
+          <aside className="flex flex-col gap-3 lg:order-1">
             <StoreBox className="bg-[var(--aqua-surface-2,#f4f5f8)]">
               <ul className="flex flex-col gap-0.5 p-3 text-[13px] font-bold">
                 <li>
@@ -333,17 +344,17 @@ export default function Home() {
 
             <StoreBox className="flex-1">
               <StoreHeader>Popular Components</StoreHeader>
-              <p className="border-b border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
+              <h3 className="border-b border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 For Forms
-              </p>
+              </h3>
               <ul className="py-1.5">
                 {FORM_PICKS.map((item) => (
                   <SideLink key={item.slug} {...item} />
                 ))}
               </ul>
-              <p className="border-y border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
+              <h3 className="border-y border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 For Feedback
-              </p>
+              </h3>
               <ul className="py-1.5">
                 {FEEDBACK_PICKS.map((item) => (
                   <SideLink key={item.slug} {...item} />
@@ -352,10 +363,15 @@ export default function Home() {
             </StoreBox>
           </aside>
 
-          <main className="order-1 flex min-w-0 flex-col gap-3 lg:order-2">
+          <main className="flex min-w-0 flex-col gap-3 lg:order-2">
             <StoreBox>
               <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x md:divide-[var(--aqua-border-light,#e5e7eb)]">
-                <ProductCell title="iPod" slug="ipod" price="From $0" tall>
+                <ProductCell
+                  title="iPod"
+                  slug="ipod"
+                  description="1,000 songs in your pocket."
+                  tall
+                >
                   <div className="h-[142px] w-[100px] shrink-0">
                     <IPod className="origin-top-left scale-[0.34] shadow-[0_0_0_1px_rgba(20,30,50,0.12),0_10px_25px_rgba(20,30,50,0.2)]">
                       <IPodScreen>
@@ -373,7 +389,12 @@ export default function Home() {
                     </IPod>
                   </div>
                 </ProductCell>
-                <ProductCell title="Window" slug="window" price="Just $0" tall>
+                <ProductCell
+                  title="Window"
+                  slug="window"
+                  description="Pinstripes and traffic lights included."
+                  tall
+                >
                   <Window className="w-[185px]">
                     <WindowTitlebar>
                       <TrafficLights />
@@ -384,29 +405,46 @@ export default function Home() {
                     </WindowContent>
                   </Window>
                 </ProductCell>
-                <ProductCell title="Dock" slug="dock" price="Now $0" tall>
+                <ProductCell
+                  title="Dock"
+                  slug="dock"
+                  description="Magnifies. Labels. Running dots."
+                  tall
+                >
                   <Dock className="gap-2.5 px-3.5 pb-2 pt-2.5">
                     <DockItem label="Finder">
-                      <DockIcon className="size-9 rounded-[9px] text-sm">
-                        A
-                      </DockIcon>
+                      <Image
+                        src="/icons/finder.png"
+                        alt="Finder"
+                        width={58}
+                        height={58}
+                        className="size-9"
+                      />
                     </DockItem>
                     <DockItem label="Mail">
-                      <DockIcon className="size-9 rounded-[9px] bg-[linear-gradient(180deg,#b8f2a2_0%,#6cc94a_55%,#4aa82e_100%)] text-sm">
-                        Q
-                      </DockIcon>
+                      <Image
+                        src="/icons/mail.png"
+                        alt="Mail"
+                        width={58}
+                        height={58}
+                        className="size-9"
+                      />
                     </DockItem>
                     <DockItem label="iTunes">
-                      <DockIcon className="size-9 rounded-[9px] bg-[linear-gradient(180deg,#fbd58e_0%,#f2a83e_55%,#e08c1d_100%)] text-sm">
-                        U
-                      </DockIcon>
+                      <Image
+                        src="/icons/itunes.png"
+                        alt="iTunes"
+                        width={58}
+                        height={58}
+                        className="size-9"
+                      />
                     </DockItem>
                   </Dock>
                 </ProductCell>
                 <ProductCell
                   title="Chat Bubble"
                   slug="chat-bubble"
-                  price="From $0"
+                  description="iChat, minus the AIM."
                   tall
                 >
                   <ChatPanel className="w-[170px] gap-1.5 p-3 text-[12px]">
@@ -421,19 +459,19 @@ export default function Home() {
               </div>
 
               <div className="grid grid-cols-2 border-t border-[var(--aqua-border-light,#e5e7eb)] sm:grid-cols-3 md:grid-cols-5 md:divide-x md:divide-[var(--aqua-border-light,#e5e7eb)]">
-                <ProductCell title="Button" slug="button" price="Free">
+                <ProductCell title="Button" slug="button">
                   <Button size="sm">Buy Now</Button>
                 </ProductCell>
-                <ProductCell title="Switch" slug="switch" price="Free">
+                <ProductCell title="Switch" slug="switch">
                   <Switch defaultChecked />
                 </ProductCell>
-                <ProductCell title="Slider" slug="slider" price="From $0">
+                <ProductCell title="Slider" slug="slider">
                   <Slider defaultValue={[60]} max={100} className="w-24" />
                 </ProductCell>
-                <ProductCell title="Progress" slug="progress" price="From $0">
+                <ProductCell title="Progress" slug="progress">
                   <Progress value={65} className="w-24" />
                 </ProductCell>
-                <ProductCell title="Avatar" slug="avatar" price="Just $0">
+                <ProductCell title="Avatar" slug="avatar">
                   <Avatar initials="SJ" shape="circle" />
                 </ProductCell>
               </div>
@@ -449,9 +487,6 @@ export default function Home() {
                 </p>
                 <div className="mt-auto flex flex-col items-center gap-2 pt-3">
                   <ToastPromoButton />
-                  <span className="text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
-                    From $0
-                  </span>
                 </div>
               </StoreBox>
 
@@ -471,9 +506,6 @@ export default function Home() {
                   >
                     Learn more &#9656;
                   </Button>
-                  <span className="text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
-                    Special pricing available.
-                  </span>
                 </div>
               </StoreBox>
 
@@ -481,11 +513,7 @@ export default function Home() {
                 <h2 className="text-[21px] font-bold leading-tight tracking-tight text-white">
                   Say hello to Cursor.
                 </h2>
-                <div className="flex w-full items-center justify-between gap-3">
-                  <div className="flex flex-col gap-1 text-[12px] text-white/70">
-                    <span>Now $0</span>
-                    <span>Ships within 24 hours.</span>
-                  </div>
+                <div className="flex w-full items-center justify-end">
                   <svg
                     viewBox="0 0 20 22"
                     aria-hidden="true"
@@ -549,7 +577,7 @@ export default function Home() {
                   >
                     Aqua Loader
                   </Link>
-                  <div className="flex items-center gap-2 text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
+                  <div className="flex items-center gap-2 text-[11px] text-[var(--aqua-text-muted,#5f656e)]">
                     <Loader className="size-4" />
                     Checking stock&hellip;
                   </div>
@@ -581,9 +609,9 @@ export default function Home() {
 
             <StoreBox className="flex-1">
               <StoreHeader>Top Sellers</StoreHeader>
-              <p className="border-b border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
+              <h3 className="border-b border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 Core
-              </p>
+              </h3>
               <ol className="list-decimal py-1.5 pl-8 pr-3 text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
                 {TOP_SELLERS_CORE.map((slug) => (
                   <li key={slug} className="py-[2px] pl-1">
@@ -596,9 +624,9 @@ export default function Home() {
                   </li>
                 ))}
               </ol>
-              <p className="border-y border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
+              <h3 className="border-y border-[var(--aqua-border-light,#e0e3e8)] bg-[var(--aqua-surface-3,#eceef2)] px-3 py-1 text-[11px] font-bold text-[var(--aqua-text-secondary,#43484f)]">
                 Signature
-              </p>
+              </h3>
               <ol className="list-decimal py-1.5 pl-8 pr-3 text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
                 {TOP_SELLERS_SIGNATURE.map((slug) => (
                   <li key={slug} className="py-[2px] pl-1">
@@ -615,7 +643,17 @@ export default function Home() {
           </aside>
         </div>
 
-        <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-[var(--aqua-border-light,#d2d5da)] pt-3 text-[11px] text-[var(--aqua-text-muted,#7a8089)]">
+        <StoreBox className="mt-3">
+          <StoreHeader>Choose an Accent</StoreHeader>
+          <div className="flex flex-col items-center gap-3 p-6">
+            <AccentChips />
+            <p className="text-[12px] text-[var(--aqua-text-secondary,#5a6069)]">
+              Five chips retint the entire page &mdash; and it sticks.
+            </p>
+          </div>
+        </StoreBox>
+
+        <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-[var(--aqua-border-light,#d2d5da)] pt-3 text-[11px] text-[var(--aqua-text-muted,#5f656e)]">
           <span>
             All components ship free, as open code, via npx shadcn. A tribute to
             the 2007 Apple Store &mdash; no affiliation with Apple.
