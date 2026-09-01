@@ -25,7 +25,7 @@ const OPENING: UIMessage[] = [
     parts: [
       {
         type: "text",
-        text: "so you built a whole UI kit out of my design language",
+        text: "so you built a whole UI kit out of our design language",
       },
     ],
   },
@@ -76,7 +76,7 @@ export default function ChatDemo() {
       <Window className="flex h-[560px] w-full max-w-lg flex-col">
         <WindowTitlebar>
           <TrafficLights />
-          <WindowTitle>sjobs &mdash; Instant Message</WindowTitle>
+          <WindowTitle>Aqua &mdash; Instant Message</WindowTitle>
           <ThemeToggle className="ml-auto" />
         </WindowTitlebar>
         <div className="flex min-h-0 flex-1 flex-col border-t border-[var(--aqua-border-strong,#8b909a)] bg-[var(--aqua-surface-2,#f4f5f8)] [--chat-panel:var(--aqua-surface-2,#f4f5f8)]">
@@ -104,7 +104,7 @@ export default function ChatDemo() {
             ) : null}
             {error ? (
               <p className="text-center text-[11px] text-[#a81f1f]">
-                sjobs went offline. Try sending that again.
+                aqua went offline. Try sending that again.
               </p>
             ) : null}
           </div>

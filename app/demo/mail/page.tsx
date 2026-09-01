@@ -15,39 +15,39 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const MESSAGES = [
   {
-    from: "Steve Jobs",
-    address: "sjobs@apple.com",
+    from: "Aqua Design Review",
+    address: "design.review@example.com",
     subject: "Re: Aqua, my shadcn registry",
     date: "Today, 9:41 AM",
-    body: "michi,\n\nSaw the registry. When we designed Aqua we wanted buttons you'd want to lick. Yours pass the test.\n\nThe first tabs were wrong. Folder tabs are a Windows thing. You fixed it before I had to call. Good.\n\nSteve",
+    body: "Saw the registry. When we designed Aqua we wanted buttons you'd want to lick. Yours pass the test.\n\nThe first tabs were wrong. Folder tabs are a Windows thing. You fixed it before I had to call. Good.",
   },
   {
-    from: "Steve Jobs",
-    address: "sjobs@apple.com",
+    from: "Aqua Design Review",
+    address: "design.review@example.com",
     subject: "One more thing",
     date: "Today, 8:12 AM",
-    body: "The Dock magnification on hover. The label. The little running dot.\n\nThat's the kind of detail people don't notice consciously, but they feel it.\n\nDon't ship anything that doesn't have that.\n\nSteve\n\nSent from my iPhone",
+    body: "The Dock magnification on hover. The label. The little running dot.\n\nThat's the kind of detail people don't notice consciously, but they feel it.\n\nDon't ship anything that doesn't have that.",
   },
   {
-    from: "Steve Jobs",
-    address: "sjobs@apple.com",
+    from: "Aqua Design Review",
+    address: "design.review@example.com",
     subject: "Re: can I show you the striped progress bar?",
     date: "Yesterday",
-    body: "No need. If the stripes don't march, it's broken. If they march under prefers-reduced-motion, it's also broken.\n\nI assume you got both right.\n\nSteve",
+    body: "No need. If the stripes don't march, it's broken. If they march under prefers-reduced-motion, it's also broken.\n\nI assume you got both right.",
   },
   {
-    from: "Steve Jobs",
-    address: "sjobs@apple.com",
+    from: "Aqua Design Review",
+    address: "design.review@example.com",
     subject: "Re: pricing the UI kit",
     date: "Yesterday",
-    body: "Free. Open code.\n\nYou're not selling components, you're selling taste. The components are the demo.\n\nReal artists ship.\n\nSteve\n\nSent from my iPhone",
+    body: "Free. Open code.\n\nYou're not selling components, you're selling taste. The components are the demo.\n\nReal artists ship.",
   },
   {
-    from: "Steve Jobs",
-    address: "sjobs@apple.com",
+    from: "Aqua Design Review",
+    address: "design.review@example.com",
     subject: "Focus",
     date: "Monday",
-    body: "You asked what to build next. Wrong question.\n\nDeciding what not to do is as important as deciding what to do. Ship the twelve components you have. Deploy the site. Then we talk.\n\nSteve",
+    body: "You asked what to build next. Wrong question.\n\nDeciding what not to do is as important as deciding what to do. Ship the twelve components you have. Deploy the site. Then we talk.",
   },
 ];
 
@@ -291,7 +291,10 @@ export default function MailDemo() {
                   <span className="w-14 text-right text-[var(--aqua-text-muted,#7a8089)]">
                     To:
                   </span>
-                  <Input defaultValue="sjobs@apple.com" className="h-7" />
+                  <Input
+                    defaultValue="design.review@example.com"
+                    className="h-7"
+                  />
                 </label>
                 <label className="flex items-center gap-2">
                   <span className="w-14 text-right text-[var(--aqua-text-muted,#7a8089)]">
@@ -302,7 +305,7 @@ export default function MailDemo() {
                 <textarea
                   rows={9}
                   defaultValue={
-                    "Steve,\n\nTwelve components shipped. Site deployed next.\n\nmichi"
+                    "Twelve components shipped. Site deployed next.\n\nmichi"
                   }
                   className="resize-none rounded-lg border border-[var(--aqua-border-strong,#9599a1)] bg-[var(--aqua-surface,#ffffff)] px-3 py-2 shadow-[inset_0_2px_3px_rgba(20,30,50,0.15)] outline-none focus-visible:border-[var(--aqua-ring,#2f7de0)] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)]"
                 />
