@@ -58,6 +58,7 @@ export const DOCS_NAV: DocsNavSection[] = [
   {
     label: "Demos",
     items: [
+      { title: "All Demos", slug: "demo", href: "/demo" },
       { title: "Chat", slug: "chat", href: "/demo/chat", external: true },
       {
         title: "Mail (2009)",

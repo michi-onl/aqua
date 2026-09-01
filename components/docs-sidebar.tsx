@@ -90,7 +90,7 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
 
 export function DocsSidebar() {
   return (
-    <aside className="sticky top-[37px] hidden h-[calc(100dvh-37px)] w-56 shrink-0 overflow-y-auto border-r border-[var(--aqua-border-light,#b6bcc6)] bg-[var(--aqua-sidebar,#dde4ed)] px-3 py-4 md:block">
+    <aside className="sticky top-[36px] hidden h-[calc(100dvh-36px)] w-56 shrink-0 overflow-y-auto border-r border-[var(--aqua-border-light,#b6bcc6)] bg-[var(--aqua-sidebar,#dde4ed)] px-3 py-4 md:block">
       <SidebarNav />
     </aside>
   );

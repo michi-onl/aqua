@@ -6,7 +6,7 @@ const SITE_URL = "https://aqua.michi.onl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const docs = DOCS_NAV.flatMap((section) => section.items).map((item) => ({
-    url: item.external
+    url: item.href
       ? `${SITE_URL}${item.href}`
       : `${SITE_URL}/docs/${item.slug}`,
     changeFrequency: "weekly" as const,

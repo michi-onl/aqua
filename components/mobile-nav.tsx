@@ -2,11 +2,22 @@
 
 import { useState } from "react";
 import { List, X } from "@phosphor-icons/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { SidebarNav } from "@/components/docs-sidebar";
+import { cn } from "@/lib/utils";
+
+const PAGES = [
+  { title: "Store", href: "/" },
+  { title: "Components", href: "/docs/button" },
+  { title: "Docs", href: "/docs/introduction" },
+  { title: "Demos", href: "/demo" },
+];
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -38,6 +49,45 @@ export function MobileNav() {
               >
                 <X className="size-3.5" />
               </button>
+            </div>
+            <div className="mb-5">
+              <p className="px-3 pb-1 text-[11px] font-bold uppercase tracking-wide text-[var(--aqua-text-muted,#5f656e)] [text-shadow:0_1px_0_rgba(255,255,255,0.7)]">
+                Pages
+              </p>
+              <ul className="flex flex-col gap-px">
+                {PAGES.map((page) => {
+                  const active = pathname === page.href;
+
+                  return (
+                    <li key={page.href}>
+                      <Link
+                        href={page.href}
+                        aria-current={active ? "page" : undefined}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "block rounded-md px-3 py-1 text-[13px] transition-colors",
+                          active
+                            ? "bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] font-semibold text-white [text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]"
+                            : "text-[var(--aqua-text,#3a3f47)] hover:bg-[var(--aqua-surface-2)]",
+                        )}
+                      >
+                        {page.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+                <li>
+                  <a
+                    href="https://github.com/michi-onl/aqua"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setOpen(false)}
+                    className="block rounded-md px-3 py-1 text-[13px] text-[var(--aqua-text,#3a3f47)] transition-colors hover:bg-[var(--aqua-surface-2)]"
+                  >
+                    GitHub
+                  </a>
+                </li>
+              </ul>
             </div>
             <SidebarNav onNavigate={() => setOpen(false)} />
           </div>
