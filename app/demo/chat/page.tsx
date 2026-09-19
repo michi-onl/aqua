@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useChat } from "@ai-sdk/react";
-import type { UIMessage } from "ai";
 
 import { playReceiveSound, playSendSound } from "@/lib/chat-sounds";
 
@@ -19,57 +17,62 @@ import {
 import { SiteNav } from "@/components/site-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const OPENING: UIMessage[] = [
-  {
-    id: "opening-1",
-    role: "assistant",
-    parts: [
-      {
-        type: "text",
-        text: "so you built a whole UI kit out of our design language",
-      },
-    ],
-  },
-  {
-    id: "opening-2",
-    role: "user",
-    parts: [{ type: "text", text: "yeah. it installs with one command" }],
-  },
-  {
-    id: "opening-3",
-    role: "assistant",
-    parts: [{ type: "text", text: "show me something worth shipping" }],
-  },
-];
-
-function messageText(message: UIMessage) {
-  return message.parts
-    .filter((part) => part.type === "text")
-    .map((part) => part.text)
-    .join("");
+interface Message {
+  id: string;
+  from: "me" | "them";
+  text: string;
 }
 
+const OPENING: Message[] = [
+  { id: "opening-1", from: "me", text: "so you built a whole UI kit out of our design language" },
+  { id: "opening-2", from: "them", text: "yeah. it installs with one command" },
+  { id: "opening-3", from: "me", text: "show me something worth shipping" },
+];
+
+// The demo is off the network: replies cycle through this script so the page
+// stays static and needs no API key.
+const REPLIES = [
+  "npx shadcn add @aqua/button. gel, gloss, one accent variable",
+  "the dock magnifies. the window has real traffic lights",
+  "one CSS variable rethemes every surface: --aqua-accent",
+  "base ui underneath, so the keyboard and screen reader work comes free",
+  "check /docs/theming. strawberry, graphite, whatever you like",
+  "we shipped the iPod click wheel too. it actually scrolls",
+];
+
 export default function ChatDemo() {
-  const { messages, sendMessage, status, error } = useChat({
-    messages: OPENING,
-    onFinish: () => playReceiveSound(),
-  });
+  const [messages, setMessages] = useState<Message[]>(OPENING);
   const [draft, setDraft] = useState("");
+  const [typing, setTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const replyIndex = useRef(0);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [messages, status]);
-
-  const busy = status === "submitted" || status === "streaming";
+  }, [messages, typing]);
 
   const send = () => {
     const text = draft.trim();
-    if (!text || busy) return;
+    if (!text || typing) return;
     setDraft("");
     playSendSound();
-    sendMessage({ text });
+    setMessages((current) => [
+      ...current,
+      { id: `sent-${current.length}`, from: "them", text },
+    ]);
+
+    setTyping(true);
+    window.setTimeout(() => {
+      const reply = REPLIES[replyIndex.current % REPLIES.length];
+      replyIndex.current += 1;
+      playReceiveSound();
+      setMessages((current) => [
+        ...current,
+        { id: `reply-${current.length}`, from: "me", text: reply },
+      ]);
+      setTyping(false);
+    }, 700);
   };
 
   return (
@@ -87,28 +90,15 @@ export default function ChatDemo() {
               ref={scrollRef}
               className="flex min-h-0 flex-1 flex-col gap-2.5 overflow-y-auto overflow-x-hidden p-5"
             >
-              {messages.map((message) => {
-                const text = messageText(message);
-                if (!text) return null;
-
-                return (
-                  <ChatBubble
-                    key={message.id}
-                    from={message.role === "assistant" ? "me" : "them"}
-                  >
-                    {text}
-                  </ChatBubble>
-                );
-              })}
-              {status === "submitted" ? (
+              {messages.map((message) => (
+                <ChatBubble key={message.id} from={message.from}>
+                  {message.text}
+                </ChatBubble>
+              ))}
+              {typing ? (
                 <ChatBubble from="me" className="text-[#4a6285]">
                   &hellip;
                 </ChatBubble>
-              ) : null}
-              {error ? (
-                <p className="text-center text-[11px] text-[#a81f1f]">
-                  aqua went offline. Try sending that again.
-                </p>
               ) : null}
             </div>
             <div className="flex items-center gap-2.5 border-t border-[var(--aqua-border-light,#c9ccd1)] bg-[image:var(--aqua-surface-nav)] p-3">
@@ -121,7 +111,7 @@ export default function ChatDemo() {
                 placeholder="Type a message"
                 className="h-8 rounded-full"
               />
-              <Button size="sm" onClick={send} disabled={!draft.trim() || busy}>
+              <Button size="sm" onClick={send} disabled={!draft.trim() || typing}>
                 Send
               </Button>
             </div>

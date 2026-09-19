@@ -20,7 +20,7 @@ const DEMOS = [
     title: "Chat",
     href: "/demo/chat",
     description:
-      "iChat, recreated: an AI conversation with an Aqua design veteran.",
+      "iChat, recreated: an Aqua conversation with gradient bubbles and sculpted tails.",
   },
 ];
 

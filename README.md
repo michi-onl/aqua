@@ -82,6 +82,18 @@ bun run dev            # docs site on localhost:3000
 bun run registry:build # rebuild public/r/*.json from registry.json
 ```
 
+### Deployment
+
+The site is a Cloudflare Worker at `aqua.michi.onl`, deployed with the **OpenNext** adapter (`@opennextjs/cloudflare`) via Cloudflare Workers Builds (connect the Worker to the repo in the dashboard).
+
+```bash
+bun run preview  # build + serve in the Workers runtime (workerd)
+bun run deploy   # build + deploy the Worker
+bun run cf-typegen
+```
+
+The site is fully static (SSG docs plus the client-only demos), so `open-next.config.ts` uses the read-only static-assets incremental cache and `wrangler.jsonc` needs no R2 or Durable Objects. There are no runtime secrets or environment variables.
+
 Component sources live in `registry/aqua/ui/`. The docs live in `components/docs-content.tsx`.
 
 ## Credits
