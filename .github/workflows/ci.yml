@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bunx tsc --noEmit
+      - run: bun run lint
+      # public/r is what `shadcn add` serves; fail if it no longer matches registry/.
+      - run: bun run registry:build
+      - run: git status --porcelain -- public/r && test -z "$(git status --porcelain -- public/r)"
+      - run: bun run build
