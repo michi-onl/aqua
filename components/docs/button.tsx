@@ -35,6 +35,21 @@ const doc: Doc = {
   <Info />
 </Button>`}
       />
+      <SectionTitle>Default button</SectionTitle>
+      <p>
+        In every Aqua dialog the default button, the one Return presses, slowly
+        throbbed. Give exactly one button per dialog <code>pulse</code> to get
+        it back. It holds still while pressed and when the user prefers reduced
+        motion.
+      </p>
+      <Preview>
+        <Button variant="secondary">Cancel</Button>
+        <Button pulse>OK</Button>
+      </Preview>
+      <CodeBlock
+        code={`<Button variant="secondary">Cancel</Button>
+<Button pulse>OK</Button>`}
+      />
     </>
   ),
 };

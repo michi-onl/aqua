@@ -37,7 +37,7 @@ const content = useRef<HTMLDivElement>(null)
       </SheetHeader>
       <SheetFooter>
         <SheetClose render={<Button variant="secondary" />}>Cancel</SheetClose>
-        <SheetClose render={<Button />}>Save</SheetClose>
+        <SheetClose render={<Button pulse />}>Save</SheetClose>
       </SheetFooter>
     </SheetContent>
   </Sheet>

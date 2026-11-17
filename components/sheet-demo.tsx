@@ -32,7 +32,7 @@ export function SheetDemo() {
       </WindowTitlebar>
       <WindowContent
         ref={content}
-        className="relative flex h-60 items-center justify-center overflow-hidden"
+        className="relative flex h-60 items-end justify-end overflow-hidden p-3"
       >
         <Sheet>
           <SheetTrigger render={<Button variant="secondary" size="sm" />}>
@@ -56,7 +56,9 @@ export function SheetDemo() {
                 <SheetClose render={<Button variant="secondary" size="xs" />}>
                   Cancel
                 </SheetClose>
-                <SheetClose render={<Button size="xs" />}>Save</SheetClose>
+                <SheetClose render={<Button size="xs" pulse />}>
+                  Save
+                </SheetClose>
               </div>
             </SheetFooter>
           </SheetContent>

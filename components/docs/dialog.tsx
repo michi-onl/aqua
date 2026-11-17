@@ -67,7 +67,7 @@ const doc: Doc = {
       <DialogDescription>Description.</DialogDescription>
     </DialogHeader>
     <DialogFooter>
-      <Button size="sm">OK</Button>
+      <Button size="sm" pulse>OK</Button>
     </DialogFooter>
   </DialogContent>
 </Dialog>`}

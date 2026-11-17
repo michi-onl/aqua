@@ -42,12 +42,22 @@ function Button({
   className,
   variant,
   size,
+  pulse = false,
   render,
   ...props
-}: useRender.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
+}: useRender.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    /** Throb like the era's default button: one per dialog, the one Return presses. */
+    pulse?: boolean;
+  }) {
   const defaultProps = {
     "data-slot": "button",
-    className: cn(buttonVariants({ variant, size, className })),
+    className: cn(
+      buttonVariants({ variant, size }),
+      pulse &&
+        "animate-[aqua-pulse_1.8s_ease-in-out_infinite] active:animate-none motion-reduce:animate-none",
+      className,
+    ),
   };
 
   return useRender({

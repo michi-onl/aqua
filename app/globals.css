@@ -301,6 +301,16 @@
   }
 }
 
+@keyframes aqua-pulse {
+  0%,
+  100% {
+    filter: none;
+  }
+  50% {
+    filter: brightness(1.18) saturate(0.6);
+  }
+}
+
 @keyframes aqua-skeleton-sheen {
   from {
     transform: translateX(-100%);

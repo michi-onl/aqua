@@ -291,6 +291,12 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "Glossy Aqua pill button with gel highlight, in blue, capsule and red.",
+      "css": {
+        "@keyframes aqua-pulse": {
+          "0%, 100%": { "filter": "none" },
+          "50%": { "filter": "brightness(1.18) saturate(0.6)" }
+        }
+      },
       "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {

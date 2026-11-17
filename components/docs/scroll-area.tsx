@@ -23,7 +23,7 @@ const doc: Doc = {
     <>
       <Preview>
         <ScrollArea className="h-52 w-72 rounded-md border border-[var(--aqua-border,#aeb3bc)] bg-[var(--aqua-surface,#ffffff)]">
-          <ol className="text-[12px]">
+          <ol className="text-[12px] leading-5">
             {SONGS.map((song, i) => (
               <li
                 key={song}
