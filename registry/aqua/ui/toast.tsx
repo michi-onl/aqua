@@ -84,8 +84,8 @@ function Toaster({ className }: { className?: string }) {
           className={cn(
             "group pointer-events-auto relative shadow-[0_1px_3px_rgba(20,30,50,0.12),0_10px_28px_rgba(20,30,50,0.3)]",
             item.leaving
-              ? "animate-out fade-out-0 slide-out-to-right-8 fill-mode-forwards duration-200"
-              : "animate-in fade-in-0 slide-in-from-right-8 duration-300",
+              ? "animate-out fade-out-0 slide-out-to-right-8 fill-mode-forwards duration-200 motion-reduce:slide-out-to-right-0"
+              : "animate-in fade-in-0 slide-in-from-right-8 duration-300 motion-reduce:slide-in-from-right-0",
           )}
         >
           <AlertTitle>{item.title}</AlertTitle>
@@ -96,7 +96,7 @@ function Toaster({ className }: { className?: string }) {
             type="button"
             aria-label="Dismiss notification"
             onClick={() => dismissToast(item.id)}
-            className="absolute -left-2 -top-2 flex size-5 items-center justify-center rounded-full border border-[#5a5f66] bg-[radial-gradient(circle_at_35%_30%,#9aa0a8_0%,#5f646b_60%,#43474d_100%)] text-white opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_1px_2px_rgba(20,30,50,0.4)] transition-opacity focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] group-hover:opacity-100"
+            className="absolute -left-2 -top-2 flex size-5 items-center justify-center rounded-full border border-[#5a5f66] bg-[radial-gradient(circle_at_35%_30%,#9aa0a8_0%,#5f646b_60%,#43474d_100%)] text-white opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_1px_2px_rgba(20,30,50,0.4)] transition-opacity focus-visible:opacity-100 focus-visible:outline-hidden focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] group-hover:opacity-100"
           >
             <X className="size-3" weight="bold" />
           </button>

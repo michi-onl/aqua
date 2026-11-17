@@ -7,7 +7,7 @@ function Window({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="window"
       className={cn(
-        "overflow-hidden rounded-[10px] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0.06)_0px,rgba(255,255,255,0.06)_1px,rgba(0,0,0,0.03)_1px,rgba(0,0,0,0.03)_2px),var(--aqua-surface-window)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_0_0_1px_rgba(40,45,55,0.35),0_18px_40px_rgba(30,40,60,0.3),0_4px_10px_rgba(30,40,60,0.2)]",
+        "overflow-hidden rounded-[10px] forced-colors:border bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0.06)_0px,rgba(255,255,255,0.06)_1px,rgba(0,0,0,0.03)_1px,rgba(0,0,0,0.03)_2px),var(--aqua-surface-window)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_0_0_1px_rgba(40,45,55,0.35),0_18px_40px_rgba(30,40,60,0.3),0_4px_10px_rgba(30,40,60,0.2)]",
         className,
       )}
       {...props}
@@ -51,6 +51,7 @@ function TrafficLights({ className, ...props }: React.ComponentProps<"div">) {
 
   return (
     <div
+      aria-hidden="true"
       data-slot="traffic-lights"
       className={cn("z-10 flex gap-2", className)}
       {...props}

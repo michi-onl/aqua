@@ -44,7 +44,7 @@ function TooltipContent({
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Positioner
-        className="z-50 outline-none"
+        className="z-50 outline-none focus-visible:outline-hidden"
         sideOffset={sideOffset}
         side={side}
         align={align}

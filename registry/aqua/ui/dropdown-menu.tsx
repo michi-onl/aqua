@@ -7,7 +7,7 @@ import { CaretRight, Check, Circle } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
 const popupClass =
-  "min-w-[10rem] origin-[var(--transform-origin)] overflow-y-auto overflow-x-hidden rounded-lg border border-[var(--aqua-border-strong,#9599a1)] bg-[var(--aqua-surface,#ffffff)] py-1 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_10px_28px_rgba(20,30,50,0.3),0_2px_6px_rgba(20,30,50,0.15)] outline-none transition-[opacity,scale] duration-150 data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0";
+  "min-w-[10rem] origin-[var(--transform-origin)] overflow-y-auto overflow-x-hidden rounded-lg border border-[var(--aqua-border-strong,#9599a1)] bg-[var(--aqua-surface,#ffffff)] py-1 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_10px_28px_rgba(20,30,50,0.3),0_2px_6px_rgba(20,30,50,0.15)] outline-none focus-visible:outline-hidden transition-[opacity,scale] duration-150 data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0";
 
 function DropdownMenu({
   ...props
@@ -42,7 +42,7 @@ function DropdownMenuContent({
   return (
     <MenuPrimitive.Portal>
       <MenuPrimitive.Positioner
-        className="z-50 max-h-[var(--available-height)] outline-none"
+        className="z-50 max-h-[var(--available-height)] outline-none focus-visible:outline-hidden"
         sideOffset={sideOffset}
         align={align}
         side={side}
@@ -63,7 +63,7 @@ function DropdownMenuContent({
 }
 
 const menuItemClass =
-  "relative flex cursor-default select-none items-center gap-2 py-1 pl-7 pr-3 text-[13px] text-[var(--aqua-text,#33383f)] outline-none data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] data-highlighted:text-white data-highlighted:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]";
+  "group relative flex cursor-default select-none items-center gap-2 py-1 pl-7 pr-3 text-[13px] text-[var(--aqua-text,#33383f)] outline-none focus-visible:outline-hidden data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] data-highlighted:text-white data-highlighted:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]";
 
 function DropdownMenuItem({
   className,
@@ -232,7 +232,7 @@ function DropdownMenuSubContent({
   return (
     <MenuPrimitive.Portal>
       <MenuPrimitive.Positioner
-        className="z-50 max-h-[var(--available-height)] outline-none"
+        className="z-50 max-h-[var(--available-height)] outline-none focus-visible:outline-hidden"
         sideOffset={sideOffset}
         align={align}
         side={side}

@@ -400,10 +400,10 @@
       "css": {
         "@keyframes aqua-progress-stripes": {
           "from": {
-            "background-position": "0 0"
+            "transform": "translateX(0)"
           },
           "to": {
-            "background-position": "calc(14px * 1.41421356) 0"
+            "transform": "translateX(calc(14px * 1.4142135624))"
           }
         }
       },

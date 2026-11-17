@@ -29,18 +29,23 @@ function DockItem({
     <div
       data-slot="dock-item"
       className={cn(
-        "group relative flex flex-col items-center gap-[5px] transition-transform duration-200 ease-out hover:-translate-y-2.5 hover:scale-[1.12] motion-reduce:transition-none motion-reduce:hover:transform-none",
+        "group relative flex flex-col items-center gap-[5px] transition-transform duration-200 ease-out hover:-translate-y-2.5 hover:scale-[1.12] focus-within:-translate-y-2.5 focus-within:scale-[1.12] motion-reduce:translate-none motion-reduce:scale-none motion-reduce:transition-none",
         className,
       )}
       {...props}
     >
       {label ? (
-        <span className="pointer-events-none absolute -top-[30px] whitespace-nowrap text-[13px] font-semibold text-white opacity-0 transition-opacity [text-shadow:0_1px_2px_rgba(0,0,0,0.9),0_0_5px_rgba(0,0,0,0.65),0_0_10px_rgba(0,0,0,0.45)] group-hover:opacity-100">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-[30px] whitespace-nowrap text-[13px] font-semibold text-white opacity-0 transition-opacity [text-shadow:0_1px_2px_rgba(0,0,0,0.9),0_0_5px_rgba(0,0,0,0.65),0_0_10px_rgba(0,0,0,0.45)] group-hover:opacity-100 group-focus-within:opacity-100"
+        >
           {label}
         </span>
       ) : null}
       {children}
+      {active ? <span className="sr-only">(running)</span> : null}
       <span
+        aria-hidden="true"
         className={cn(
           "size-[4px] rounded-full bg-[#5a6270]",
           active ? "opacity-100" : "opacity-0",
