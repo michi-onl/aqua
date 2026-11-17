@@ -614,6 +614,102 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "The Aqua sheet: a document-modal panel that slides down out of the window titlebar.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "registry/aqua/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "The system menu bar: silver strip, gel-highlighted titles, menus hanging flush below.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "@aqua/dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/aqua/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "source-list",
+      "type": "registry:ui",
+      "title": "Source List",
+      "description": "The Finder and iTunes sidebar: uppercase group labels and a gel selection bar.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "registry/aqua/ui/source-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Grooved scroll track with the blue gel thumb.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "registry/aqua/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Control-click menu that opens at the pointer, sharing the Dropdown Menu items.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "@aqua/dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/aqua/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Floating panel in the Tiger HUD style: smoked glass, white text, slim title strip.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "registry/aqua/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

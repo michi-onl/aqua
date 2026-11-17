@@ -48,11 +48,14 @@ import { Button } from "@/components/ui/button";
 
 ## Components
 
-**Core** — Alert, Avatar, Badge, Button, Button Group, Card, Checkbox, Code Block, Collapsible, Cursor, Dialog, Dropdown Menu, Empty, Input, Item, Label, Loader, Progress, Radio Group, Select, Separator, Skeleton, Slider, Spinner, Switch, Table, Tabs, Textarea, Toast, Toggle, Tooltip
+**Core** — Alert, Avatar, Badge, Button, Button Group, Card, Checkbox, Code Block, Collapsible, Context Menu, Cursor, Dialog, Dropdown Menu, Empty, Input, Item, Label, Loader, Popover, Progress, Radio Group, Scroll Area, Select, Separator, Skeleton, Slider, Spinner, Switch, Table, Tabs, Textarea, Toast, Toggle, Tooltip
 
 **Signature** — the pieces that only make sense in this design language:
 
 - **Window** — brushed metal chrome with traffic lights
+- **Sheet** — the document-modal panel that slides out of a window's titlebar
+- **Menubar** — the system menu bar with gel-highlighted titles
+- **Source List** — the Finder and iTunes sidebar
 - **Dock** — magnifying icons, haloed labels, running indicators
 - **Chat Bubble** — iChat gradient bubbles with sculpted tails
 - **iPod** — white shell, LCD screen, a working click wheel

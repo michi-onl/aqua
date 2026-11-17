@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "title": "Context Menu",
+  "description": "Control-click menu that opens at the pointer, sharing the Dropdown Menu items.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "@aqua/dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/aqua/ui/context-menu.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { ContextMenu as ContextMenuPrimitive } from \"@base-ui/react/context-menu\";\n\nimport { cn } from \"@/lib/utils\";\nimport { DropdownMenuContent } from \"@/registry/aqua/ui/dropdown-menu\";\n\nfunction ContextMenu({\n  ...props\n}: React.ComponentProps<typeof ContextMenuPrimitive.Root>) {\n  return <ContextMenuPrimitive.Root {...props} />;\n}\n\nfunction ContextMenuTrigger({\n  className,\n  ...props\n}: React.ComponentProps<typeof ContextMenuPrimitive.Trigger>) {\n  return (\n    <ContextMenuPrimitive.Trigger\n      data-slot=\"context-menu-trigger\"\n      className={cn(\"select-none\", className)}\n      {...props}\n    />\n  );\n}\n\n// The popup opens at the pointer, so drop the dropdown's trigger gap.\nfunction ContextMenuContent({\n  sideOffset = 0,\n  ...props\n}: React.ComponentProps<typeof DropdownMenuContent>) {\n  return <DropdownMenuContent sideOffset={sideOffset} {...props} />;\n}\n\nexport { ContextMenu, ContextMenuContent, ContextMenuTrigger };\nexport {\n  DropdownMenuCheckboxItem as ContextMenuCheckboxItem,\n  DropdownMenuGroup as ContextMenuGroup,\n  DropdownMenuItem as ContextMenuItem,\n  DropdownMenuLabel as ContextMenuLabel,\n  DropdownMenuRadioGroup as ContextMenuRadioGroup,\n  DropdownMenuRadioItem as ContextMenuRadioItem,\n  DropdownMenuSeparator as ContextMenuSeparator,\n  DropdownMenuShortcut as ContextMenuShortcut,\n  DropdownMenuSub as ContextMenuSub,\n  DropdownMenuSubContent as ContextMenuSubContent,\n  DropdownMenuSubTrigger as ContextMenuSubTrigger,\n} from \"@/registry/aqua/ui/dropdown-menu\";\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

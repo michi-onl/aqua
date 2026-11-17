@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "source-list",
+  "title": "Source List",
+  "description": "The Finder and iTunes sidebar: uppercase group labels and a gel selection bar.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "registry/aqua/ui/source-list.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { useRender } from \"@base-ui/react/use-render\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction SourceList({ className, ...props }: React.ComponentProps<\"nav\">) {\n  return (\n    <nav\n      data-slot=\"source-list\"\n      className={cn(\n        \"flex w-48 flex-col gap-3 bg-[var(--aqua-sidebar,#dde4ed)] py-2 text-[12px] text-[var(--aqua-text,#33383f)] shadow-[inset_-1px_0_0_var(--aqua-border,#aeb3bc)]\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction SourceListGroup({\n  label,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<\"div\"> & { label?: string }) {\n  const id = React.useId();\n  return (\n    <div\n      role=\"group\"\n      aria-labelledby={label ? id : undefined}\n      data-slot=\"source-list-group\"\n      className={cn(\"flex flex-col\", className)}\n      {...props}\n    >\n      {label ? (\n        <div\n          id={id}\n          className=\"px-3 pb-0.5 text-[11px] font-bold uppercase tracking-wide text-[var(--aqua-text-muted,#5f656e)] [text-shadow:0_1px_0_rgba(255,255,255,0.5)]\"\n        >\n          {label}\n        </div>\n      ) : null}\n      {children}\n    </div>\n  );\n}\n\n/** A row. Renders a button; pass `render={<a href=\"…\" />}` for links. */\nfunction SourceListItem({\n  active = false,\n  className,\n  render,\n  ...props\n}: useRender.ComponentProps<\"button\"> & { active?: boolean }) {\n  const defaultProps = {\n    \"data-slot\": \"source-list-item\",\n    \"aria-current\": active ? (\"page\" as const) : undefined,\n    className: cn(\n      \"flex h-[22px] w-full cursor-default select-none items-center gap-1.5 px-4 text-left outline-none focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--aqua-ring,#2f7de0)] aria-[current=page]:bg-[linear-gradient(180deg,var(--aqua-gel-light,#6cb0f7)_0%,var(--aqua-gel-deep,#2668c4)_100%)] aria-[current=page]:font-bold aria-[current=page]:text-white aria-[current=page]:shadow-[inset_0_1px_0_rgba(255,255,255,0.35)] aria-[current=page]:[text-shadow:0_-1px_0_rgba(10,40,90,0.4)] data-disabled:opacity-50 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n      className,\n    ),\n  };\n\n  return useRender({\n    defaultTagName: \"button\",\n    render,\n    props: mergeProps<\"button\">(defaultProps, props),\n  });\n}\n\nexport { SourceList, SourceListGroup, SourceListItem };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

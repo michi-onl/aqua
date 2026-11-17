@@ -36,6 +36,12 @@ import skeletonDoc from "@/components/docs/skeleton";
 import spinnerDoc from "@/components/docs/spinner";
 import tableDoc from "@/components/docs/table";
 import toggleDoc from "@/components/docs/toggle";
+import sheetDoc from "@/components/docs/sheet";
+import menubarDoc from "@/components/docs/menubar";
+import sourceListDoc from "@/components/docs/source-list";
+import scrollAreaDoc from "@/components/docs/scroll-area";
+import contextMenuDoc from "@/components/docs/context-menu";
+import popoverDoc from "@/components/docs/popover";
 import type { Doc } from "@/components/docs/shared";
 
 export type { Doc } from "@/components/docs/shared";
@@ -79,4 +85,10 @@ export const DOCS: Record<string, Doc> = {
   spinner: spinnerDoc,
   table: tableDoc,
   toggle: toggleDoc,
+  sheet: sheetDoc,
+  menubar: menubarDoc,
+  "source-list": sourceListDoc,
+  "scroll-area": scrollAreaDoc,
+  "context-menu": contextMenuDoc,
+  popover: popoverDoc,
 };
