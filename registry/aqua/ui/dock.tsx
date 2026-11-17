@@ -29,7 +29,7 @@ function DockItem({
     <div
       data-slot="dock-item"
       className={cn(
-        "group relative flex flex-col items-center gap-[5px] transition-transform duration-200 ease-out hover:-translate-y-2.5 hover:scale-[1.12] focus-within:-translate-y-2.5 focus-within:scale-[1.12] motion-reduce:translate-none motion-reduce:scale-none motion-reduce:transition-none",
+        "group relative flex flex-col items-center gap-[5px] transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2.5 hover:scale-[1.12] focus-within:-translate-y-2.5 focus-within:scale-[1.12] motion-reduce:translate-none motion-reduce:scale-none motion-reduce:transition-none",
         className,
       )}
       {...props}

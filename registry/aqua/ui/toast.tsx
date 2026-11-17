@@ -85,7 +85,7 @@ function Toaster({ className }: { className?: string }) {
             "group pointer-events-auto relative shadow-[0_1px_3px_rgba(20,30,50,0.12),0_10px_28px_rgba(20,30,50,0.3)]",
             item.leaving
               ? "animate-out fade-out-0 slide-out-to-right-8 fill-mode-forwards duration-200 motion-reduce:slide-out-to-right-0"
-              : "animate-in fade-in-0 slide-in-from-right-8 duration-300 motion-reduce:slide-in-from-right-0",
+              : "animate-in fade-in-0 slide-in-from-right-8 duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:slide-in-from-right-0",
           )}
         >
           <AlertTitle>{item.title}</AlertTitle>

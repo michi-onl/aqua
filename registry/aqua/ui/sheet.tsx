@@ -46,7 +46,7 @@ function SheetContent({
       <SheetPrimitive.Popup
         data-slot="sheet-content"
         className={cn(
-          "left-1/2 top-0 z-50 flex w-[min(420px,calc(100%-2rem))] -translate-x-1/2 flex-col gap-4 rounded-b-lg bg-[image:var(--aqua-surface-sheet)] px-6 pb-5 pt-6 opacity-[0.97] shadow-[inset_0_6px_8px_-6px_rgba(20,30,50,0.35),0_0_0_1px_rgba(20,30,50,0.2),0_14px_30px_rgba(20,30,50,0.3)] outline-none focus-visible:outline-hidden transition-transform duration-300 ease-out forced-colors:border data-ending-style:-translate-y-full data-starting-style:-translate-y-full motion-reduce:transition-none",
+          "left-1/2 top-0 z-50 flex w-[min(420px,calc(100%-2rem))] -translate-x-1/2 flex-col gap-4 rounded-b-lg bg-[image:var(--aqua-surface-sheet)] px-6 pb-5 pt-6 opacity-[0.97] shadow-[inset_0_6px_8px_-6px_rgba(20,30,50,0.35),0_0_0_1px_rgba(20,30,50,0.2),0_14px_30px_rgba(20,30,50,0.3)] outline-none focus-visible:outline-hidden transition-[translate,opacity] duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] data-ending-style:duration-200 forced-colors:border data-ending-style:-translate-y-full data-starting-style:-translate-y-full motion-reduce:data-ending-style:translate-y-0 motion-reduce:data-ending-style:opacity-0 motion-reduce:data-starting-style:translate-y-0 motion-reduce:data-starting-style:opacity-0",
           container ? "absolute" : "fixed",
           className,
         )}

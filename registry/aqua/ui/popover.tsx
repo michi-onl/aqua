@@ -48,7 +48,7 @@ function PopoverContent({
         <PopoverPrimitive.Popup
           data-slot="popover-content"
           className={cn(
-            "flex w-64 origin-[var(--transform-origin)] flex-col gap-2 rounded-lg border border-white/25 bg-[rgba(22,24,28,0.86)] p-3.5 text-[12px] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_12px_30px_rgba(0,0,0,0.45)] outline-none focus-visible:outline-hidden backdrop-blur-sm transition-[opacity,scale] duration-150 [text-shadow:0_-1px_0_rgba(0,0,0,0.5)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
+            "flex w-64 origin-[var(--transform-origin)] flex-col gap-2 rounded-lg border border-white/25 bg-[rgba(22,24,28,0.86)] p-3.5 text-[12px] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_12px_30px_rgba(0,0,0,0.45)] outline-none focus-visible:outline-hidden backdrop-blur-sm transition-[opacity,scale] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] data-ending-style:duration-100 [text-shadow:0_-1px_0_rgba(0,0,0,0.5)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-starting-style:scale-[0.98] data-starting-style:opacity-0",
             className,
           )}
           {...props}
