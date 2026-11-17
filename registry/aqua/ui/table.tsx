@@ -63,7 +63,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
       className={cn(
         // Alternating blue rows are the era's list view. Header rows paint
         // their own metal over the stripe, so the zebra never reaches them.
-        "border-b border-[var(--aqua-border-light,#e4e7ec)] transition-colors even:bg-[var(--aqua-row-alt,#edf3fd)] hover:bg-[var(--aqua-row-hover,#e0eafa)] has-aria-expanded:bg-[var(--aqua-row-hover,#e0eafa)] data-[state=selected]:bg-[linear-gradient(180deg,var(--aqua-gel-light,#6cb0f7)_0%,var(--aqua-accent,#2f7de0)_100%)]! data-[state=selected]:text-white data-[state=selected]:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)]",
+        "border-b border-[var(--aqua-border-light,#e4e7ec)] transition-colors even:bg-[var(--aqua-row-alt,#edf3fd)] hover:bg-[var(--aqua-row-hover,#e0eafa)] has-aria-expanded:bg-[var(--aqua-row-hover,#e0eafa)] data-[state=selected]:bg-[linear-gradient(180deg,var(--aqua-gel-light,#6cb0f7)_0%,var(--aqua-accent,#2f7de0)_100%)]! data-[state=selected]:text-white data-[state=selected]:[text-shadow:0_-1px_1px_rgba(10,40,90,0.4)] forced-colors:data-[state=selected]:forced-color-adjust-none! forced-colors:data-[state=selected]:bg-none! forced-colors:data-[state=selected]:bg-[Highlight]! forced-colors:data-[state=selected]:text-[HighlightText]!",
         className,
       )}
       {...props}

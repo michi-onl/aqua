@@ -37,7 +37,7 @@ function MenubarTrigger({
     <MenuPrimitive.Trigger
       data-slot="menubar-trigger"
       className={cn(
-        "flex cursor-default select-none items-center px-2.5 outline-none focus-visible:outline-hidden data-popup-open:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] data-popup-open:text-white focus-visible:bg-[var(--aqua-row-hover,#e0eafa)] data-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4",
+        "flex cursor-default select-none items-center px-2.5 outline-none focus-visible:outline-hidden data-popup-open:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#7db9f5)_0%,var(--aqua-gel-mid,#3c86e4)_50%,var(--aqua-gel-deep,#2668c4)_51%,var(--aqua-gel-light,#5da3ef)_100%)] data-popup-open:text-white forced-colors:data-popup-open:forced-color-adjust-none forced-colors:data-popup-open:bg-none forced-colors:data-popup-open:bg-[Highlight] forced-colors:data-popup-open:text-[HighlightText] focus-visible:bg-[var(--aqua-row-hover,#e0eafa)] data-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
