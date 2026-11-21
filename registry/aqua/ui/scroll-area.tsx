@@ -44,10 +44,10 @@ function ScrollBar({
       )}
       {...props}
     >
-      {/* The gel pill: the stripe runs across the thumb, so the gradient turns with the bar. */}
+      {/* The gel pill: the specular highlight and caustic glow turn with the bar. */}
       <ScrollAreaPrimitive.Thumb
         data-slot="scroll-area-thumb"
-        className="relative flex-1 rounded-full border border-[var(--aqua-edge,#1c5fb8)] shadow-[inset_0_0_1px_rgba(255,255,255,0.8)] forced-color-adjust-none data-[orientation=horizontal]:bg-[linear-gradient(180deg,var(--aqua-gel-hi,#b9dcff)_0%,var(--aqua-gel-light,#6cb0f7)_42%,var(--aqua-accent,#2f7de0)_50%,var(--aqua-gel-light,#4d9cf2)_78%,var(--aqua-gel-hi,#9fd7ff)_100%)] data-[orientation=vertical]:bg-[linear-gradient(90deg,var(--aqua-gel-hi,#b9dcff)_0%,var(--aqua-gel-light,#6cb0f7)_42%,var(--aqua-accent,#2f7de0)_50%,var(--aqua-gel-light,#4d9cf2)_78%,var(--aqua-gel-hi,#9fd7ff)_100%)]"
+        className="relative flex-1 rounded-full border border-[var(--aqua-gel-border,#42689e)] forced-color-adjust-none data-[orientation=horizontal]:border-b-[var(--aqua-gel-border-bottom,#587497)] data-[orientation=horizontal]:bg-[linear-gradient(180deg,var(--aqua-gel-top,#cadefa)_0%,var(--aqua-gel-upper,#a2c5f4)_38%,var(--aqua-gel-body,#5d98e8)_48%,var(--aqua-gel-lower,#89b5f0)_68%,var(--aqua-gel-glow,#dae8fc)_100%)] data-[orientation=horizontal]:shadow-[inset_0_1px_0_rgba(255,255,255,0.75),inset_0_-1px_2px_var(--aqua-gel-inset-bottom,rgba(255,255,255,0.75)),inset_4px_0_5px_-2px_var(--aqua-gel-cap,#2866b8),inset_-4px_0_5px_-2px_var(--aqua-gel-cap,#2866b8)] data-[orientation=vertical]:border-r-[var(--aqua-gel-border-bottom,#587497)] data-[orientation=vertical]:bg-[linear-gradient(90deg,var(--aqua-gel-top,#cadefa)_0%,var(--aqua-gel-upper,#a2c5f4)_38%,var(--aqua-gel-body,#5d98e8)_48%,var(--aqua-gel-lower,#89b5f0)_68%,var(--aqua-gel-glow,#dae8fc)_100%)] data-[orientation=vertical]:shadow-[inset_1px_0_0_rgba(255,255,255,0.75),inset_-1px_0_2px_var(--aqua-gel-inset-bottom,rgba(255,255,255,0.75)),inset_0_4px_5px_-2px_var(--aqua-gel-cap,#2866b8),inset_0_-4px_5px_-2px_var(--aqua-gel-cap,#2866b8)]"
       />
     </ScrollAreaPrimitive.Scrollbar>
   );

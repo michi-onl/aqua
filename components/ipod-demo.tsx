@@ -56,7 +56,7 @@ export function IPodDemo() {
           <p className="truncate text-[11px] text-[#6b7f9c]">{TRACK.album}</p>
           <div className="mt-2 h-[9px] overflow-hidden rounded-[3px] border border-[#93a7c2] bg-[#e2e9f2] shadow-[inset_0_1px_2px_rgba(40,70,120,0.2)]">
             <div
-              className="h-full bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a5d0fa)_0%,var(--aqua-gel-mid,#4a95ef)_50%,var(--aqua-accent,#2f7de0)_55%,var(--aqua-gel-light,#6fb4f7)_100%)]"
+              className="h-full bg-[linear-gradient(180deg,var(--aqua-gel-top,#cadefa)_0%,var(--aqua-gel-upper,#a2c5f4)_44%,var(--aqua-gel-body,#5d98e8)_50%,var(--aqua-gel-lower,#89b5f0)_68%,var(--aqua-gel-glow,#dae8fc)_100%)]"
               style={{ width: `${progress}%` }}
             />
           </div>

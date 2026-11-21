@@ -24,7 +24,7 @@ function Progress({
       >
         <ProgressPrimitive.Indicator
           data-slot="progress-indicator"
-          className="relative block h-full overflow-hidden rounded-full forced-color-adjust-none bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a5d0fa)_0%,var(--aqua-gel-mid,#4a95ef)_50%,var(--aqua-accent,#2f7de0)_55%,var(--aqua-gel-light,#6fb4f7)_100%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.7)] transition-[width] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] after:absolute after:-inset-x-10 after:inset-y-0 after:animate-[aqua-progress-stripes_0.8s_linear_infinite] after:bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.35)_0px,rgba(255,255,255,0.35)_7px,transparent_7px,transparent_14px)] after:content-[''] after:will-change-transform motion-reduce:after:animate-none"
+          className="relative block h-full overflow-hidden rounded-full forced-color-adjust-none bg-[linear-gradient(180deg,var(--aqua-gel-top,#cadefa)_0%,var(--aqua-gel-upper,#a2c5f4)_44%,var(--aqua-gel-body,#5d98e8)_50%,var(--aqua-gel-lower,#89b5f0)_68%,var(--aqua-gel-glow,#dae8fc)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.85),inset_0_-1px_2px_var(--aqua-gel-inset-bottom,rgba(255,255,255,0.75))] transition-[width] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] after:absolute after:-inset-x-10 after:inset-y-0 after:animate-[aqua-progress-stripes_0.8s_linear_infinite] after:bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.42)_0px,rgba(255,255,255,0.42)_7px,transparent_7px,transparent_14px)] after:content-[''] after:will-change-transform motion-reduce:after:animate-none"
         />
       </ProgressPrimitive.Track>
     </ProgressPrimitive.Root>

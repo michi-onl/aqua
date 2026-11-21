@@ -26,11 +26,11 @@ function SelectValue({
 }
 
 const selectTriggerVariants = cva(
-  "flex w-fit select-none items-center justify-between gap-3 whitespace-nowrap rounded-lg border border-[var(--aqua-border-strong,#7f8289)] bg-[image:var(--aqua-surface-silver)] py-0 pr-1 text-[var(--aqua-text,#33383f)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95),inset_0_-1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(20,60,130,0.2)] outline-none focus-visible:outline-hidden transition-[filter,scale] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:truncate",
+  "flex w-fit select-none items-stretch justify-between gap-3 overflow-hidden whitespace-nowrap rounded-[6px] border border-[var(--aqua-border-strong,#8b9098)] bg-[image:var(--aqua-surface-silver)] py-0 pr-0 text-[var(--aqua-text,#262a30)] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_2px_rgba(255,255,255,0.8),0_1px_2px_rgba(20,30,50,0.14)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_1px_2px_rgba(0,0,0,0.45)] outline-none focus-visible:outline-hidden transition-[filter,scale] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98] [text-shadow:0_1px_0_rgba(255,255,255,0.9)] dark:[text-shadow:0_-1px_0_rgba(0,0,0,0.45)] hover:brightness-103 focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] active:brightness-95 disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 [&_[data-slot=select-value]]:flex [&_[data-slot=select-value]]:items-center [&_[data-slot=select-value]]:truncate",
   {
     variants: {
       size: {
-        sm: "h-7 min-w-24 pl-2.5 text-[12px] [&_[data-slot=select-icon]]:h-5 [&_[data-slot=select-icon]]:w-4",
+        sm: "h-7 min-w-24 pl-2.5 text-[12px] [&_[data-slot=select-icon]]:w-[19px]",
         default: "h-8 min-w-36 pl-3 text-[13px]",
       },
     },
@@ -57,10 +57,10 @@ function SelectTrigger({
       {children}
       <SelectPrimitive.Icon
         data-slot="select-icon"
-        className="flex h-6 w-5 shrink-0 flex-col items-center justify-center rounded-[4px] border border-[var(--aqua-edge,#1c5fb8)] bg-[linear-gradient(180deg,var(--aqua-gel-hi,#a8d0f7)_0%,var(--aqua-gel-mid,#4a90ec)_50%,var(--aqua-gel-deep,#2a6fd0)_51%,var(--aqua-gel-light,#6aabf3)_100%)] text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),inset_0_-1px_2px_rgba(255,255,255,0.35),0_1px_2px_rgba(20,60,130,0.3)]"
+        className="relative flex w-[22px] shrink-0 self-stretch flex-col items-center justify-center border-l border-[var(--aqua-gel-border,#42689e)] bg-[linear-gradient(180deg,var(--aqua-gel-top,#cadefa)_0%,var(--aqua-gel-upper,#a2c5f4)_46%,var(--aqua-gel-body,#5d98e8)_50%,var(--aqua-gel-lower,#89b5f0)_68%,var(--aqua-gel-top,#cadefa)_88%,var(--aqua-gel-glow,#dae8fc)_100%)] text-black dark:text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-2px_3px_var(--aqua-gel-inset-bottom,rgba(255,255,255,0.78)),inset_2px_0_3px_-1px_var(--aqua-gel-rim,rgba(47,125,224,0.45)),inset_-2px_0_3px_-1px_var(--aqua-gel-rim,rgba(47,125,224,0.45))] before:pointer-events-none before:absolute before:inset-x-[1px] before:top-0 before:h-[46%] before:bg-[image:var(--aqua-gel-shine,linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.5)_55%,rgba(255,255,255,0.24)_100%))] before:content-['']"
       >
-        <CaretUp className="size-2.5" weight="bold" />
-        <CaretDown className="size-2.5" weight="bold" />
+        <CaretUp className="relative z-10 size-2.5" weight="fill" />
+        <CaretDown className="relative z-10 size-2.5" weight="fill" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );

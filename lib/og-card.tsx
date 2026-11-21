@@ -138,10 +138,13 @@ export function OgCard({
                   alignItems: "center",
                   padding: "13px 32px",
                   borderRadius: 999,
-                  border: "2px solid #1c5fb8",
+                  border: "2px solid #42689e",
+                  borderBottomColor: "#587497",
                   background:
-                    "linear-gradient(180deg, #b9dcff 0%, #6cb0f7 42%, #2f7de0 50%, #4d9cf2 78%, #9fd7ff 100%)",
-                  color: "white",
+                    "linear-gradient(180deg, #cadefa 0%, #a2c5f4 46%, #5d98e8 50%, #89b5f0 68%, #cadefa 88%, #dae8fc 100%)",
+                  boxShadow:
+                    "inset 0 2px 0 rgba(255,255,255,0.78), inset 0 -4px 8px rgba(255,255,255,0.75)",
+                  color: "#000000",
                   fontSize: 30,
                   fontWeight: 700,
                 }}

@@ -13,7 +13,7 @@ function Switch({
     <SwitchPrimitive.Root
       data-slot="switch"
       className={cn(
-        "inline-flex h-[24px] w-[44px] shrink-0 items-center rounded-full border border-[var(--aqua-border-strong,#8b909a)] bg-[image:var(--aqua-surface-metal)] p-0 shadow-[inset_0_2px_3px_rgba(20,30,50,0.25)] outline-none focus-visible:outline-hidden transition-[background,filter] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 data-checked:border-[var(--aqua-edge,#1c5fb8)] data-checked:bg-[linear-gradient(180deg,var(--aqua-gel-deep,#2a6fd0)_0%,var(--aqua-gel-mid,#4a90ec)_55%,var(--aqua-gel-hi,#a8d0f7)_100%)] data-checked:shadow-[inset_0_2px_3px_rgba(10,40,90,0.35)]",
+        "inline-flex h-[24px] w-[44px] shrink-0 items-center rounded-full border border-[var(--aqua-border-strong,#8b909a)] bg-[image:var(--aqua-surface-metal)] p-0 shadow-[inset_0_2px_3px_rgba(20,30,50,0.25)] outline-none focus-visible:outline-hidden transition-[background,filter] focus-visible:ring-[3px] focus-visible:ring-[var(--aqua-ring,#2f7de0)] disabled:pointer-events-none disabled:opacity-50 data-disabled:pointer-events-none data-disabled:opacity-50 data-checked:border-[var(--aqua-gel-border,#42689e)] data-checked:bg-[linear-gradient(180deg,var(--aqua-gel-body,#5d98e8)_0%,var(--aqua-gel-lower,#89b5f0)_52%,var(--aqua-gel-top,#cadefa)_85%,var(--aqua-gel-glow,#dae8fc)_100%)] data-checked:shadow-[inset_0_2px_3px_var(--aqua-gel-rim,rgba(47,125,224,0.45)),inset_0_-1px_2px_var(--aqua-gel-inset-bottom,rgba(255,255,255,0.7))]",
         className,
       )}
       {...props}

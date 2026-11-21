@@ -5,7 +5,7 @@ import { Preview, SectionTitle, type Doc } from "@/components/docs/shared";
 const doc: Doc = {
   title: "Radio Group",
   description:
-    "Glossy round radios that fill with gel and a white pip when selected.",
+    "Glossy round radios that fill with gel and a crisp pip when selected.",
   body: (
     <>
       <Preview>
